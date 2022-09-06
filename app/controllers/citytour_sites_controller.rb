@@ -1,0 +1,2 @@
+class CitytourSitesController < ApplicationController
+end
