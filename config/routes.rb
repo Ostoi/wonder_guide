@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "dashboard", action: :show, controller: "users"
+
  resources :sights
   resources :user
   resources :citytours do

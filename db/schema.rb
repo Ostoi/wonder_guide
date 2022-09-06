@@ -43,8 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_143017) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_citytours_on_user_id"
+    t.bigint "guide_id", null: false
+    t.index ["guide_id"], name: "index_citytours_on_guide_id"
   end
 
   create_table "sights", force: :cascade do |t|
@@ -111,7 +111,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_143017) do
   add_foreign_key "bookings", "users"
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
+
   add_foreign_key "citytours", "users"
   add_foreign_key "sights", "users"
+  
+# add_foreign_key "citytours", "users", column: "guide_id"
+
   add_foreign_key "taggings", "tags"
 end
