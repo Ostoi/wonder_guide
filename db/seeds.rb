@@ -10,11 +10,10 @@ require 'faker'
 
 puts "Cleaning database"
 Sight.destroy_all
-Tour.destroy_all
+Citytour.destroy_all
 User.destroy_all
 
-
-puts 'Creating 10 fake Users, Sights and Tours...'
+puts 'Creating 10 fake Users, Sights and Citytours...'
 10.times do
   user = User.create(
     name: Faker::Name.name,
@@ -24,7 +23,7 @@ puts 'Creating 10 fake Users, Sights and Tours...'
     payment_details: Faker::Bank.account_number,
     country: Faker::Address.country,
     language: Faker::Nation.language,
-    guide: Faker::Boolean.boolean(true_ratio: 0.2),
+    guide: Faker::Boolean.boolean(true_ratio: 0.2)
   )
   user.save!
 
@@ -36,7 +35,7 @@ puts 'Creating 10 fake Users, Sights and Tours...'
     address: Faker::Address.street_address,
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude,
-    guide_id: user.id,
+    guide_id: user.id
   )
   sight.save!
 
@@ -46,10 +45,10 @@ puts 'Creating 10 fake Users, Sights and Tours...'
     name: Faker::Educator.course_name,
     overview: Faker::Lorem.words(number: 30),
     price: rand(0..100),
-    guide_id: user.id,
+    guide_id: user.id
   )
   citytour.save!
 
-  puts "Tours finished!"
+  puts "Citytours finished!"
 end
 puts "All finished!"
