@@ -11,8 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_135015) do
-#ActiveRecord::Schema[7.0].define(version: 2022_09_06_133523) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_134925) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_135015) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_citytours_on_user_id"
+    t.bigint "guide_id", null: false
+    t.index ["guide_id"], name: "index_citytours_on_guide_id"
   end
 
   create_table "sights", force: :cascade do |t|
@@ -99,7 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_135015) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_guide"
     t.string "name"
     t.string "nickname"
     t.text "payment_details"
@@ -113,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_135015) do
   add_foreign_key "bookings", "users"
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
-  add_foreign_key "citytours", "users"
+
+  add_foreign_key "citytours", "users", column: "guide_id"
   add_foreign_key "taggings", "tags"
 end
