@@ -63,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_123325) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_guide"
     t.string "name"
     t.string "nickname"
     t.text "payment_details"
