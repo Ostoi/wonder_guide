@@ -25,7 +25,7 @@ puts 'Creating 10 fake Users, Sights and Citytours...'
     payment_details: Faker::Bank.account_number,
     country: Faker::Address.country,
     # language: Faker::Nation.language,
-    guide: Faker::Boolean.boolean(true_ratio: 0.2)
+    # guide: Faker::Boolean.boolean(true_ratio: 0.2)
   )
   user.save!
 
