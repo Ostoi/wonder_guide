@@ -1,2 +1,0 @@
-class CitytourSitesController < ApplicationController
-end

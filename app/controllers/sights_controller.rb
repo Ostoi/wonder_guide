@@ -3,8 +3,11 @@ class SightsController < ApplicationController
   def index
     @sights = sight.all
   end
+  def list
+    @sights = sight.all
+  end
 
-    def new
+  def new
     @sight = sight.new
   end
 
@@ -27,9 +30,14 @@ class SightsController < ApplicationController
     end
   end
 
+  def destroy
+    @sight.destroy(params[:id])
+    redirect_to :controller => 'sight', :action => 'index'
+  end
+
   private
 
   def sight_params
-      params.require(:sight).permit(:name, :overview, :price)
+    params.require(:sight).permit(:name, :overview, :price)
   end
 end
