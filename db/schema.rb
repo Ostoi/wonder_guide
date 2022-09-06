@@ -111,11 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_143017) do
   add_foreign_key "bookings", "users"
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
-
-  add_foreign_key "citytours", "users"
+  add_foreign_key "citytours", "users", column: "guide_id"
   add_foreign_key "sights", "users"
-  
-# add_foreign_key "citytours", "users", column: "guide_id"
-
   add_foreign_key "taggings", "tags"
 end
