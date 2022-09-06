@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :citytours
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  acts_as_taggable_on :languages
 end
