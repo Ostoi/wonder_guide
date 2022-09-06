@@ -4,7 +4,7 @@ class SightsController < ApplicationController
     @sights = sight.all
   end
 
-    def new
+  def new
     @sight = sight.new
   end
 
@@ -30,6 +30,6 @@ class SightsController < ApplicationController
   private
 
   def sight_params
-      params.require(:sight).permit(:name, :overview, :price)
+    params.require(:sight).permit(:name, :overview, :price)
   end
 end
