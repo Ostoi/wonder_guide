@@ -12,3 +12,14 @@
 @import "components/index";
 @import "pages/index";
 // @import "components/form";
+
+.footer {
+  background: rgb(4, 68, 111);
+  color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  background-size: cover;
+}
