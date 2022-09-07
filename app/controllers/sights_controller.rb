@@ -1,14 +1,14 @@
 class SightsController < ApplicationController
 
   def index
-    @sights = sight.all
+    @sights = Sight.all
   end
   def list
-    @sights = sight.all
+    @sights = Sight.all
   end
 
   def new
-    @sight = sight.new
+    @sight = Sight.new
   end
 
   def show
@@ -20,7 +20,7 @@ class SightsController < ApplicationController
   end
 
   def create
-    @sight = sight.new(sight_params)
+    @sight = Sight.new(sight_params)
     @sight.user = current_user
     if @sight.save
       # redirect_to index_path_url

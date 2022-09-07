@@ -12,7 +12,7 @@ class CitytoursController < ApplicationController
   end
 
   def create
-    @citytour = Citytour.new(citytourt_params)
+    @citytour = Citytour.new(citytour_params)
     @citytour.user = current_user
     if @citytour.save
       # redirect_to index_path_url
