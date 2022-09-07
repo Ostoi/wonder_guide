@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_085749) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_131131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,14 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_085749) do
     t.bigint "citytour_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.index ["citytour_id"], name: "index_bookings_on_citytour_id"
-    t.index ["email"], name: "index_bookings_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_bookings_on_reset_password_token", unique: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -52,6 +45,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_085749) do
     t.datetime "updated_at", null: false
     t.bigint "guide_id", null: false
     t.index ["guide_id"], name: "index_citytours_on_guide_id"
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guides_on_user_id"
   end
 
   create_table "sights", force: :cascade do |t|
@@ -119,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_085749) do
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
   add_foreign_key "citytours", "users", column: "guide_id"
+  add_foreign_key "guides", "users"
   add_foreign_key "sights", "users"
   add_foreign_key "taggings", "tags"
 end
