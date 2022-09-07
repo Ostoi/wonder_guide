@@ -1,0 +1,10 @@
+<%# <div class="card-category">
+
+<%= cl_image_tag(@sight_id.photo,
+      width: 400, height: 300, crop: :fill) %>
+</div>
+
+
+<% @sights.each do |sight| %>
+  <%= cl_image_tag sight.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>

@@ -18,10 +18,10 @@ class SightsController < ApplicationController
 
   def create
     @sight = Sight.new(sight_params)
-    @sight.user = current_user
+    @sight.user_id = current_user.id
     if @sight.save
       # redirect_to index_path_url
-      redirect_to :controller => 'sight', :action => 'index'
+      redirect_to :controller => 'sights', :action => 'index'
     else
       render :new
     end
@@ -30,6 +30,6 @@ class SightsController < ApplicationController
   private
 
   def sight_params
-    params.require(:sight).permit(:name, :overview, :price)
+    params.require(:sight).permit(:name, :city, :address, :photo)
   end
 end
