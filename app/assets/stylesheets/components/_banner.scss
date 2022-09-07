@@ -1,0 +1,28 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+}
+
+.banner h1 {
+  margin: 0;
+  color: rgb(51, 40, 40);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: rgb(50, 35, 35);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-text {
+  position: fixed;
+  bottom: 218px;
+}
+
+.carousel-inner {
+  max-height: 600px;
+}
