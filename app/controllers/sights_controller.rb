@@ -3,6 +3,9 @@ class SightsController < ApplicationController
   def index
     @sights = Sight.all
   end
+  def list
+    @sights = Sight.all
+  end
 
   def new
     @sight = Sight.new
@@ -25,6 +28,11 @@ class SightsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @sight.destroy(params[:id])
+    redirect_to :controller => 'sight', :action => 'index'
   end
 
   private
