@@ -1,0 +1,12 @@
+<h1>Guides dashboard</h1>
+<% citytours.each do |citytour| %>
+  <div>
+    <h3><%= citytour.name %></h3>
+    <p>$<%= citytour.price %></p>
+    <p><%= citytour.overview %></p>
+  </div>
+<% end %>
+
+# timeslots w option for new tour(form)
+  # picture adding/editing
+  # if editing then when finished popup with new time
