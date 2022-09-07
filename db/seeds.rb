@@ -21,13 +21,11 @@ languages = %w(german english french spanish dutch portuguese chinese)
     name: Faker::Name.name,
     nickname: Faker::FunnyName.name,
     email: Faker::Internet.email,
-    password: Faker::FunnyName.name,
-    encrypted_password: Faker::FunnyName.name,
+    password: "secret",
     payment_details: Faker::Bank.account_number,
     country: Faker::Address.country,
-    language_list: [languages.sample]
-    # language: Faker::Nation.language,
-    # guide: Faker::Boolean.boolean(true_ratio: 0.2)
+    language_list: [languages.sample],
+    guide: Faker::Boolean.boolean(true_ratio: 0.5)
   )
 
   # puts "User finished!"
@@ -45,7 +43,7 @@ languages = %w(german english french spanish dutch portuguese chinese)
 
   citytour = Citytour.create!(
     name: Faker::Educator.course_name,
-    overview: Faker::Lorem.words(number: 30),
+    overview: Faker::Lorem.words(number: 30).join(' '),
     price: rand(0..100),
     guide: user
   )
