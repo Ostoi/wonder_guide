@@ -5,6 +5,7 @@
   margin-top: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+
   h2 {
     font-size: 25px;
     font-weight: bold;
@@ -16,6 +17,22 @@
     margin-bottom: 20px
   }
 }
-.btn {
-  margin-bottom: 20px
+.btn btn-primary{margin:20px;}
+
+.card_for_sight{
+  flex-direction: row;
+}
+.card_for_sight img {
+  width: 30%;
+}
+
+.card_for_sight {
+  align-items: center;
+}
+.card-title {
+  font-weight: bold;
+}
+.card_for_sight img {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: calc(0.25rem - 1px);
 }

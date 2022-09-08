@@ -2,6 +2,7 @@ class SightsController < ApplicationController
 
   def index
     @sights = Sight.all
+    @a_sight = Sight.last
 
 
     if params[:longitude] && params[:latitude]
@@ -21,7 +22,7 @@ class SightsController < ApplicationController
         image_url: "https://images.unsplash.com/photo-1644815410301-71ab7334670e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
       }
     end
-  
+
   end
 
   def new
