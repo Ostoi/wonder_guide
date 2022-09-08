@@ -11,3 +11,27 @@
   width: 60px;
   border-radius: 8px 8px 8px 8px;
 }
+
+.nav-link {
+  color: aliceblue;
+}
+
+.btn-search {
+  margin-left: -65px;
+  background-color: rgb(8, 47, 81);
+  padding: 3px;
+  border-left: 3px;
+  color: azure;
+  border-radius: 5px 5px 5px 5px;
+  max-width: 90px;
+  border: none;
+
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.search-box input {
+  width: 300px;
+}

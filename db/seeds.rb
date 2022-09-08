@@ -14,42 +14,40 @@ Sight.destroy_all
 Citytour.destroy_all
 User.destroy_all
 
-puts 'Creating 10 fake Users, Sights and Citytours...'
+puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
-10.times do
-  user = User.create!(
-    name: Faker::Name.name,
-    nickname: Faker::FunnyName.name,
-    email: Faker::Internet.email,
-    password: "secret",
-    payment_details: Faker::Bank.account_number,
-    country: Faker::Address.country,
-    language_list: [languages.sample],
-    guide: Faker::Boolean.boolean(true_ratio: 0.5)
-  )
+
+user = User.create!(
+  name: "Zack Levy",
+  nickname: "Z",
+  email: "zacklevy@email.com",
+  password: "zlevy210",
+  payment_details: "12345678910111213 01/23 056",
+  country: "Israel",
+  language_list: "English, Hebrew, Spanish, Thai(kitchen)",
+  guide:  true,
+)
 
   # puts "User finished!"
 
   sight = Sight.create!(
-    name: Faker::Name.name,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    longitude: Faker::Address.longitude,
-    latitude: Faker::Address.latitude,
+    name: "Dead Sea",
+    city: "Ein Bokek",
+    address: "Ein Bokek, Israel",
+    longitude: 31.2002,
+    latitude: 35.3625,
     guide: user
   )
 
   # puts "Sight finished!"
 
   citytour = Citytour.create!(
-    name: Faker::Educator.course_name,
-    overview: Faker::Lorem.words(number: 30).join(' '),
-    price: rand(0..100),
+    name: "Masada/Dead Sea Tour",
+    overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
+    price: rand(0..400),
     guide: user
   )
-
   # puts "Citytour finished!"
-end
 puts "All finished!"
 
 puts 'Creating 10 Sights'
@@ -143,4 +141,17 @@ sight = Sight.create!(
   latitude: 48.206944,
   guide: user
 )
+
+puts "Creating bookings"
+Citytour.all.each do |tour|
+  Booking.create!(
+    start: DateTime.now + 1.days,
+    end: DateTime.now + 1.days,
+    quantity: 2,
+    user: User.second,
+    citytour: tour
+  )
+end
+puts "Finsihed creating bookings"
+
 puts "All finished!"
