@@ -6,4 +6,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   acts_as_taggable_on :languages
+
+  def upcoming_citytours(day_count)
+    # Citytour.joins(:bookings).where(guide: self).where("bookings.start > ?", DateTime.now).order(start: :asc)
+    # citytours.joins(:bookings).where("bookings.start > ?", DateTime.now).order(start: :asc)
+    next_5_days = DateTime.now.beginning_of_day..(DateTime.now.beginning_of_day + day_count.days)
+    citytours.joins(:bookings)
+              .where(bookings: {start: next_5_days})
+              .order(start: :asc)
+
+    # citytours.joins(:bookings).where(bookings: {})
+    # Booking.where(guide: self).where("end < ?", DateTime.now).order(start: :asc)
+    # citytours.where("end < ?", DateTime.now).order(start: :asc)
+  end
 end
