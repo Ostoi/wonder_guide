@@ -11,9 +11,7 @@
     <div class="col-sm-8">
       <div id="sights">
         <% @sights.each do |sight| %>
-           <%= render sight %>
-          <h4><%= sight.name %></h4>
-          <p><%= sight.address %></p>
+          <%= render sight %>
         <% end %>
       </div>
     </div>
