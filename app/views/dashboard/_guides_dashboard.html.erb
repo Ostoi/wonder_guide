@@ -1,28 +1,34 @@
 <h1>Guides dashboard</h1>
-<% citytours.each do |citytour| %>
-  <div>
-    <h3><%= citytour.name %></h3>
-    <p>$<%= citytour.price %></p>
-    <p><%= citytour.overview %></p>
-  </div>
-<% end %>
 
-# timeslots w option for new tour(form)
-  # picture adding/editing
-  # if editing then when finished popup with new time
+
+
 
 <div class= "container d-flex">
   <div class="dash-content col-sm-12 col-md-8">
     <div class="user-booking-request col-sm-12 col-md-4">
-      <p>aksbgkagb</p>
+       <% guide_bookings.each do|guide_booking| %>
+         <h2><%= guide_booking.citytour.name %></h2>
+         <p><%= guide_booking.user.name %></p>
+       <% end %>
     </div>
     <div class="upcoming-tour col-sm-12 col-md-4">
     </div>
     <div class="city-tours col-sm-12 col-md-8">
-      <p>aosubf<p>
+      <% citytours.each do |citytour| %>
+        <div>
+          <h3><%= citytour.name %></h3>
+          <p>$<%= citytour.price %></p>
+          <p><%= citytour.overview %></p>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="user-info col-sm-6 col-md-2">
-    <h4>bob<h4>
+    <h4><%= current_user.name %><h4>
+    <h4><%= current_user.email %></h4>
   </div>
 </div>
+
+<%# # timeslots w option for new tour(form)
+  # picture adding/editing
+  # if editing then when finished popup with new time %>
