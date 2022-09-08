@@ -75,12 +75,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_144819) do
     t.index ["guide_id"], name: "index_citytours_on_guide_id"
   end
 
+  create_table "guides", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guides_on_user_id"
+  end
+
   create_table "sights", force: :cascade do |t|
     t.string "name"
     t.string "city"
     t.text "address"
-    t.decimal "longitude"
-    t.decimal "latitude"
+    t.float "longitude"
+    t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -143,6 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_144819) do
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
   add_foreign_key "citytours", "users", column: "guide_id"
+  add_foreign_key "guides", "users"
   add_foreign_key "sights", "users"
   add_foreign_key "taggings", "tags"
 end

@@ -1,13 +1,27 @@
+<h1>City Tour</h1>
+<p>I can see a list of the citytours</p>
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Sights</h1>
+
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8 col-lg-6">
-
-
-    <% @sights.each do |sight| %>
-      <%= cl_image_tag sight.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-
-    <%= link_to "back to Homepage", root_path %>
-   </div>
+    <div class="col-sm-8">
+      <div id="sights">
+        <% @sights.each do |sight| %>
+          <%= render sight %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+<%= link_to "New sight", new_sight_path %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-center-value="[-0.118092,51.509865]"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
