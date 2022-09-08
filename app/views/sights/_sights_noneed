@@ -1,0 +1,29 @@
+   <% @sights.each do |s| %>
+    <div class="card_for_sight" style="width: 18rem;">
+      <% if s.photo.key != nil%>
+        <img src="<%= cl_image_tag s.photo.key, height: 300, width: 400, crop: :fill %>" class="card-img-top" alt="...">
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"> <h4><%= sight.name %></h4></h5>
+
+        <p class="card-text"> <p><%= sight.address %></p>
+        <a href="#" class="btn btn-primary"><%= link_to "Show this sight", sight %></a>
+      </div>
+    </div>
+  <% end %>
+
+
+
+
+
+  <div class="card_for_sight" style="width: 18rem;">
+    <% if @sights.last.photo.key != nil%>
+      <img src=`<%= cl_image_tag @_sight.photo.key, height: 300, width: 400, crop: :fill %> `
+      class= `card-img-top` alt = `...` >
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"> <h4><%= sight.name %></h4></h5>
+      <p class="card-text"> <p><%= sight.address %></p>
+      <a href="#" class="btn btn-primary"><%= link_to "Show this sight", sight %></a>
+    </div>
+  </div>

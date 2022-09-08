@@ -1,0 +1,12 @@
+ <div class="border">
+    <h5>Tours at this sight</h5>
+    <% if sight.citytours.present? %>
+      <ul>
+        <% sight.citytours.first(3).each do |citytour| %>
+          <li><%= citytour.name %> - <%= citytour.price %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No tours at this location...</p>
+    <% end %>
+  </div>
