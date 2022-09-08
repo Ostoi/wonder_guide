@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_144819) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_103158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_144819) do
     t.index ["user_id"], name: "index_guides_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "reviewtext"
+    t.bigint "booking_id", null: false
+    t.boolean "isguide"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
   create_table "sights", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -151,6 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_144819) do
   add_foreign_key "citytour_sights", "sights"
   add_foreign_key "citytours", "users", column: "guide_id"
   add_foreign_key "guides", "users"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "sights", "users"
   add_foreign_key "taggings", "tags"
 end
