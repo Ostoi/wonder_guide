@@ -1,24 +1,8 @@
-
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8 col-lg-6">
-
-      <h2>New Sight</h2>
-
-       <%= simple_form_for @sight do |f| %>
-      <%= f.input :name %>
-      <%= f.input :city %>
-      <%= f.input :address %>
-      <%= f.input :photo, as: :file %>
-
-      <div class="btn btn-primary form-actions">
-        <%= f.button :submit, "submit" %>
-      </div>
-
-
-<% end %>
-
-<%= link_to "back to Guide Dashboard", sights_path %>
-   </div>
+  <h1>New sight</h1>
+  <%= render "form", sight: @sight %>
+  <br>
+  <div>
+    <%= link_to "back to Guide Dashboard", sights_path %>
   </div>
 </div>
