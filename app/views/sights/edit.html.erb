@@ -1,10 +1,18 @@
-<h1>Editing sight</h1>
+<div class="container d-flex">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-6">
 
-<%= render "form", sight: @sight %>
+      <h1>Editing sight</h1>
 
-<br>
+      <%= render "form", sight: @sight %>
 
-<div>
-  <%= link_to "Show this sight", @sight %> |
-  <%= link_to "Back to sights", sights_path %>
+      <br>
+
+      <div>
+        <%= link_to "Show this sight", @sight %> |
+        <%= link_to "Back to sights", sights_path %>
+      </div>
+
+    </div>
+  </div>
 </div>

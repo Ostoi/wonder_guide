@@ -1,0 +1,25 @@
+.card_for_sight{
+  flex-direction: row;
+}
+.card_for_sight img {
+  width: 30%;
+}
+
+.card_for_sight {
+  align-items: center;
+}
+.card-title {
+  font-weight: bold;
+}
+.card_for_sight img {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.tour, .sight{
+background-color:rgb(233, 233, 233);
+padding: 5px;}
+
+.tour, {
+  background-color:rgb(233, 253, 233);
+  padding: 5px;}
