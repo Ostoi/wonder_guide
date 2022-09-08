@@ -1,19 +1,22 @@
 .banner {
   background-size: cover;
   background-position: center;
+  padding: 10px 0;
 }
 
 .banner h1 {
   margin: 0;
-  color: rgb(51, 40, 40);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: rgb(240, 233, 233);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   font-size: 32px;
   font-weight: bold;
+  justify-content: center;
 }
 
 .banner p {
   font-size: 20px;
-  color: rgb(50, 35, 35);
+  color: rgb(22, 21, 21);
+  font-weight: bold;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -21,10 +24,17 @@
 .banner-text {
   position: fixed;
   bottom: 218px;
+  text-justify: auto;
 }
 
 .carousel-inner {
   max-height: 600px;
+}
+
+.banner-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .btn {

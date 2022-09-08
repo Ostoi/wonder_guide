@@ -1,11 +1,21 @@
+<h1>City Tour</h1>
+<p>I can see a list of the citytours</p>
+
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Sights</h1>
 
-<div id="sights">
-  <% @sights.each do |sight| %>
-    <%= render sight %>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="sights">
+        <% @sights.each do |sight| %>
+          <%= render sight %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= link_to "New sight", new_sight_path %>
