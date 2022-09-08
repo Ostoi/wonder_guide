@@ -43,3 +43,31 @@
     </div>
   </div>
 </div>
+
+<%# Below this line is the code for the reviews! %>
+<%# Below this line is the code for the reviews! %>
+<%# Below this line is the code for the reviews! %>
+
+<h1><%= @booking.citytour_id %> <small><%= @booking.user_id %></small></h1>
+
+<h2><%= pluralize @booking.reviews.size, "review" %></h2>
+
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <% if @booking.reviews.blank? %>
+      Be the first to leave a review for <%= @booking.name %>
+    <% else %>
+      <% @booking.reviews.each do |review| %>
+        <%= render "reviews/review", review: review %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render "reviews/form", booking: @booking, review: @review %>
+</div>
+
+<%= link_to "Back to bookings", bookings_path %>
+
+<%# Above this line is the code for the reviews! %>
+<%# Above this line is the code for the reviews! %>
+<%# Above this line is the code for the reviews! %>
