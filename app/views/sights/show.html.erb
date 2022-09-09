@@ -3,34 +3,11 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-12">
-
-
-      <div class="card" style="width: 18rem;">
-        <%# <% if @sight.photo.attached? %>
-            <%# <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %> %>
-          <%# <% end %> %> %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @sight.name %></h5>
-          <p class="card-text"><%= @sight.address %>.</a>
-        </div>
-      </div>
-
-
-        <div>
-
-          <div data-controller="insert-in-list">
-            <div data-insert-in-list-target="items">
-              <% @citytours.each do |citytour| %>
-                <%= citytour.name %>
-                <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
-
-          <p style="color: green"><%#= notice %></p>
  <div class="d-flex align-content-center flex-wrap">
       <div class="p-2" style="margin-bottom: 10px;">
           <div class="card" style="width: 18rem;">
             <% if @sight.photo.attached? %>
                 <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-
               <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= @sight.name %></h5>
@@ -46,7 +23,15 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div> <%# close style %>
     </div><%# close d-flex %>
-
+        <div class="p-2" style="margin-bottom: 10px;">
+          <div data-controller="insert-in-list">
+            <div data-insert-in-list-target="items">
+              <% @citytours.each do |citytour| %>
+                <%= citytour.name %>
+                <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
+              <% end %>
+          <p style="color: green"><%#= notice %></p>
+        </div>
 
 </div><%# close d-flex flex-row %>
  <div style="margin: 10px 0 0 10px;;">
