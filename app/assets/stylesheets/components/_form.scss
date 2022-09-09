@@ -18,21 +18,10 @@
   }
 }
 .btn btn-primary{margin:20px;}
-
-.card_for_sight{
-  flex-direction: row;
+a {
+  text-decoration: none;
+  color: grey;
 }
-.card_for_sight img {
-  width: 30%;
-}
-
-.card_for_sight {
-  align-items: center;
-}
-.card-title {
-  font-weight: bold;
-}
-.card_for_sight img {
-  border-top-right-radius: 0;
-  border-bottom-left-radius: calc(0.25rem - 1px);
+.container {
+  margin-top: 20px;
 }

@@ -30,6 +30,11 @@ class CitytoursController < ApplicationController
     @citytour = Citytour.find(params[:id])
   end
 
+  def destroy
+    Citytour.destroy(params[:id])
+    # redirect missing
+  end # melchior was here
+
   private
 
   def citytour_params
