@@ -18,11 +18,11 @@
           <div class="card tour col-12 col-sm-4" style="width: 18rem; ">
 
               <h5>Tours at this sight</h5>
-              <% if sight.citytours.present? %>
+              <% if sight.citytour_sights.present? %>
                 <ul>
-                <% sight.citytours.first(3).each do |citytour| %>
-                    <li><%= citytour.name %> - <%= citytour.price %></li>
-                    <%= link_to "Book this sight", new_citytour_booking_path(citytour) %></a>
+                <% sight.citytour_sights.each do |citytour_sight| %>
+                    <li><%= citytour_sight.citytour.name %> - <%= citytour_sight.citytour.price %></li>
+                    <%= link_to "Book this sight", new_citytour_sight_booking_path(citytour_sight) %></a>
                 <% end %>
                 </ul>
               <% else %>
