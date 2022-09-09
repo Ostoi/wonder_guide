@@ -7,30 +7,21 @@
 
       <%#= render @sight %>
 
+
       <div class="card" style="width: 18rem;">
         <% if @sight.photo.attached? %>
             <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
           <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= @sight.name %></h5>
-          <p class="card-text"><%= @sight.address %>
+          <p class="card-text"><%= @sight.address %>.</a>
         </div>
       </div>
-        <div>
-
-          <div data-controller="insert-in-list">
-            <div data-insert-in-list-target="items">
-              <% @citytours.each do |citytour| %>
-                <%= citytour.name %>
-                <%= citytour.booking %>
-              <% end %>
-
-        </div>
-        <div>
+         <div>
           <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
                 <%= link_to "Back to sights", sights_path %>
                 <%= button_to "Destroy this sight", @sight, method: :delete %>
-        </div>
+         </div>
       </div>
     </div>
   </div>
