@@ -1,7 +1,4 @@
 
-
-
-
  <div id="<%= dom_id sight %>" class="">
  <%# class="border mb-1 p-2"> %>
     <div class="container d-flex">
@@ -17,7 +14,6 @@
                 </div>
           </div>
 
-            <%# The rest is on _sights_noneed %>
 
           <div class="card tour col-12 col-sm-4" style="width: 18rem; ">
 
@@ -26,7 +22,7 @@
                 <ul>
                 <% sight.citytours.first(3).each do |citytour| %>
                     <li><%= citytour.name %> - <%= citytour.price %></li>
-                    <a href="#" class="btn btn-primary"><%= link_to "Book this sight", sight %></a>
+                    <%= link_to "Book this sight", new_citytour_booking_path(citytour) %></a>
                 <% end %>
                 </ul>
               <% else %>

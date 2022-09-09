@@ -1,10 +1,10 @@
-<h1>Guides dashboard</h1>
+<h1>Guides Profile</h1>
 
 
 
 <div class= "container d-flex">
-  <div class="dash-content col-sm-12 col-md-8">
-    <div class="user-booking-request col-sm-12 col-md-8 border border-info justify-content-right">
+  <div class="dash-content">
+    <div class="user-booking-request">
       <h2>Pending Bookings:</h2>
       <% guide_bookings.where(status: "pending").each do|guide_booking| %>
          <h2><%= guide_booking.citytour.name %></h2>
@@ -12,7 +12,7 @@
          <p><%= guide_booking.user.language_list %></p>
        <% end %>
     </div>
-    <div class="upcoming-tour col-sm-12 col-md-4">
+    <div class="upcoming-tour">
       <h2>Upcoming Tours:</h2>
       <% current_user.upcoming_citytours(5).each do|citytour| %>
         <div>
@@ -22,17 +22,8 @@
         </div>
        <% end %>
     </div>
-    <div class="city-tours col-sm-12 col-md-8 bg-warning border border-dark justify-content-left">
-      <% citytours.each do |citytour| %>
-        <div>
-          <h3><%= citytour.name %></h3>
-          <p>$<%= citytour.price %></p>
-          <p><%= citytour.overview %></p>
-        </div>
-      <% end %>
-    </div>
   </div>
-  <div class="card">
+  <div class="user-info-card">
     <div class="user-info col-sm-12 col-md-6 border border-white  justify-content-center">
       <img src="images/avatar.png" alt="Avatar" class="avatar">
       <h4><%= current_user.name %><h4>
