@@ -151,7 +151,30 @@ Citytour.all.each do |tour|
     user: User.second,
     citytour: tour
   )
+  Booking.all.each do |booking|
+    5.times do
+      Review.create!(
+        rating: rand(0..10),
+        reviewtext: Faker::Lorem.sentence(word_count: 20),
+        booking: booking,
+        isguide: Faker::Boolean.boolean(true_ratio: 0.5)
+      )
+    end
+  end
 end
-puts "Finsihed creating bookings"
+puts "Finished creating bookings"
+
+# puts "Creating reviews"
+# Booking.all.each do |booking|
+#   5.times do
+#     Review.create!(
+#       rating: rand(0..10),
+#       reviewtext: Faker::Lorem.sentence(word_count: 20),
+#       booking_id: booking,
+#       isguide: Faker::Boolean.boolean(true_ratio: 0.5)
+#     )
+#   end
+# end
+# puts "Finished creating reviews"
 
 puts "All finished!"

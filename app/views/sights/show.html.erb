@@ -17,6 +17,16 @@
         </div>
       </div>
         <div>
+
+          <div data-controller="insert-in-list">
+            <div data-insert-in-list-target="items">
+              <% @citytours.each do |citytour| %>
+                <%= citytour.name %>
+                <%= citytour.booking %>
+              <% end %>
+
+        </div>
+        <div>
           <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
                 <%= link_to "Back to sights", sights_path %>
                 <%= button_to "Destroy this sight", @sight, method: :delete %>
