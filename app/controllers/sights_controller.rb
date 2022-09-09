@@ -45,8 +45,8 @@ class SightsController < ApplicationController
 
   def create
     @sight = Sight.new(sight_params)
-      @sight.user_id = current_user.id
-      if @sight.save
+    @sight.user_id = current_user.id
+    if @sight.save
       # redirect_to index_path_url
       redirect_to :controller => 'sights', :action => 'index'
     else
@@ -55,15 +55,8 @@ class SightsController < ApplicationController
   end
 
   def destroy
-
-   Sight.destroy(params[:id])
-
-    # def destroy
-    #   @sight = Sight.find(params[:id])
-    #   @sight = Sight.destroy
-
-    redirect_to :controller => 'sights', :action => 'index'
-
+    @sight.destroy(params[:id])
+    redirect_to :controller => 'sight', :action => 'index'
   end
 
   private

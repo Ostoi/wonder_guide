@@ -22,7 +22,7 @@
                 <ul>
                 <% sight.citytours.first(3).each do |citytour| %>
                     <li><%= citytour.name %> - <%= citytour.price %></li>
-                    <a href="#" class="btn btn-primary"><%= link_to "Book this sight", sight %></a>
+                    <%= link_to "Book this sight", new_citytour_booking_path(citytour) %></a>
                 <% end %>
                 </ul>
               <% else %>

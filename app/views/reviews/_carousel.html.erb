@@ -1,0 +1,20 @@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-inner">
+    <% reviews.each_with_index do |review, index| %>
+      <div class="carousel-item <%= index == 0 ? "active" : "" %>" style="background: gray; border: 1px solid black;">
+        <p><%= review.author.name %></p>
+        <p><%= review.rating %></p>
+        <p><%= review.reviewtext %></p>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev bg-primary" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next bg-primary" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
