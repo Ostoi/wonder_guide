@@ -32,6 +32,11 @@ class SightsController < ApplicationController
   def show
     @sight = Sight.find(params[:id])
     @citytours = Citytour.all
+    @sightmarkers = [{
+      lat: @sight.latitude,
+      lng: @sight.longitude
+    }]
+
   end
 
   def edit
