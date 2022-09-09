@@ -1,0 +1,7 @@
+<h1>Book a tour for <%= @citytour.name %></h1>
+
+<%= simple_form_for([@citytour, @booking]) do |f| %>
+  <%= f.input :start, as: :date, html5: true %>
+  <%= f.input :end, as: :date, html5: true %>
+  <%= f.submit %>
+<% end %>

@@ -2,14 +2,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @citytour = Citytour.find(params[:citytour_id])
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.citytour = Citytour.find(params[:citytour_id])
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to sights_path, notice: "You have booked #{@booking.citytour.name}"
   end
 
   def index
@@ -26,5 +27,9 @@ class BookingsController < ApplicationController
     # redirect_to citytour_sights_path, status: :see_other
   end # melchior was here
 
+  private
 
+  def booking_params
+    params.require(:booking).permit(:start, :end)
+  end
 end
