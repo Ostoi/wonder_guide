@@ -1,12 +1,8 @@
 class SightsController < ApplicationController
-  before_action :set_sight, only: [:show, :edit, :update, :destroy]
-
-  def set_sight
-    @sight = controller_path.classify.constantize.find(params[:id])
-   end
 
   def index
     @sights = Sight.all
+    @a_sight = Sight.last
 
 
     if params[:longitude] && params[:latitude]
@@ -53,6 +49,7 @@ class SightsController < ApplicationController
   end
 
   def destroy
+
    Sight.destroy(params[:id])
 
     # def destroy
@@ -60,6 +57,7 @@ class SightsController < ApplicationController
     #   @sight = Sight.destroy
 
     redirect_to :controller => 'sights', :action => 'index'
+
   end
 
   private
