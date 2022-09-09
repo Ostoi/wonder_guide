@@ -4,8 +4,24 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-12">
 
+      <div class="card" style="width: 18rem;">
+        <%# <% if @sight.photo.attached? %>
+            <%# <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %> %>
+          <%# <% end %> %> %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @sight.name %></h5>
+          <p class="card-text"><%= @sight.address %>.</a>
+        </div>
+      </div>
 
 
+        <div>
+
+          <div data-controller="insert-in-list">
+            <div data-insert-in-list-target="items">
+              <% @citytours.each do |citytour| %>
+                <%= citytour.name %>
+                <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
 
           <p style="color: green"><%#= notice %></p>
  <div class="d-flex align-content-center flex-wrap">
@@ -13,6 +29,7 @@
           <div class="card" style="width: 18rem;">
             <% if @sight.photo.attached? %>
                 <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
+
               <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= @sight.name %></h5>
