@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :user
   resources :citytours do
     resources :citytour_sights, only: :create
-    resources :bookings, only: [:index, :show, :create] do
+    resources :bookings, only: [:index, :show, :create, :new] do
       resources :reviews, only: :create
     end
   end
