@@ -1,36 +1,35 @@
 .dash-content {
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(140, 51, 51);
-  border: 0.05px;
-  border-color: black;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(216, 201, 201);
   padding: 4px;
+  margin: 2px;
+  align-items: inline;
+  color: rgb(80, 77, 77);
 }
-.user-booking-request{
-  justify-content: space-between;
-  background-color: rgb(166, 166, 241);
-  border: .05px;
-  border-color: black;
-  padding: 4px;
+.upcoming-tour-card {
+  justify-content: space-around;
+  background-color: rgb(123, 154, 131);
+  padding: 2px;
+  margin: 2px;
+  align-items: inline;
+  color: rgb(87, 86, 86);
 }
+.booking-request-card{
+  justify-content: space-around;
+  background-color: rgb(129, 129, 155);
+  padding: 2px;
+  margin: 2px;
+  align-items: inline;
+  color: rgb(87, 87, 87);
+}
+
 .user-info-card{
-  justify-content: space-between;
-  background-color: rgb(133, 246, 246);
-  border: 0.05px;
-  border-color: black;
-  padding: 4px;
-}
-.city-tour{
-  justify-content: space-between;
-  background-color: rgb(179, 171, 171);
-  border: 0.05px;
-  border-color: black;
-  padding: 4px;
-}
-.user-info {
-  justify-content: space-between;
-  background-color: rgb(202, 154, 247);
-  border: 0.05px;
-  border-color: black;
-  padding: 4px;
+  justify-content: space-around;
+  background-color: rgb(185, 165, 171);
+  padding: 2px;
+  margin: 2px;
+  align-items: inline;
+  color: rgb(97, 96, 96);
 }
