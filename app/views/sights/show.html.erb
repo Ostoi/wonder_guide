@@ -17,15 +17,15 @@
           <p class="card-text"><%= @sight.address %>.</a>
         </div>
       </div>
-      
-      
+
+
         <div>
 
           <div data-controller="insert-in-list">
             <div data-insert-in-list-target="items">
               <% @citytours.each do |citytour| %>
                 <%= citytour.name %>
-                <%# <%= citytour.booking %> %>
+                <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
               <% end %>
 
         </div>
