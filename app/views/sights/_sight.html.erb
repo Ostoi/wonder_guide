@@ -1,32 +1,4 @@
 
-<div id="<%= dom_id sight %>" class="border mb-1 p-2">
-  <%# <%= cl_image_tag sight.photo.key, height: 300, width: 400, crop: :fill %> %>
-  <h4><%= sight.name %></h4>
-  <p><%= sight.address %></p>
-  <%# <a href="#" class="btn btn-primary"></a> %>
-  <%= link_to "Show this sight", sight %>
-
-
-
-
-<%# The rest is on _sights_noneed %>
-
- <div class="border">
-    <h5>Tours at this sight</h5>
-    <% if sight.citytours.present? %>
-      <ul>
-        <% sight.citytours.first(3).each do |citytour| %>
-          <li><%= citytour.name %> - <%= citytour.price %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>No tours at this location...</p>
-    <% end %>
-  </div>
-
-
-
-
  <div id="<%= dom_id sight %>" class="">
  <%# class="border mb-1 p-2"> %>
     <div class="container d-flex">
@@ -42,7 +14,6 @@
                 </div>
           </div>
 
-            <%# The rest is on _sights_noneed %>
 
           <div class="card tour col-12 col-sm-4" style="width: 18rem; ">
 

@@ -31,6 +31,7 @@ class SightsController < ApplicationController
 
   def show
     @sight = Sight.find(params[:id])
+    @citytours = Citytour.all
   end
 
   def edit
