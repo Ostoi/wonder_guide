@@ -142,6 +142,18 @@ sight = Sight.create!(
   guide: user
 )
 
+puts "Creating citytours"
+5.times do
+  citytour = Citytour.create!(
+    name: Faker::Educator.course_name,
+    overview: Faker::Lorem.words(number: 30),
+    price: rand(0..100),
+    guide: user
+  )
+end
+
+# puts "Citytour finished!"
+
 puts "Creating bookings"
 Citytour.all.each do |tour|
   Booking.create!(
