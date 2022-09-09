@@ -10,9 +10,16 @@ class CitytourSightsController < ApplicationController
     end
   end
 
-  def destroy
-    @citytour_sight = CitytourSight.find(params[:id])
-    @citytour_sight.destroy
+ def destroy
+    CitytourSight.destroy(params[:id])
     redirect_to citytour_sights_path, status: :see_other
-  end
+end # melchior was here
+
+
+
+  # def destroy
+  #   @citytour_sight = CitytourSight.find(params[:id])
+  #   @citytour_sight.destroy
+  #   redirect_to citytour_sights_path, status: :see_other
+  # end
 end

@@ -20,4 +20,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @review = Review.new  # Add this line
   end
+
+  def destroy
+    Booking.destroy(params[:id])
+    # redirect_to citytour_sights_path, status: :see_other
+  end # melchior was here
+
+
 end
