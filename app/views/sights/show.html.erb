@@ -8,9 +8,9 @@
       <%#= render @sight %>
 
       <div class="card" style="width: 18rem;">
-        <% if @sight.photo.attached? %>
-            <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-          <% end %>
+        <%# <% if @sight.photo.attached? %>
+            <%# <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %> %>
+          <%# <% end %> %> %>
         <div class="card-body">
           <h5 class="card-title"><%= @sight.name %></h5>
           <p class="card-text"><%= @sight.address %>
@@ -22,7 +22,7 @@
             <div data-insert-in-list-target="items">
               <% @citytours.each do |citytour| %>
                 <%= citytour.name %>
-                <%= citytour.booking %>
+                <%# <%= citytour.booking %> %>
               <% end %>
 
         </div>
