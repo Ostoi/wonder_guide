@@ -5,7 +5,9 @@
           <div class="card sight col-sm-12 col-md-6 col-lg-6" style="width: 18rem;">
               <% if sight.photo.attached? %>
                 <%= cl_image_tag sight.photo.key, height: 180, width: 286, crop: :fill %>
-              <% end %>
+              <% else %>
+                <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+                <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= sight.name %></h5>
                   <p class="card-text"><%= sight.address %>.</a>

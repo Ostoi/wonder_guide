@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   def destroy
     Booking.destroy(params[:id])
     # redirect_to citytour_sights_path, status: :see_other
-  end # melchior was here
+  end
 
   private
 

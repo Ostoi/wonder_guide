@@ -49,7 +49,11 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "dotenv-rails", groups: [:development, :production, :test]
+gem "active_model_serializers"
 gem "cloudinary"
+# Use Carrierwave for photo uploads in seeds
+gem 'carrierwave', '~> 1.0'
+
 
 gem "devise"
 gem "autoprefixer-rails"

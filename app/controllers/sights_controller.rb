@@ -19,7 +19,8 @@ class SightsController < ApplicationController
         lat: sight.latitude,
         lng: sight.longitude,
         info_window: render_to_string(partial: "info_window", locals: {sight: sight}),
-        image_url: "https://images.unsplash.com/photo-1644815410301-71ab7334670e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+        # image_url: "https://images.unsplash.com/photo-1644815410301-71ab7334670e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+        image_url: "http://www.soziale-opposition.de/geolocation_pin.png"
       }
     end
 
@@ -34,8 +35,10 @@ class SightsController < ApplicationController
     @citytours = Citytour.all
     @sightmarkers = [{
       lat: @sight.latitude,
-      lng: @sight.longitude
+      lng: @sight.longitude,
+      image_url: "http://www.soziale-opposition.de/geolocation_pin.png"
     }]
+
 
   end
 
@@ -48,15 +51,19 @@ class SightsController < ApplicationController
     @sight.user_id = current_user.id
     if @sight.save
       # redirect_to index_path_url
-      redirect_to :controller => 'sights', :action => 'index'
+      redirect_to :controller => 'sights', :action => 'index', notice: 'successfully added.'
     else
       render :new
     end
   end
 
   def destroy
-    @sight.destroy(params[:id])
-    redirect_to :controller => 'sight', :action => 'index'
+  # THIS IS NOT WORKING
+  #@sight.destroy(params[:id])
+
+  # THIS IS WORKING
+  Sight.destroy(params[:id])
+    redirect_to sights_path
   end
 
   private
