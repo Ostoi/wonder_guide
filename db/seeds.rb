@@ -23,8 +23,8 @@ puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
 
 user = User.create!(
-  first_name: "Zack",
-  last_name: "Levy",
+  # first_name: "Zack",
+  # last_name: "Levy",
   name: "Zack Levy",
   nickname: "Z",
   email: "zacklevy@email.com",
@@ -36,8 +36,8 @@ user = User.create!(
 )
 
 user = User.create!(
-  first_name: "Melchior-Christoph",
-  last_name: "von Brincken",
+  # first_name: "Melchior-Christoph",
+  # last_name: "von Brincken",
   name:  "Melchior-Christoph von Brincken",
   nickname: "Melchior",
   email: "christoph.brincken@gmx.at",
@@ -112,6 +112,12 @@ sight = Sight.create!(
   latitude: 48.184517,
   guide: user
 )
+
+citytour_sight = CitytourSight.create!(
+  citytour: citytour,
+  sight: sight
+)
+
 
 
 # Hofburg
@@ -219,6 +225,29 @@ sight = Sight.create!(
   latitude: 48.206944,
   guide: user
 )
+user = User.create!(
+  name: "Oliver Stoislow",
+  nickname: "Ollie",
+  email: "ostoi@email.com",
+  password: "oliver",
+  payment_details: "12345678911111213 01/23 056",
+  country: "Berlin",
+  language_list: "English, German(idk what else",
+  guide:  false,
+)
+  # puts "User finished!"
+
+puts "Creating citytours"
+5.times do
+  citytour = Citytour.create!(
+    name: Faker::Educator.course_name,
+    overview: Faker::Lorem.words(number: 30),
+    price: rand(0..100),
+    guide: user
+  )
+end
+
+# puts "Citytour finished!"
 
 puts "Creating bookings"
 Citytour.all.each do |tour|
@@ -241,6 +270,17 @@ Citytour.all.each do |tour|
   end
 end
 puts "Finished creating bookings"
+
+user = User.create!(
+  name: "John S",
+  nickname: "J",
+  email: "jsmith@email.com",
+  password: "123456",
+  payment_details: "12345678910111213 01/23 056",
+  country: "Israel",
+  language_list: "English",
+  guide:  false,
+)
 
 # puts "Creating reviews"
 # Booking.all.each do |booking|

@@ -98,7 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_175534) do
     t.string "city"
     t.text "address"
     t.float "longitude"
-    t.float "latitude"
+    # t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false

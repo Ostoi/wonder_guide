@@ -1,5 +1,5 @@
 <% if current_user.guide? %>
   <%= render 'guides_dashboard', citytours: @citytours, guide_bookings: @guide_bookings %>
 <% else %>
-  <%= render 'traveler_dashboard', bookings: @bookings  %>
+  <%= render 'traveler_dashboard', bookings: @bookings, citytours: @citytours %>
 <% end %>

@@ -2,15 +2,15 @@
 
 <div class= "container d-flex">
   <div class="dash-content col-sm-12 col-md-8">
-    <div class="user-booking-request col-sm-12 col-md-8">
+    <div class="booking-request-card">
       <h2>Pending Bookings:</h2>
-      <% guide_bookings.where(status: "accepted").each do|guide_booking| %>
-         <h2><%= guide_booking.citytour.name %></h2>
-         <p><%= guide_booking.user.name %></p>
-         <p><%= guide_booking.user.language_list %></p>
-       <% end %>
+      <% bookings.where(status: "pending").each do|booking| %>
+        <h2><%= booking.citytour.name %></h2>
+        <p><%= booking.user.name %></p>
+        <p><%= booking.user.language_list %></p>
+      <% end %>
     </div>
-    <div class="upcoming-tour col-sm-12 col-md-4">
+    <div class="upcoming-tour-card">
       <h2>Upcoming Tours:</h2>
       <% current_user.upcoming_citytours(5).each do|citytour| %>
         <div>
@@ -18,28 +18,17 @@
           <p>$<%= citytour.price %></p>
           <p><%= citytour.overview %></p>
         </div>
-       <% end %>
-       <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">More Info</button>
+      <% end %>
+      <button type="button" class="btn btn-info" data-bs-toggle="button" autocomplete="off">More Info</button>
     </div>
-    <div class="card-citytours">
-      <div class="city-tours col-sm-12 col-md-8">
-        <% citytours.each do |citytour| %>
-          <div>
-            <h3><%= citytour.name %></h3>
-            <p>$<%= citytour.price %></p>
-            <p><%= citytour.overview %></p>
-          </div>
-        <% end %>
+    <div class="user-info-card">
+      <div class="user-info">
+        <img src="images/avatar.png" alt="Avatar" class="avatar">
+        <h4><%= current_user.name %><h4>
+        <h4><%= current_user.email %></h4>
+        <h4><%= current_user.country %></h4>
+        <h4><%= current_user.language_list %></h4>
       </div>
-    </div>
-  </div>
-  <div class="user-info-card">
-    <div class="user-info col-sm-12 col-md-6">
-      <img src="images/avatar.png" alt="Avatar" class="avatar">
-      <h4><%= current_user.name %><h4>
-      <h4><%= current_user.email %></h4>
-      <h4><%= current_user.country %></h4>
-      <h4><%= current_user.language_list %></h4>
     </div>
   </div>
 </div>
