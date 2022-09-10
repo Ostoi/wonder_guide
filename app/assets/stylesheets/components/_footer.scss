@@ -1,8 +1,30 @@
 .footer {
   // height: defineYourHeight;
   width:100%;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 .footer-links a:hover {
   color: whitesmoke;
+}
+
+// .flexfooter {
+//   margin: 0 5px 0 5px 0;
+// }
+
+.footer-copyright  {color: grey; }
+
+.footer-copyright a:hover {
+  color: whitesmoke;
+}
+
+.footer {
+  background: rgb(4, 68, 111);
+  color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 10px;
+  background-size: cover;
+  margin-top: auto;
 }

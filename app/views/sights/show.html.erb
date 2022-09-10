@@ -1,48 +1,64 @@
 
 <div id="<%= dom_id @sight %>">
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-12">
- <div class="d-flex align-content-center flex-wrap">
-      <div class="p-2" style="margin-bottom: 10px;">
-          <div class="card" style="width: 18rem;">
-            <% if @sight.photo.attached? %>
-                <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-              <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= @sight.name %></h5>
-                  <p class="card-text"><%= @sight.address %>.</a>
-                </div> <%# close Card-body %>
-          </div>  <%# close Card %>
-     </div><%# close d-flex %>
-     <div class="p-2">
-          <div style="width: 286px; height: 180px;"
-        data-controller="map"
-        data-map-center-value="[-0.118092,51.509865]"
-        data-map-markers-value="<%= @sightmarkers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div> <%# close style %>
-    </div><%# close d-flex %>
-        <div class="p-2" style="margin-bottom: 10px;">
-          <div data-controller="insert-in-list">
-            <div data-insert-in-list-target="items">
-              <% @citytours.each do |citytour| %>
-                <%= citytour.name %>
-                <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
-              <% end %>
-          <p style="color: green"><%#= notice %></p>
-        </div>
+  <div class="container">
 
-</div><%# close d-flex flex-row %>
- <div style="margin: 10px 0 0 10px;;">
-                <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
-                <%= link_to "Back to sights", sights_path %>
-                <%= button_to "Destroy this sight", @sight, method: :delete %>
+
+
+    <div class="d-flex justify-content-center flex-wrap">
+
+          <%#   S I G H T  %>
+          <div class="d-flex p-2" style="margin-bottom: 10px;">
+              <div class="card" style="width: 18rem;">
+                  <% if @sight.photo.attached? %>
+                      <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
+                  <% else %>
+                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+                    <% end %>
+                    <div class="card-body">
+                          <h5 class="card-title"><%= @sight.name %></h5>
+                          <p class="card-text"><%= @sight.address %>.</a>
+                    </div> <%# close Card-body %>
+              </div>  <%# close Card %>
+        </div><%# close d-flex %>
+
+
+        <%#   M A P B O X   %>
+       <div class="d-flex p-2">
+            <div d="mapbox_sights">
+              <div style="width: 286px; height: 286px;"
+                  data-controller="map"
+                  data-map-center-value="[-0.118092,51.509865]"
+                  data-map-markers-value="<%= @sightmarkers.to_json %>"
+                  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div> <%# close style %>
+            </div>
+        </div><%# close d-flex %>
+
+
+        <%#   C I T Y   T O U R S   %>
+            <div class="d-flex p-2">
+              <div data-controller="insert-in-list">
+                <div data-insert-in-list-target="items">
+                  <% @citytours.each do |citytour| %>
+                      <%= citytour.name %>
+                      <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
+                  <% end %>
+                  <p style="color: green"><%#= notice %></p>
+                </div>
               </div>
+            </div><%# close d-flex p-2 %>
 
-        </div>
-      </div>
-    </div>
-  </div>  <%# close class %>
-</div>  <%# close row %>
+
+        <%#   L I N K S   %>
+          <div class="d-flex p-2">
+                  <div style="margin: 10px 0 0 10px;;">
+                    <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
+                    <%= link_to "Back to sights", sights_path %>
+                    <%= button_to "Destroy this sight", @sight, method: :delete %>
+                  </div>
+          </div>
+
+      </div> <%# closed-flex align-content-center flex-wrap %>
+
+  </div>
 </div> <%# close Container %>
