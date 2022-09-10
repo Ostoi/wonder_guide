@@ -61,6 +61,9 @@ user = User.create!(
   language_list: [languages.sample],
   guide: Faker::Boolean.boolean(true_ratio: 0.5)
 )
+
+# do not change
+# 2
 sight = Sight.create!(
   name: "Schönbrunn Palace",
   city: "Vienna",
@@ -69,6 +72,8 @@ sight = Sight.create!(
   latitude: 48.184517,
   guide: user
 )
+# do not change
+# 3
 sight = Sight.create!(
   name: "Hofburg Palace",
   city: "Vienna",
@@ -77,6 +82,9 @@ sight = Sight.create!(
   latitude: 48.205532,
   guide: user
 )
+
+# do not change
+# 4
 sight = Sight.create!(
   name: "Tiergarten Schönbrunn",
   city: "Vienna",
@@ -85,6 +93,9 @@ sight = Sight.create!(
   latitude: 48.182222,
   guide: user
 )
+
+# do not change
+# 5
 sight = Sight.create!(
   name: "Wiener Riesenrad",
   city: "Vienna",
@@ -93,6 +104,8 @@ sight = Sight.create!(
   latitude: 48.216667,
   guide: user
 )
+# do not change
+# 6
 sight = Sight.create!(
   name: "Albertina",
   city: "Vienna",
@@ -101,6 +114,8 @@ sight = Sight.create!(
   latitude: 48.204444,
   guide: user
 )
+# do not change
+# 7
 sight = Sight.create!(
   name: "Kunsthistorisches Museum",
   city: "Vienna",
@@ -109,6 +124,8 @@ sight = Sight.create!(
   latitude: 48.203611,
   guide: user
 )
+# do not change
+# 8
 sight = Sight.create!(
   name: "Donauturm",
   city: "Vienna",
@@ -117,6 +134,8 @@ sight = Sight.create!(
   latitude: 48.24,
   guide: user
 )
+# do not change
+# 9
 sight = Sight.create!(
   name: "Naturhistorisches Museum",
   city: "Vienna",
@@ -125,6 +144,8 @@ sight = Sight.create!(
   latitude: 48.205278,
   guide: user
 )
+# do not change
+# 10
 sight = Sight.create!(
   name: "Schatzkammer",
   city: "Vienna",
@@ -133,6 +154,8 @@ sight = Sight.create!(
   latitude: 48.206667,
   guide: user
 )
+# do not change
+# 11
 sight = Sight.create!(
   name: "Spanish Riding School",
   city: "Vienna",
@@ -176,5 +199,20 @@ puts "Finished creating bookings"
 #   end
 # end
 # puts "Finished creating reviews"
+
+user = User.create!(
+  first_name: "Melchior-Christoph",
+  last_name: "von Brincken",
+  name:  "Melchior-Christoph von Brincken",
+  nickname: "Melchior",
+  email: "christoph.brincken@gmx.at",
+  password: "123456",
+  payment_details: "4711",
+  country: "Austria",
+  language_list: "English, german",
+  guide:  true,
+)
+puts "Last User finished!"
+
 
 puts "All finished!"
