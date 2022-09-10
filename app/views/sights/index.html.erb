@@ -8,20 +8,20 @@
 
       <p style="color: green"><%#= notice %></p>
             <div id="sights">
-              <% @sights.each do |sight| %>
-               <% if sight.photo.attached? %>
-                  <div class="col-sm-12 col-md-6 col-lg-6">
-                    <%= render sight %>
-                      </div>
-                <% end %>
-              <% end %>
+                <% @sights.each do |sight| %>
+                     <% if sight.photo.attached? %>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                          <%= render sight %>
+                            </div>
+                      <% end %>
+                 <% end %>
 
               <% @sights.each do |sight| %>
-               <% if sight.photo.attached? == false %>
-                  <div class="col-sm-12 col-md-6 col-lg-6">
-                    <%= render sight %>
-                      </div>
-                <% end %>
+                      <% if sight.photo.attached? == false %>
+                          <div class="col-sm-12 col-md-6 col-lg-6">
+                            <%= render sight %>
+                          </div>
+                      <% end %>
               <% end %>
 
 
