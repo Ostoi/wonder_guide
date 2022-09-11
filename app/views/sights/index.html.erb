@@ -1,26 +1,30 @@
-<div class="container d-flex">
-  <div class="row justify-content-center">
+<div class="container">
+<div class="row justify-content-center">
 
 
       <h1>City Tour</h1>
       <p>I can see a list of the citytours</p>
-<div class="container d-flex">
+   <div class="container">
 
-      <p style="color: green"><%#= notice %></p>
-            <div id="sights">
+
+
                 <% @sights.each do |sight| %>
                      <% if sight.photo.attached? %>
-                        <div class="col-sm-12 col-md-6 col-lg-6">
-                          <%= render sight %>
-                            </div>
+                           <div class="container">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                  <%= render sight %>
+                                </div>
+                        </div>
                       <% end %>
                  <% end %>
 
               <% @sights.each do |sight| %>
                       <% if sight.photo.attached? == false %>
-                          <div class="col-sm-12 col-md-6 col-lg-6">
-                            <%= render sight %>
-                          </div>
+                       <div class="container">
+                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <%= render sight %>
+                              </div>
+                        </div>
                       <% end %>
               <% end %>
 

@@ -8,6 +8,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   acts_as_taggable_on :languages
 
+  def make_guide
+    self.update_column(:guide, true)
+  end
+
   def upcoming_citytours(day_count)
     # Citytour.joins(:bookings).where(guide: self).where("bookings.start > ?", DateTime.now).order(start: :asc)
     # citytours.joins(:bookings).where("bookings.start > ?", DateTime.now).order(start: :asc)
