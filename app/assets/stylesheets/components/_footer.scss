@@ -3,19 +3,21 @@
   width:100%;
   margin-top: 0px;
 }
-.footer-links a:hover {
+.footer-links a:hover, .footer-copyright a:hover  {
   color: whitesmoke;
+}
+.footer-links a {margin:0 10px 0 10px;}
+.footer-links {
+  display: flex;
+  align-items: center;
 }
 
 // .flexfooter {
 //   margin: 0 5px 0 5px 0;
 // }
 
-.footer-copyright  {color: grey; }
-
-.footer-copyright a:hover {
-  color: whitesmoke;
-}
+.footer-copyright  { color: grey; }
+.footer p {padding-top: 16px;}
 
 .footer {
   background: rgb(4, 68, 111);

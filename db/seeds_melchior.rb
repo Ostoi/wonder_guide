@@ -104,115 +104,26 @@ user = User.create!(
 # Schoenbrunn
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg
 
-sight = Sight.create!(
-  name: "Schönbrunn Palace",
-  city: "Vienna",
-  address: "Schönbrunner Schloßstraße 47, 1130 Wien",
-  longitude: 16.311865,
-  latitude: 48.184517,
-  guide: user
-)
-
-# citytour_sight = CitytourSight.create!(
-#   citytour: citytour,
-#   sight: sight
-# )
-
-
-
 # Hofburg
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805196/development/wien_hofburg_touioa.jpg
-
-sight = Sight.create!(
-  name: "Hofburg Palace",
-  city: "Vienna",
-  address: "Vienna, 1010 Austria",
-  longitude: 16.366142,
-  latitude: 48.207867,
-  guide: user
-)
 
 # Tiergarten
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_tiergarten_sblgx9.jpg
 
-sight = Sight.create!(
-  name: "Tiergarten Schönbrunn",
-  city: "Vienna",
-  address: "Maxingstraße 13b",
-  longitude: 16.302778,
-  latitude: 48.182222,
-  guide: user
-)
-
 # Riesenrad
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/Wien_Riesenrad_v4etl5.jpg
-
-sight = Sight.create!(
-  name: "Wiener Riesenrad",
-  city: "Vienna",
-  address: "Riesenradpl. 1",
-  longitude: 16.395833,
-  latitude: 48.216667,
-  guide: user
-)
 
 # Albertina
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_albertina_s0ywu0.jpg
 
-sight = Sight.create!(
-  name: "Albertina",
-  city: "Vienna",
-  address: "Albertinaplatz 1, 1010 Vienna",
-  longitude: 16.367778,
-  latitude: 48.204444,
-  guide: user
-)
-# )
-# sight = Sight.create!(
-#   name: "Kunsthistorisches Museum",
-#   city: "Vienna",
-#   address: "Maria-Theresien-Platz",
-#   longitude: 16.361667,
-#   latitude: 48.203611,
-#   guide: user,
-#   photo: URI.open('')
-# )
-
 # Donauturm
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_donauturm_dcy4nv.jpg
-
-sight = Sight.create!(
-  name: "Donauturm",
-  city: "Vienna",
-  address: " Donauturm Platz 1",
-  longitude: 16.410833,
-  latitude: 48.24,
-  guide: user
-)
 
 # Naturhistorisches Museum
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg
 
-sight = Sight.create!(
-  name: "Naturhistorisches Museum",
-  city: "Vienna",
-  address: "Burgring 7",
-  longitude: 16.359722,
-  latitude: 48.205278,
-  guide: user
-)
-
 # Schatzkammer
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/Wien_schatzkammer_fqsohl.jpg
-
-sight = Sight.create!(
-  name: "Schatzkammer",
-  city: "Vienna",
-  address: "Hofburg, Schweizerhof",
-  longitude: 16.365556,
-  latitude: 48.206667,
-  guide: user
-)
 
 # Spanische Reitschule
 # https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg

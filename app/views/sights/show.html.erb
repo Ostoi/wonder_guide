@@ -1,63 +1,52 @@
 
-<div id="<%= dom_id @sight %>">
-  <div class="container">
+
+<div class="container">
 
 
+<%#
 
-    <div class="d-flex justify-content-center flex-wrap">
+<div class="the_card"  style="margin-bottom: 10px; width: 18rem;">
+  <img src="https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" />
+  <div class="the_card-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="the_card-pricing">£99.99</h2>
+    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" /> %>
+<%# </div>
+</div>
 
+%>
+
+      </div class="flex-sm-column ">
           <%#   S I G H T  %>
-          <div class="d-flex p-2" style="margin-bottom: 10px;">
-              <div class="card" style="width: 18rem;">
-                  <% if @sight.photo.attached? %>
-                  <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-              <% else %>
-                   <% if @sight.id == 1 %>
-                       <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662844355/development/israel_bokek_nn6yj0.jpg" %>
-                   <% elsif @sight.id == 2 %>
-                        <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg" %>
+          <div class="p-2" style="margin-bottom: 10px;">
 
-                   <% elsif @sight.id == 3 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805196/development/wien_hofburg_touioa.jpg" %>
+                    <div class="the_card" style="width: 18rem;">
+                                          <% if @sight.photo.attached? %>
+                        <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
+                        <% elsif @sight.id == 1 %>
+                            <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662844355/development/israel_bokek_nn6yj0.jpg" %>
+                        <% elsif @sight.id == 2 %>
+                              <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg" %>
+                        <% elsif @sight.id == 3 %>
+                              <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805196/development/wien_hofburg_touioa.jpg" %>
+                        <% else %>
+                              <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+                      <% end %>
 
-                   <% elsif @sight.id == 4 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_tiergarten_sblgx9.jpg" %>
-
-                   <% elsif @sight.id == 5 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/Wien_Riesenrad_v4etl5.jpg" %>
-
-                   <% elsif @sight.id == 6 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_albertina_s0ywu0.jpg" %>
-
-                   <% elsif @sight.id == 7 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662843441/development/wien_kunsthistorisches_museum_b4nutj.png" %>
-
-                   <% elsif @sight.id == 8 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_donauturm_dcy4nv.jpg" %>
-
-                   <% elsif @sight.id == 9 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg" %>
-
-                   <% elsif @sight.id == 10 %>
-<%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/Wien_schatzkammer_fqsohl.jpg" %>
-
-                   <% elsif @sight.id == 11 %>
- <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg" %>
-                   <% else %>
-                     <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
-                    <% end %>
-              <% end %>
-                    <div class="card-body">
-                          <h5 class="card-title"><%= @sight.name %></h5>
-                          <p class="card-text"><%= @sight.address %>.</a>
-                    </div> <%# close Card-body %>
-              </div>  <%# close Card %>
+                                  <div class="the_card-infos">
+                                        <h2><%= @sight.name %></h2>
+                                        <p><%= @sight.address %>.</a>
+                                  </div> <%# close Card-body %>
+                      </div>  <%# close Card %>
         </div><%# close d-flex %>
 
 
         <%#   M A P B O X   %>
 
-       <div class="d-flex p-2">
+       <div class="p-2">
             <div d="mapbox_sights">
               <div style="width: 286px; height: 286px;"
                   data-controller="map"
@@ -88,11 +77,15 @@
                   <div style="margin: 10px 0 0 10px;;">
                     <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
                     <%= link_to "Back to sights", sights_path %>
-                    <%= button_to "Destroy this sight", @sight, method: :delete %>
+                    <%  %>
+                    <div class="btn btn-warning">
+
+                           <%= link_to "Destroy this sight", @sight, method: :delete %>
+                          <%#= button_to "Destroy this sight", @sight, method: :delete %>
+                     </div>
                   </div>
           </div>
 
       </div> <%# closed-flex align-content-center flex-wrap %>
 
-  </div>
-</div> <%# close Container %>
+ </div> <%# close Container %>

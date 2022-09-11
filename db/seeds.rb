@@ -164,6 +164,17 @@ sight = Sight.create!(
   latitude: 48.206944,
   guide: user
 )
+# do not change
+# 12
+sight = Sight.create!(
+  name: "Brandenburg Gate",
+  city: "Berlin",
+  address: "Pariser Platz, 10117 Berlin, Germany",
+  longitude: 13.377775,
+  latitude: 52.516266,
+  guide: user
+)
+
 
 puts "Creating bookings"
 Citytour.all.each do |tour|

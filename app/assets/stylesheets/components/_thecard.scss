@@ -1,0 +1,58 @@
+.the_card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.the_card > img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+// height: 180, width: 286, crop: :fill %>
+.the_card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.the_card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.the_card .the_card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.the_card-infos .the_card-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.show_this_sight p {
+  margin-bottom: 0 0 10px 5px;
+  padding: 0 0 5px 5px;
+}
+
+
+
+
+// <div class="the_card">
+//   <img src="https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" />
+//   <div class="the_card-infos">
+//     <div>
+//       <h2>Title here</h2>
+//       <p>Short description here!</p>
+//     </div>
+//     <h2 class="the_card-pricing">£99.99</h2>
+//     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" />
+//   </div>
+// </div>
