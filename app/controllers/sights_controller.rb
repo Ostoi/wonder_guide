@@ -2,7 +2,7 @@ class SightsController < ApplicationController
 
   def index
     @sights = Sight.all
-    @a_sight = Sight.last
+    # @a_sight = Sight.last
 
 
     if params[:longitude] && params[:latitude]
@@ -45,6 +45,26 @@ class SightsController < ApplicationController
   def edit
     @sight = Sight.find(params[:id])
   end
+
+  def update
+    return redirect_to root_path unless session[:id]
+
+    @sight = Sight.find(params[:id])
+    if @sight.update(update_params)
+      redirect_to sights_path
+    else
+      flash[:error] = "Could not update sight."
+      # flash[:errors] = @user.errors.full_messages
+      redirect_to "/sights/#{@sight.id}/edit"
+    end
+  end
+
+
+
+
+
+
+
 
   def create
     @sight = Sight.new(sight_params)
