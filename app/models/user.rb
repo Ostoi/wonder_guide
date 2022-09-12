@@ -2,9 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
-  
+
   # this is for the booking records (sydel)
-  has_many :bookings, dependent: :destroy 
+  has_many :bookings, dependent: :destroy
   # this is zach's code line 10
   has_many :citytours, foreign_key: "guide_id", class_name: "Citytour"
   has_many :bookings, through: :citytours

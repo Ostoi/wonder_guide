@@ -10,8 +10,14 @@ require 'faker'
 
 puts "Cleaning database"
 # rails db:seed:replant
-Sight.destroy_all
+
+
+Review.destroy_all
+puts "Reviews destroyed"
+Booking.destroy_all
+puts "Bookings destroyed"
 Citytour.destroy_all
+Sight.destroy_all
 User.destroy_all
 
 puts 'Creating user'
@@ -205,7 +211,7 @@ Citytour.all.each do |tour|
     5.times do
       Review.create!(
         rating: rand(0..10),
-        reviewtext: Faker::Lorem.sentence(word_count: 20),
+        reviewtext: Faker::Quote.most_interesting_man_in_the_world,
         booking: booking,
         isguide: Faker::Boolean.boolean(true_ratio: 0.5)
       )
