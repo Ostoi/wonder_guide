@@ -213,6 +213,18 @@ file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662994030/b
 brandenburg_g.photo.attach(io: file, filename: 'brandenburg_g.jpg', content_type: 'image/jpg')
 brandenburg_g.save!
 
+deadsea = Sight.new(
+  name: "Dead Sea",
+  city: "Ein Bokek",
+  address: "Ein Bokek, Israel",
+  longitude: 31.2002,
+  latitude: 35.3625,
+  guide: user
+)
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662998480/deadsea_xd5wpy.jpg')
+deadsea.photo.attach(io: file, filename: 'dead_sea.jpg', content_type: 'image/jpg')
+deadsea.save!
+
 puts "Creating bookings"
 Citytour.all.each do |tour|
   Booking.create!(
