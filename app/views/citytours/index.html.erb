@@ -1,14 +1,36 @@
-<h1>City Tour</h1>
-<p>As a user I can see a map of the city	So that I can navigate the sight</p>
-I can see a list of the citytours
+<div class="container">
+<div class="row justify-content-center">
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+      <h1>City Tour</h1>
+      <p>I can see a list of the citytours</p>
+
+      <% @citytours.each do |citytour| %>
+        <%# <% if sight.photo.attached? %>
+         <div class="container">
+                               <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                 <%= render citytour %>
+                                </div>
+                          </div>
+
+                   <% @sights.each do |citytoursight| %>
+                        <% if citytour.guide_id == citytoursight.user_id%>
+                            <p>Sight name:  <%= citytoursight.name  %></p>
+                            <%= render citytoursight %>
+                        <% end %>
+                   <% end %>
+                         <p></p>
+       <% end %>
+
+
+ <div style="width: 286px; height: 286px;"
+        data-controller="map"
+        data-map-center-value="[-0.118092,51.509865]"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
+    </div>
+     <%= link_to "New sight", new_sight_path %>
+  </div>
 </div>
-
-
- <%#  %>
- <%#  %>
- <%#  %>

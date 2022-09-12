@@ -1,0 +1,19 @@
+
+
+                <div class="the_card" style="width: 18rem;">
+                          <div class="the_card-infos">
+                              <h2><%= citytour.name %></h2>
+                              <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
+                              <br>
+                          </div>
+                           <%= link_to "Book this Tour", new_citytour_booking_path(citytour) %></a>
+
+                                  <%# <% if @sight.photo.attached? %>
+                  <%# <%= cl_image_tag @sight.photo.key, height: 75, width: 75, crop: :fill %>
+
+                </div>
+
+
+ t.index ["guide_id"], name: "index_citytours_on_guide_id"
+
+  t.index ["user_id"], name: "index_sights_on_user_id"
