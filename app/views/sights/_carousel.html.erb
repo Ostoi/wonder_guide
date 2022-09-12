@@ -1,0 +1,23 @@
+<div id="sightsCarousel" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-inner">
+    <% sights.each_with_index do |sight, index| %>
+      <div class="carousel-item <%= index == 0 ? "active" : "" %>" style="background: gray; border: 1px solid black;">
+        <% if sight.photo.attached? %>
+          <%= cl_image_tag sight.photo.key, height: 180, width: 286, crop: :fill %>
+        <% else %>
+          <%= image_tag Sight::DEFAULT_IMG_URL, height: 180, width: 286, crop: :fill %>
+        <% end %>
+        <p><%= sight.name %></p>
+        <p><%= sight.address %></p>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev bg-primary" type="button" data-bs-target="#sightsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next bg-primary" type="button" data-bs-target="#sightsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

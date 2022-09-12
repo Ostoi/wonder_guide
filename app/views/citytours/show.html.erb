@@ -1,0 +1,22 @@
+<div class="container">
+  </div class="flex-sm-column">
+    <%#   S I G H T  %>
+    <div class="p-2" style="margin-bottom: 10px;">
+      <div class="the_card" style="width: 18rem;">
+        <%= render 'sights/carousel', sights: @citytour.sights %>
+      </div>  <%# close Card %>
+    </div><%# close d-flex %>
+
+
+    <%#   M A P B O X   %>
+    <div class="p-2">
+      <div d="mapbox_sights">
+        <div style="width: 286px; height: 286px;"
+            data-controller="map"
+            data-map-center-value="[-0.118092,51.509865]"
+            data-map-markers-value="<%= @sightmarkers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div><%# close d-flex %>
+  </div> <%# closed-flex align-content-center flex-wrap %>
+</div> <%# close Container %>
