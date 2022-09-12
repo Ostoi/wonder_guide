@@ -31,24 +31,25 @@ class CitytoursController < ApplicationController
   def create
     @citytour = Citytour.new(citytour_params)
     @citytour.user = current_user
-    if @citytour.save
-      # redirect_to index_path_url
-      redirect_to :controller => 'citytours', :action => 'index'
-    else
-      render :new
-    end
+      if @citytour.save
+        # redirect_to index_path_url
+        redirect_to :controller => 'citytours', :action => 'index'
+      else
+        render :new
+      end
   end
 
   def show
     @citytour = Citytour.find(params[:id])
-    @sightmarkers = @citytour.sights.map do |sight|
-      sight_url = sight.photo.attached? ? cl_image_url(sight.photo.key) : Sight::DEFAULT_IMG_URL
-      {
-        lat: sight.latitude,
-        lng: sight.longitude,
-        image_url: sight_url
-      }
-    end
+      @sightmarkers = @citytour.sights.map do |sight|
+        sight_url = sight.photo.attached? ? cl_image_url(sight.photo.key) : Sight::DEFAULT_IMG_URL
+        {
+          lat: sight.latitude,
+          lng: sight.longitude,
+          image_url: sight_url
+        }
+      end
+    @citytours = Citytour.all
   end
 
   def edit

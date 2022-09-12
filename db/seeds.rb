@@ -11,8 +11,14 @@ require 'faker'
 
 puts "Cleaning database"
 # rails db:seed:replant
-Sight.destroy_all
+
+
+Review.destroy_all
+puts "Reviews destroyed"
+Booking.destroy_all
+puts "Bookings destroyed"
 Citytour.destroy_all
+Sight.destroy_all
 User.destroy_all
 
 puts 'Creating user'
