@@ -7,12 +7,18 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "dashboard", action: :dashboard, controller: "dashboard"
 
- resources :sights
+  resources :sights
   resources :user
   resources :citytours do
     resources :citytour_sights, only: :create
     resources :bookings, only: [:index, :show, :create, :new] do
       resources :reviews, only: :create
+    end
+  end
+  resources :bookings, only: [] do
+    member do
+      get :accept
+      get :deny
     end
   end
 end

@@ -28,6 +28,17 @@ user = User.create!(
   guide:  true,
 )
 
+traveller = User.create!(
+  name: "Oliver Stoislow",
+  nickname: "Ollie",
+  email: "ostoi@email.com",
+  password: "oliver",
+  payment_details: "12345678911111213 01/23 056",
+  country: "Berlin",
+  language_list: "English, German(idk what else",
+  guide: false
+)
+
   # puts "User finished!"
 
   sight = Sight.create!(
@@ -46,6 +57,11 @@ user = User.create!(
     overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
     price: rand(0..400),
     guide: user
+  )
+
+  Booking.create!(
+    citytour: citytour,
+    user: traveller
   )
   # puts "Citytour finished!"
 puts "All finished!"

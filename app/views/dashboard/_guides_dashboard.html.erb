@@ -5,16 +5,18 @@
 <div class= "container d-flex">
   <div class="dash-content">
     <div class="user-booking-request">
-      <h2>Pending Bookings:</h2>
-      <% guide_bookings.where(status: "pending").each do|guide_booking| %>
+      <h2>Booking Requests:</h2>
+      <% current_user.bookings.where(status: "pending").each do|guide_booking| %>
          <h2><%= guide_booking.citytour.name %></h2>
          <p><%= guide_booking.user.name %></p>
          <p><%= guide_booking.user.language_list %></p>
+         <%= link_to "Accept", accept_booking_path(guide_booking), data: {turbo_method: :get} %>
+         <%= link_to "Deny", deny_booking_path(guide_booking), data: {turbo_method: :get} %>
        <% end %>
     </div>
     <div class="upcoming-tour">
       <h2>Upcoming Tours:</h2>
-      <% current_user.upcoming_citytours(5).each do|citytour| %>
+      <% current_user.upcoming_citytours(30).each do|citytour| %>
         <div>
           <h3><%= citytour.name %></h3>
           <p>$<%= citytour.price %></p>
