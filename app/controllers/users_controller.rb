@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       end
 
       def create
-        @user = User.create
+        @user = User.create!
             if @user.guide?
               Guide.create!(user: @user)
             end
