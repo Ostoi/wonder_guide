@@ -27,6 +27,20 @@ class BookingsController < ApplicationController
     # redirect_to citytour_sights_path, status: :see_other
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    if @booking.accepted!
+      redirect_to request.referer, notice: "Booking accepted"
+    end
+  end
+
+  def deny
+    @booking = Booking.find(params[:id])
+    if @booking.denied!
+      redirect_to request.referer, notice: "Booking denied"
+    end
+  end
+
   private
 
   def booking_params
