@@ -127,8 +127,8 @@ wiener_res = Sight.create!(
   guide: user
 )
 file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg')
-tier_schon.photo.attach(io: file, filename: 'tier_schon.jpg', content_type: 'image/jpg')
-tier_schon.save!
+wiener_res.photo.attach(io: file, filename: 'wiener_res.jpg', content_type: 'image/jpg')
+wiener_res.save!
 
 # do not change
 # 6
