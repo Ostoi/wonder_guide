@@ -49,15 +49,6 @@ traveller = User.create!(
 
   # puts "User finished!"
 
-  sight = Sight.create!(
-    name: "Dead Sea",
-    city: "Ein Bokek",
-    address: "Ein Bokek, Israel",
-    longitude: 31.2002,
-    latitude: 35.3625,
-    guide: user
-  )
-
   # puts "Sight finished!"
 
   citytour = Citytour.create!(
@@ -124,7 +115,7 @@ tier_schon.save!
 
 # do not change
 # 5
-wiener_res = Sight.create!(
+wiener_res = Sight.new(
   name: "Wiener Riesenrad",
   city: "Vienna",
   address: "Riesenradpl. 1",
@@ -138,7 +129,7 @@ wiener_res.save!
 
 # do not change
 # 6
-sight = Sight.create!(
+albertina = Sight.new(
   name: "Albertina",
   city: "Vienna",
   address: "Albertinapl. 1",
@@ -146,9 +137,12 @@ sight = Sight.create!(
   latitude: 48.204444,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662992285/wien_albertina_s0ywu0_q3kcb2.jpg')
+albertina.photo.attach(io: file, filename: 'albertina.jpg', content_type: 'image/jpg')
+albertina.save!
 # do not change
 # 7
-sight = Sight.create!(
+kunsthistorisches_m = Sight.new(
   name: "Kunsthistorisches Museum",
   city: "Vienna",
   address: "Maria-Theresien-Platz",
@@ -156,9 +150,12 @@ sight = Sight.create!(
   latitude: 48.203611,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg')
+kunsthistorisches_m.photo.attach(io: file, filename: 'kunsthistorisches_m.jpg', content_type: 'image/jpg')
+kunsthistorisches_m.save!
 # do not change
 # 8
-sight = Sight.create!(
+donauturm = Sight.new(
   name: "Donauturm",
   city: "Vienna",
   address: "Donauturmplatz 1",
@@ -166,9 +163,12 @@ sight = Sight.create!(
   latitude: 48.24,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg')
+donauturm.photo.attach(io: file, filename: 'donauturm.jpg', content_type: 'image/jpg')
+donauturm.save!
 # do not change
 # 9
-sight = Sight.create!(
+naturhistorisches = Sight.new(
   name: "Naturhistorisches Museum",
   city: "Vienna",
   address: "Burgring 7",
@@ -176,9 +176,12 @@ sight = Sight.create!(
   latitude: 48.205278,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg')
+naturhistorisches.photo.attach(io: file, filename: 'naturhistorisches.jpg', content_type: 'image/jpg')
+naturhistorisches.save!
 # do not change
 # 10
-sight = Sight.create!(
+schatzkammer = Sight.new(
   name: "Schatzkammer",
   city: "Vienna",
   address: "Hofburg, Schweizerhof",
@@ -186,9 +189,12 @@ sight = Sight.create!(
   latitude: 48.206667,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993377/Wien_schatzkammer_fqsohl_tpk9at.jpg')
+schatzkammer.photo.attach(io: file, filename: 'schatzkammer.jpg', content_type: 'image/jpg')
+schatzkammer.save!
 # do not change
 # 11
-sight = Sight.create!(
+riding_school = Sight.new(
   name: "Spanish Riding School",
   city: "Vienna",
   address: "Michaelerplatz 1",
@@ -196,9 +202,12 @@ sight = Sight.create!(
   latitude: 48.206944,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg')
+riding_school.photo.attach(io: file, filename: 'riding_school.jpg', content_type: 'image/jpg')
+riding_school.save!
 # do not change
 # 12
-sight = Sight.create!(
+brandenburg_g = Sight.new(
   name: "Brandenburg Gate",
   city: "Berlin",
   address: "Pariser Platz, 10117 Berlin, Germany",
@@ -206,7 +215,9 @@ sight = Sight.create!(
   latitude: 52.516266,
   guide: user
 )
-
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662994030/brandenburg_g_uk6udg.webp')
+brandenburg_g.photo.attach(io: file, filename: 'brandenburg_g.jpg', content_type: 'image/jpg')
+brandenburg_g.save!
 
 puts "Creating bookings"
 Citytour.all.each do |tour|
