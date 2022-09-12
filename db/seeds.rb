@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+require 'json'
+require 'open-uri'
 require 'faker'
 
 puts "Cleaning database"
@@ -16,6 +17,7 @@ User.destroy_all
 
 puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
+
 
 user = User.create!(
   name: "Zack Levy",
@@ -77,20 +79,20 @@ user = User.create!(
   language_list: [languages.sample],
   guide: Faker::Boolean.boolean(true_ratio: 0.5)
 )
-
-# do not change
-# 2
-sight = Sight.create!(
-  name: "Schönbrunn Palace",
-  city: "Vienna",
+schonbrunn_p = Sight.new(
+  name: 'Schönbrunn Palace',
+  city: 'Vienna',
   address: "Schönbrunner Schloßstraße 47",
   longitude: 16.311865,
   latitude: 48.184517,
   guide: user
 )
-# do not change
-# 3
-sight = Sight.create!(
+file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg')
+schonbrunn_p.photo.attach(io: file, filename: 'schonbrunn-p.jpg', content_type: 'image/jpg')
+schonbrunn_p.save!
+puts 'Created Sight'
+
+hofburg_p = Sight.new(
   name: "Hofburg Palace",
   city: "Vienna",
   address: "Heldenplatz",
@@ -98,10 +100,11 @@ sight = Sight.create!(
   latitude: 48.205532,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991511/wien_hofburg_touioa_jhs1bk.jpg')
+hofburg_p.photo.attach(io: file, filename: 'hofburg_p.jpg', content_type: 'image/jpg')
+hofburg_p.save!
 
-# do not change
-# 4
-sight = Sight.create!(
+tier_schon = Sight.new(
   name: "Tiergarten Schönbrunn",
   city: "Vienna",
   address: "Maxingstraße 13b",
@@ -109,10 +112,13 @@ sight = Sight.create!(
   latitude: 48.182222,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg')
+tier_schon.photo.attach(io: file, filename: 'tier_schon.jpg', content_type: 'image/jpg')
+tier_schon.save!
 
 # do not change
 # 5
-sight = Sight.create!(
+wiener_res = Sight.create!(
   name: "Wiener Riesenrad",
   city: "Vienna",
   address: "Riesenradpl. 1",
@@ -120,6 +126,10 @@ sight = Sight.create!(
   latitude: 48.216667,
   guide: user
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg')
+tier_schon.photo.attach(io: file, filename: 'tier_schon.jpg', content_type: 'image/jpg')
+tier_schon.save!
+
 # do not change
 # 6
 sight = Sight.create!(
@@ -205,7 +215,7 @@ Citytour.all.each do |tour|
     5.times do
       Review.create!(
         rating: rand(0..10),
-        reviewtext: Faker::Lorem.sentence(word_count: 20),
+        reviewtext: Faker::Quote.most_interesting_man_in_the_world,
         booking: booking,
         isguide: Faker::Boolean.boolean(true_ratio: 0.5)
       )
