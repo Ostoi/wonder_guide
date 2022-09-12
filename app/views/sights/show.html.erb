@@ -2,6 +2,11 @@
 
 <div class="container">
 
+<% if current_user.guide? %>
+  <p>is guide</p>
+  <% else %>
+  <p>is user</p>
+  <% end %>
 
 <%#
 
