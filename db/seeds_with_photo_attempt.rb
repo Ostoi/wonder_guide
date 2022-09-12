@@ -14,7 +14,6 @@ Sight.destroy_all
 Citytour.destroy_all
 User.destroy_all
 
-
 puts "Creating"
 
 # VERSUCH mit CLOUDINARY
@@ -96,13 +95,10 @@ puts "Creating"
 #   )
 #   puts "xxx Creating PHOTO"
 
-
 # puts "Created PHOTO"
 
 puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
-
-
 
 user = User.create!(
   first_name: "Zack",
@@ -141,14 +137,6 @@ user = User.create!(
   guide: Faker::Boolean.boolean(true_ratio: 0.5)
 )
 
-
-
-
-
-
-
-
-
 puts "Creating bookings"
 Citytour.all.each do |tour|
   Booking.create!(
@@ -184,7 +172,6 @@ Booking.all.each do |booking|
 end
 puts "Finished creating reviews"
 
-
   # puts "User finished!"
 
   sight = Sight.create!(
@@ -206,10 +193,8 @@ puts "Sight finished!"
   )
 puts "Citytour finished!"
 
-
   # puts "All finished!"
 
 # puts 'Creating User'
-
 
 # puts "All finished!"

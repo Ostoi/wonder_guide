@@ -30,7 +30,8 @@ class CitytoursController < ApplicationController
 
   def create
     @citytour = Citytour.new(citytour_params)
-    @citytour.user = current_user
+    @guide = Guide.where(user: current_user)
+    @citytour.guide = @guide
       if @citytour.save
         # redirect_to index_path_url
         redirect_to :controller => 'citytours', :action => 'index'
