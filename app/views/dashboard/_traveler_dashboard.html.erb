@@ -12,7 +12,7 @@
     </div>
     <div class="upcoming-tour-card">
       <h2>Upcoming Tours:</h2>
-      <% current_user.upcoming_citytours(5).each do|citytour| %>
+      <% citytours.each do|citytour| %>
         <div>
           <h3><%= citytour.name %></h3>
           <p>$<%= citytour.price %></p>
@@ -23,7 +23,9 @@
     </div>
     <div class="user-info-card">
       <div class="user-info">
-        <img src="images/avatar.png" alt="Avatar" class="avatar">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <% end %>
         <h4><%= current_user.name %><h4>
         <h4><%= current_user.email %></h4>
         <h4><%= current_user.country %></h4>

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :citytours, foreign_key: "guide_id", class_name: "Citytour"
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
