@@ -9,11 +9,10 @@
             <%= render citytour %>
           </div>
         </div>
-        <% @sights.each do |citytoursight| %>
-            <% if citytour.guide_id == citytoursight.guide_id%>
-              <p>Sight name:  <%= citytoursight.name  %></p>
+        <% citytour.sights.each do |citytoursight| %>
+            <%# if citytour.guide_id == citytoursight.guide_id%>
               <%= render citytoursight %>
-            <% end %>
+            <%# end %>
         <% end %>
     <% end %>
 

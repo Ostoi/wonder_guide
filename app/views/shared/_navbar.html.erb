@@ -1,4 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if params[:controller] == "pages" && params[:action] == "home" %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-home">
+<% else  %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% end %>
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "woderguidelogo.jpg" %>
