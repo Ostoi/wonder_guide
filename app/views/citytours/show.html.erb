@@ -34,11 +34,11 @@
     <div class="d-flex p-2">
       <div data-controller="insert-in-list">
         <div data-insert-in-list-target="items">
-          <% @citytours.each do |citytour| %>
-            <%= citytour.name %>
-            <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-            <%= render 'reviews/carousel', reviews: citytour.reviews %> <%#= .where(isguide: false) %>
-          <% end %>
+          <%# @citytours.each do |citytour| %>
+            <%= @citytour.name %>
+            <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
+            <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
+          <%# end %>
           <p style="color: green"><%#= notice %></p>
         </div>
       </div>
