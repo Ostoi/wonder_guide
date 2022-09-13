@@ -29,7 +29,7 @@ guide = User.create!(
   email: "zacklevy@email.com",
   password: "zlevy210",
   language_list: "English, Hebrew, Spanish, Thai(kitchen)",
-  guide: true,
+  guide: true
 )
 
 traveller = User.create!(
@@ -262,6 +262,4 @@ user = User.create!(
   guide: true,
 )
 puts "Last User finished!"
-
-
 puts "All finished!"

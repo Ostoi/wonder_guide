@@ -32,14 +32,15 @@
             </div>
 
 
- <div style="width: 286px; height: 286px;"
-        data-controller="map"
-        data-map-center-value="[-0.118092,51.509865]"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+              <div style="width: 286px; height: 286px;"
+                      data-controller="map"
+                      data-map-center-value="[-0.118092,51.509865]"
+                      data-map-markers-value="<%= @markers.to_json %>"
+                      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
 
     </div>
      <%= link_to "New sight", new_sight_path %>
-  </div>
-</div>
+     <%= link_to "Got to Citytours",citytours_path(@sight) %> |
+  </div> <%#   end row   %>
+</div> <%#   end container   %>
