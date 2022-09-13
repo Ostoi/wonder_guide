@@ -9,24 +9,16 @@
 
 
                 <% @sights.each do |sight| %>
-                     <% if sight.photo.attached? %>
+                     <%# <% if sight.photo.attached? %>
+                         <%# if sight.photo.attached? == false %>
                            <div class="container">
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                   <%= render sight %>
                                 </div>
                         </div>
-                      <% end %>
+                      <%#end %>
                  <% end %>
 
-              <% @sights.each do |sight| %>
-                      <% if sight.photo.attached? == false %>
-                       <div class="container">
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <%= render sight %>
-                              </div>
-                        </div>
-                      <% end %>
-              <% end %>
 
 
             </div>

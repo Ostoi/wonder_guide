@@ -20,7 +20,7 @@
       <p style="color: green"><%= notice %></p>
 
       <%#= render @sight %>
-
+<div class="row justify-content-center">
 
       <%#   C A R D   %>
        <div class="d-flex p-2">
@@ -39,7 +39,7 @@
        </div> <%#d-flex p-2  %>
 
 
-
+      <p>guides tours<p>>
 
         <%#   C I T Y   T O U R S   %>
             <div class="p-2">
@@ -51,7 +51,16 @@
                                                            <h5 class="card-title"><%= citytour.name %></h1>
                                                             <h2 class="the_card-pricing">£99.99</h2>
                                                             <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                                                    </div>
+
+                                                                      <% if current_user.guide? %>
+                                                                         <div class="btn btn-warning">
+                                                                               <%# <%= link_to "add to sight",  citytour_sight_citytour_sights_path(citytour,@sight), method: :post %> %>
+                                                                         </div>
+                                                                      <% end %>
+
+                                                     </div>
+
+
                                               <div>
                                                 <%# <%= citytour.booking %>
                                           <% end %>
@@ -98,15 +107,21 @@
                         <%  %>
 
                         <% if current_user.guide? %>
-                        <div class="btn btn-warning">
+
                             <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
-                            <%= link_to "Destroy this sight", @sight, method: :delete %>
+
                                 <%#= button_to "Destroy this sight", @sight, method: :delete %>
-                          </div>
+                        <%= link_to "New sight", new_sight_path %> |
+                        <%= link_to "New Citytour", new_citytour_path %> |
+                        <%= link_to "Got to Citytours",citytours_path(@sight) %> |
+                       <div class="btn btn-warning">
+                            <%= link_to "Destroy this sight", @sight, method: :delete %>
+                             </div>
+
                         <% end %>
                   </div>
          </div><%# close d-flex p-2 %>
 
-      <%#</div> <%# closed-flex align-content-center flex-wrap %>
+     </div> <%# closed-flex align-content-center flex-wrap %>
 
  </div> <%# close Container %>

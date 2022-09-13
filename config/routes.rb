@@ -5,11 +5,22 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+
   get "dashboard", action: :dashboard, controller: "dashboard"
 
-  resources :sights
+  resources :sights do
+   resources :citytour_sights, only: :create
+  end
   resources :user
   resources :citytours do
+    resources :sights, only: [] do
+      resources :citytour_sights, only: [] do
+        member do
+          post :create
+        end
+     end
+  end
     resources :citytour_sights, only: :create
     resources :bookings, only: [:index, :show, :create, :new] do
       resources :reviews, only: :create

@@ -32,7 +32,6 @@ class CitytoursController < ApplicationController
     @citytour = Citytour.new(citytour_params)
     @citytour.guide = current_user
     @citytour.sights = Sight.where(id: params[:sight_ids])
-    raise
       if @citytour.save
         # redirect_to index_path_url
         redirect_to :controller => 'citytours', :action => 'index'
