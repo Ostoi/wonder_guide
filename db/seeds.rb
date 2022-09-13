@@ -22,12 +22,13 @@ Sight.destroy_all
 User.destroy_all
 
 puts 'Creating user'
-languages = %w(german english french spanish dutch portuguese chinese)
+# languages = %w(german english french spanish dutch portuguese chinese)
 
 guide = User.create!(
   name: "Zack Levy",
   email: "zacklevy@email.com",
   password: "zlevy210",
+  encrypted_password: "zlevy210",
   # language_list: "English, Hebrew, Spanish, Thai(kitchen)",
   guide: true
 )
@@ -39,7 +40,8 @@ traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
-  language_list: "English, German(idk what else",
+  encrypted_password: "oliver",
+  # language_list: "English, German(idk what else",
   guide: false
 )
 file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064961/T02NE0241-U03Q0PFQ8QH-1c5b258e121b-192_thtjkf.jpg')
@@ -55,25 +57,25 @@ citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
   price: rand(0..400),
-  guide: user
+  guide: guide
 )
 citytour = Citytour.create!(
   name: "Vienna Highlights",
   overview: "Take a tour through the amazing city of Vienna.",
   price: rand(0..400),
-  guide: user
+  guide: guide
 )
 citytour = Citytour.create!(
   name: "Berlin Tour",
   overview: "This might become your favourite tour when visiting Europe",
   price: rand(0..400),
-  guide: user
+  guide: guide
 )
 citytour = Citytour.create!(
   name: "Tel Aviv Tour",
   overview: "Stunning citysights await you in this wonderful experience",
   price: rand(0..400),
-  guide: user
+  guide: guide
 )
 
 # Below this line: In coding progress by Olli
@@ -86,7 +88,7 @@ sights = {
     address: "Schönbrunner Schloßstraße 47",
     longitude: 16.311865,
     latitude: 48.184517,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg"
   },
   "1": {
@@ -95,7 +97,7 @@ sights = {
     address: "Heldenplatz",
     longitude: 16.364763,
     latitude: 48.205532,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991511/wien_hofburg_touioa_jhs1bk.jpg"
   },
   "2": {
@@ -104,7 +106,7 @@ sights = {
     address: "Maxingstraße 13b",
     longitude: 16.302778,
     latitude: 48.182222,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg"
   },
   "3": {
@@ -113,7 +115,7 @@ sights = {
     address: "Riesenradpl. 1",
     longitude: 16.395833,
     latitude: 48.216667,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg"
   },
   "4": {
@@ -122,7 +124,7 @@ sights = {
     address: "Albertinapl. 1",
     longitude: 16.367778,
     latitude: 48.204444,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662992285/wien_albertina_s0ywu0_q3kcb2.jpg"
   },
   "5": {
@@ -131,7 +133,7 @@ sights = {
     address: "Maria-Theresien-Platz",
     longitude: 16.361667,
     latitude: 48.203611,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg"
   },
   "6": {
@@ -140,7 +142,7 @@ sights = {
     address: "Donauturmplatz 1",
     longitude: 16.410833,
     latitude: 48.24,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg"
   },
   "7": {
@@ -149,7 +151,7 @@ sights = {
     address: "Burgring 7",
     longitude: 16.359722,
     latitude: 48.205278,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg"
   },
   "8": {
@@ -158,7 +160,7 @@ sights = {
     address: "Hofburg, Schweizerhof",
     longitude: 16.365556,
     latitude: 48.206667,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993377/Wien_schatzkammer_fqsohl_tpk9at.jpg"
   },
   "9": {
@@ -167,7 +169,7 @@ sights = {
     address: "Michaelerplatz 1",
     longitude: 16.366944,
     latitude: 48.206944,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg"
   },
   "10": {
@@ -176,7 +178,7 @@ sights = {
     address: "Pariser Platz, 10117 Berlin, Germany",
     longitude: 13.377775,
     latitude: 52.516266,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662994030/brandenburg_g_uk6udg.webp"
   },
   "11": {
@@ -185,7 +187,7 @@ sights = {
     address: "Ein Bokek, Israel",
     longitude: 31.2002,
     latitude: 35.3625,
-    guide: user,
+    guide: guide,
     photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662998480/deadsea_xd5wpy.jpg"
   }
 }
@@ -241,7 +243,7 @@ puts "All finished!"
 #   address: "Schönbrunner Schloßstraße 47",
 #   longitude: 16.311865,
 #   latitude: 48.184517,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg')
 # schonbrunn_p.photo.attach(io: file, filename: 'schonbrunn-p.jpg', content_type: 'image/jpg')
@@ -257,7 +259,7 @@ puts "All finished!"
 #   address: "Heldenplatz",
 #   longitude: 16.364763,
 #   latitude: 48.205532,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991511/wien_hofburg_touioa_jhs1bk.jpg')
 # hofburg_p.photo.attach(io: file, filename: 'hofburg_p.jpg', content_type: 'image/jpg')
@@ -269,7 +271,7 @@ puts "All finished!"
 #   address: "Maxingstraße 13b",
 #   longitude: 16.302778,
 #   latitude: 48.182222,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg')
 # tier_schon.photo.attach(io: file, filename: 'tier_schon.jpg', content_type: 'image/jpg')
@@ -283,7 +285,7 @@ puts "All finished!"
 #   address: "Riesenradpl. 1",
 #   longitude: 16.395833,
 #   latitude: 48.216667,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg')
 # wiener_res.photo.attach(io: file, filename: 'wiener_res.jpg', content_type: 'image/jpg')
@@ -297,7 +299,7 @@ puts "All finished!"
 #   address: "Albertinapl. 1",
 #   longitude: 16.367778,
 #   latitude: 48.204444,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662992285/wien_albertina_s0ywu0_q3kcb2.jpg')
 # albertina.photo.attach(io: file, filename: 'albertina.jpg', content_type: 'image/jpg')
@@ -310,7 +312,7 @@ puts "All finished!"
 #   address: "Maria-Theresien-Platz",
 #   longitude: 16.361667,
 #   latitude: 48.203611,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg')
 # kunsthistorisches_m.photo.attach(io: file, filename: 'kunsthistorisches_m.jpg', content_type: 'image/jpg')
@@ -323,7 +325,7 @@ puts "All finished!"
 #   address: "Donauturmplatz 1",
 #   longitude: 16.410833,
 #   latitude: 48.24,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg')
 # donauturm.photo.attach(io: file, filename: 'donauturm.jpg', content_type: 'image/jpg')
@@ -336,7 +338,7 @@ puts "All finished!"
 #   address: "Burgring 7",
 #   longitude: 16.359722,
 #   latitude: 48.205278,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg')
 # naturhistorisches.photo.attach(io: file, filename: 'naturhistorisches.jpg', content_type: 'image/jpg')
@@ -349,7 +351,7 @@ puts "All finished!"
 #   address: "Hofburg, Schweizerhof",
 #   longitude: 16.365556,
 #   latitude: 48.206667,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662993377/Wien_schatzkammer_fqsohl_tpk9at.jpg')
 # schatzkammer.photo.attach(io: file, filename: 'schatzkammer.jpg', content_type: 'image/jpg')
@@ -362,7 +364,7 @@ puts "All finished!"
 #   address: "Michaelerplatz 1",
 #   longitude: 16.366944,
 #   latitude: 48.206944,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg')
 # riding_school.photo.attach(io: file, filename: 'riding_school.jpg', content_type: 'image/jpg')
@@ -375,7 +377,7 @@ puts "All finished!"
 #   address: "Pariser Platz, 10117 Berlin, Germany",
 #   longitude: 13.377775,
 #   latitude: 52.516266,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662994030/brandenburg_g_uk6udg.webp')
 # brandenburg_g.photo.attach(io: file, filename: 'brandenburg_g.jpg', content_type: 'image/jpg')
@@ -387,7 +389,7 @@ puts "All finished!"
 #   address: "Ein Bokek, Israel",
 #   longitude: 31.2002,
 #   latitude: 35.3625,
-#   guide: user
+#   guide: guide
 # )
 # file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1662998480/deadsea_xd5wpy.jpg')
 # deadsea.photo.attach(io: file, filename: 'dead_sea.jpg', content_type: 'image/jpg')
@@ -430,7 +432,8 @@ user = User.create!(
   name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  language_list: "English, german",
+  encrypted_password: "123456",
+  # language_list: "English, german",
   guide: true,
 )
 puts "Last User finished!"
