@@ -1,14 +1,14 @@
+<div class="the_card" style="width: 18rem;">
+    <% citytour.sights.each do |sight| %>
+      <%= cl_image_tag sight.photo.key, height: 75, width: 75, crop: :fill %>
+    <% end %>
+    </div>
+    <div class="the_card-infos">
+        <h2><%= citytour.name %></h2>
+        <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
+        <br>
+    </div>
+  <%= link_to "Details", citytour_path(citytour), class: "btn button-secondary"%>
+  <%= link_to "Book this Tour", new_citytour_booking_path(citytour), class: "btn button-primary2"%>
 
-
-                <div class="the_card" style="width: 18rem;">
-                          <div class="the_card-infos">
-                              <h2><%= citytour.name %></h2>
-                              <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
-                              <br>
-                          </div>
-                           <%= link_to "Book this Tour", new_citytour_booking_path(citytour) %></a>
-
-                                  <%# <% if @sight.photo.attached? %>
-                  <%# <%= cl_image_tag @sight.photo.key, height: 75, width: 75, crop: :fill %>
-
-                </div>
+</div>

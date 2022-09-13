@@ -24,25 +24,18 @@ User.destroy_all
 puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
 
-
-user = User.create!(
+guide = User.create!(
   name: "Zack Levy",
-  nickname: "Z",
   email: "zacklevy@email.com",
   password: "zlevy210",
-  payment_details: "12345678910111213 01/23 056",
-  country: "Israel",
   language_list: "English, Hebrew, Spanish, Thai(kitchen)",
-  guide:  true,
+  guide: true,
 )
 
 traveller = User.create!(
   name: "Oliver Stoislow",
-  nickname: "Ollie",
   email: "ostoi@email.com",
   password: "oliver",
-  payment_details: "12345678911111213 01/23 056",
-  country: "Berlin",
   language_list: "English, German(idk what else",
   guide: false
 )
@@ -55,7 +48,7 @@ traveller = User.create!(
     name: "Masada/Dead Sea Tour",
     overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
     price: rand(0..400),
-    guide: user
+    guide: guide
   )
 
   Booking.create!(
@@ -68,13 +61,10 @@ puts "All finished!"
 puts 'Creating 10 Sights'
 user = User.create!(
   name: Faker::Name.name,
-  nickname: Faker::FunnyName.name,
   email: Faker::Internet.email,
   password: "secret",
-  payment_details: Faker::Bank.account_number,
-  country: Faker::Address.country,
   language_list: [languages.sample],
-  guide: Faker::Boolean.boolean(true_ratio: 0.5)
+  guide: true
 )
 schonbrunn_p = Sight.new(
   name: 'Schönbrunn Palace',
@@ -236,7 +226,6 @@ Citytour.all.each do |tour|
   Booking.create!(
     start: DateTime.now + 1.days,
     end: DateTime.now + 1.days,
-    quantity: 2,
     user: User.second,
     citytour: tour
   )
@@ -245,8 +234,7 @@ Citytour.all.each do |tour|
       Review.create!(
         rating: rand(0..10),
         reviewtext: Faker::Quote.most_interesting_man_in_the_world,
-        booking: booking,
-        isguide: Faker::Boolean.boolean(true_ratio: 0.5)
+        booking: booking
       )
     end
   end
@@ -267,16 +255,11 @@ puts "Finished creating bookings"
 # puts "Finished creating reviews"
 
 user = User.create!(
-  first_name: "Melchior-Christoph",
-  last_name: "von Brincken",
-  name:  "Melchior-Christoph von Brincken",
-  nickname: "Melchior",
+  name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  payment_details: "4711",
-  country: "Austria",
   language_list: "English, german",
-  guide:  true,
+  guide: true,
 )
 puts "Last User finished!"
 

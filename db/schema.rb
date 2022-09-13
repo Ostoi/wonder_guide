@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_132031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,9 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "start", precision: nil
     t.datetime "end", precision: nil
-    t.float "price"
-    t.float "total_price"
-    t.integer "quantity"
     t.bigint "user_id", null: false
     t.bigint "citytour_id", null: false
     t.datetime "created_at", null: false
@@ -68,27 +65,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
 
   create_table "citytours", force: :cascade do |t|
     t.string "name"
+    t.string "country"
     t.text "overview"
     t.float "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float "average_rating"
     t.bigint "guide_id", null: false
-    t.string "country"
-    t.index ["guide_id"], name: "index_citytours_on_guide_id"
-  end
-
-  create_table "guides", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_guides_on_user_id"
+    t.index ["guide_id"], name: "index_citytours_on_guide_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "reviewtext"
     t.bigint "booking_id", null: false
-    t.boolean "isguide"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
@@ -100,11 +90,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
     t.text "address"
     t.float "longitude"
     t.float "latitude"
+    t.bigint "guide_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.string "photo"
-    t.index ["user_id"], name: "index_sights_on_user_id"
+    t.index ["guide_id"], name: "index_sights_on_guide_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -147,15 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "nickname"
-    t.text "payment_details"
-    t.string "country"
     t.boolean "guide"
-    t.string "photo"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "address"
-    t.integer "rating"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -167,8 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_101705) do
   add_foreign_key "citytour_sights", "citytours"
   add_foreign_key "citytour_sights", "sights"
   add_foreign_key "citytours", "users", column: "guide_id"
-  add_foreign_key "guides", "users"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "sights", "users"
+  add_foreign_key "sights", "users", column: "guide_id"
   add_foreign_key "taggings", "tags"
 end
