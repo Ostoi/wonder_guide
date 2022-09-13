@@ -24,17 +24,19 @@ User.destroy_all
 puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
 
-user = User.create!(
+guide = User.create!(
   name: "Zack Levy",
   email: "zacklevy@email.com",
   password: "zlevy210",
-  guide:  true,
+  language_list: "English, Hebrew, Spanish, Thai(kitchen)",
+  guide: true
 )
 
 traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
+  language_list: "English, German(idk what else",
   guide: false
 )
 
@@ -46,127 +48,8 @@ traveller = User.create!(
     name: "Masada/Dead Sea Tour",
     overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
     price: rand(0..400),
-    guide: user
+    guide: guide
   )
-
-  # Below this line: In coding progress by Olli
-
-  # create a hash with 5 sights (not sight object)
-  # sights = {
-  #   '0': {
-  #     name: 'Schönbrunn Palace',
-  #     city: 'Vienna',
-  #     address: "Schönbrunner Schloßstraße 47",
-  #     longitude: 16.311865,
-  #     latitude: 48.184517,
-  #     guide: user
-  #   },
-  #   '1': {
-  #     name: "Hofburg Palace",
-  #     city: "Vienna",
-  #     address: "Heldenplatz",
-  #     longitude: 16.364763,
-  #     latitude: 48.205532,
-  #     guide: user
-  #   }
-  #   '2': {
-  #     name: "Tiergarten Schönbrunn",
-  #     city: "Vienna",
-  #     address: "Maxingstraße 13b",
-  #     longitude: 16.302778,
-  #     latitude: 48.182222,
-  #     guide: user
-  #   },
-  #   '3': {
-  #     name: "Wiener Riesenrad",
-  #     city: "Vienna",
-  #     address: "Riesenradpl. 1",
-  #     longitude: 16.395833,
-  #     latitude: 48.216667,
-  #     guide: user
-  #   }
-  #   '4': {
-  #     name: "Albertina",
-  #     city: "Vienna",
-  #     address: "Albertinapl. 1",
-  #     longitude: 16.367778,
-  #     latitude: 48.204444,
-  #     guide: user
-  #   },
-  #   '5': {
-  #     name: "Kunsthistorisches Museum",
-  #     city: "Vienna",
-  #     address: "Maria-Theresien-Platz",
-  #     longitude: 16.361667,
-  #     latitude: 48.203611,
-  #     guide: user
-  #   }
-  #   '6': {
-  #     name: "Donauturm",
-  #     city: "Vienna",
-  #     address: "Donauturmplatz 1",
-  #     longitude: 16.410833,
-  #     latitude: 48.24,
-  #     guide: user
-  #   },
-  #   '7': {
-  #     name: "Naturhistorisches Museum",
-  #     city: "Vienna",
-  #     address: "Burgring 7",
-  #     longitude: 16.359722,
-  #     latitude: 48.205278,
-  #     guide: user
-  #   }
-  #   '8': {
-  #     name: "Schatzkammer",
-  #     city: "Vienna",
-  #     address: "Hofburg, Schweizerhof",
-  #     longitude: 16.365556,
-  #     latitude: 48.206667,
-  #     guide: user
-  #   },
-  #   '9': {
-  #     name: "Spanish Riding School",
-  #     city: "Vienna",
-  #     address: "Michaelerplatz 1",
-  #     longitude: 16.366944,
-  #     latitude: 48.206944,
-  #     guide: user
-  #   }
-  #   '10': {
-  #     name: "Brandenburg Gate",
-  #     city: "Berlin",
-  #     address: "Pariser Platz, 10117 Berlin, Germany",
-  #     longitude: 13.377775,
-  #     latitude: 52.516266,
-  #     guide: user
-  #   },
-  #   '11': {
-  #     name: "Dead Sea",
-  #     city: "Ein Bokek",
-  #     address: "Ein Bokek, Israel",
-  #     longitude: 31.2002,
-  #     latitude: 35.3625,
-  #     guide: user
-  #   }
-  # }
-
-  # 5.times do |index|
-  #   sightsexample = Sight.create!(
-  #   name: sights[index.to_sym][:name],
-  #   city: "Vienna",
-  #   address: "Heldenplatz",
-  #   longitude: 16.364763,
-  #   latitude: 48.205532,
-  #   guide: user
-  #   )
-  #   CitytourSight.create!(
-  #     citytour: citytour,
-  #     sight: sightsexample
-  #   )
-  # end
-
-  # Above this line: In coding progress by Olli
 
   Booking.create!(
     citytour: citytour,
@@ -180,7 +63,8 @@ user = User.create!(
   name: Faker::Name.name,
   email: Faker::Internet.email,
   password: "secret",
-  guide: Faker::Boolean.boolean(true_ratio: 0.5)
+  language_list: [languages.sample],
+  guide: true
 )
 schonbrunn_p = Sight.new(
   name: 'Schönbrunn Palace',
@@ -350,7 +234,7 @@ Citytour.all.each do |tour|
       Review.create!(
         rating: rand(0..10),
         reviewtext: Faker::Quote.most_interesting_man_in_the_world,
-        booking: booking,
+        booking: booking
       )
     end
   end
@@ -364,17 +248,18 @@ puts "Finished creating bookings"
 #       rating: rand(0..10),
 #       reviewtext: Faker::Lorem.sentence(word_count: 20),
 #       booking_id: booking,
+#       isguide: Faker::Boolean.boolean(true_ratio: 0.5)
 #     )
 #   end
 # end
 # puts "Finished creating reviews"
 
 user = User.create!(
-  name:  "Melchior-Christoph von Brincken",
+  name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  guide:  true,
+  language_list: "English, german",
+  guide: true,
 )
 puts "Last User finished!"
-
 puts "All finished!"
