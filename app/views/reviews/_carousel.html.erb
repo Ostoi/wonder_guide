@@ -3,7 +3,7 @@
   <div class="carousel-inner">
     <% reviews.each_with_index do |review, index| %>
       <div class="carousel-item <%= index == 0 ? "active" : "" %>" style="background: gray; border: 1px solid black;">
-        <p><%= review.author.name %></p>
+        <p><%= review.booking.user.name %></p>
         <p><%= review.rating %></p>
         <p><%= review.reviewtext %></p>
       </div>
