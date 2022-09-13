@@ -59,5 +59,17 @@
       </div>
     </div>
 
+<%# MELCHIOR %>
+                        <% if current_user.guide? %>
+                        <div class="btn btn-warning">
+                            <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
+                            <%= link_to "Destroy this sight", @sight, method: :delete %>
+                                <%#= button_to "Destroy this sight", @sight, method: :delete %>
+                          </div>
+                        <% end %>
+  <%# MELCHIOR %>
+
+
+
   </div> <%# closed-flex align-content-center flex-wrap %>
 </div> <%# close Container %>

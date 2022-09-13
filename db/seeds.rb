@@ -24,23 +24,32 @@ User.destroy_all
 puts 'Creating user'
 languages = %w(german english french spanish dutch portuguese chinese)
 
-user = User.create!(
+guide = User.create!(
   name: "Zack Levy",
   email: "zacklevy@email.com",
   password: "zlevy210",
-  guide:  true
+  # language_list: "English, Hebrew, Spanish, Thai(kitchen)",
+  guide: true
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064629/profile_for_today_ebgv4r.jpg')
+guide.photo.attach(io: file, filename: 'guide.jpg', content_type: 'image/jpg')
+guide.save!
 
 traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
+  language_list: "English, German(idk what else",
   guide: false
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064961/T02NE0241-U03Q0PFQ8QH-1c5b258e121b-192_thtjkf.jpg')
+traveller.photo.attach(io: file, filename: 'traveller.jpg', content_type: 'image/jpg')
+traveller.save!
 
 # puts "User finished!"
 
 # puts "Sight finished!"
+
 
 citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
@@ -239,6 +248,9 @@ puts "All finished!"
 # schonbrunn_p.save!
 # puts 'Created Sight'
 
+puts "All finished!"
+
+
 # hofburg_p = Sight.new(
 #   name: "Hofburg Palace",
 #   city: "Vienna",
@@ -394,7 +406,7 @@ Citytour.all.each do |tour|
       Review.create!(
         rating: rand(0..10),
         reviewtext: Faker::Quote.most_interesting_man_in_the_world,
-        booking: booking,
+        booking: booking
       )
     end
   end
@@ -408,17 +420,18 @@ puts "Finished creating bookings"
 #       rating: rand(0..10),
 #       reviewtext: Faker::Lorem.sentence(word_count: 20),
 #       booking_id: booking,
+#       isguide: Faker::Boolean.boolean(true_ratio: 0.5)
 #     )
 #   end
 # end
 # puts "Finished creating reviews"
 
 user = User.create!(
-  name:  "Melchior-Christoph von Brincken",
+  name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  guide:  true,
+  language_list: "English, german",
+  guide: true,
 )
 puts "Last User finished!"
-
 puts "All finished!"

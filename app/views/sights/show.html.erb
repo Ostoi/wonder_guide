@@ -1,5 +1,3 @@
-
-
 <div class="container">
 
 <% if current_user.guide? %>
@@ -23,92 +21,52 @@
 
       <%#= render @sight %>
 
-      <div class="card" style="width: 18rem;">
-        <% if @sight.photo.attached? %>
-            <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-          <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @sight.name %></h5>
-          <p class="card-text"><%= @sight.address %>
-        </div>
-      </div>
-        <div>
 
-          <div data-controller="insert-in-list">
-            <div data-insert-in-list-target="items">
-              <% @citytours.each do |citytour| %>
-                <%= citytour.name %>
-                <%# <%= citytour.booking %> %>
-              <% end %>
+      <%#   C A R D   %>
+       <div class="d-flex p-2">
+            <div class="card" style="width: 18rem;">
+                      <% if @sight.photo.attached? %>
+                          <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
+                      <% else %>
+                                  <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+                      <% end %>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= @sight.name %></h5>
+                                    <p class="card-text"><%= @sight.address %>
+                                </div>
 
-        </div>
-        <div>
-          <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
-                <%= link_to "Back to sights", sights_path %>
-                <%= button_to "Destroy this sight", @sight, method: :delete %>
-        </div>
+            </div> <%#  card %>
+       </div> <%#d-flex p-2  %>
+
+
+
+
+        <%#   C I T Y   T O U R S   %>
+            <div class="p-2">
+                        <div data-controller="insert-in-list">
+                                  <div data-insert-in-list-target="items">
+                                          <% @citytours.each do |citytour| %>
+                                              <div class="card" style="width: 18rem;">
+                                                    <div class="card-body">
+                                                           <h5 class="card-title"><%= citytour.name %></h1>
+                                                            <h2 class="the_card-pricing">£99.99</h2>
+                                                            <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                                                    </div>
+                                              <div>
+                                                <%# <%= citytour.booking %>
+                                          <% end %>
+                                  </div>
+                        <div>
+                        <%= link_to "Back to sights", sights_path %>
+            </div> <%#d-flex p-2  %>
       </div>
     </div>
-    <h2 class="the_card-pricing">£99.99</h2>
+
     <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" /> %>
 <%# </div>
 </div>
 
 %>
-
-      </div class="flex-sm-column">
-          <%#   S I G H T  %>
-          <div class="p-2" style="margin-bottom: 10px;">
-
-                    <div class="the_card" style="width: 18rem;">
-                                             <% if @sight.photo.attached? %>
-                  <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
-                   <% elsif @sight.id == 1 %>
-                       <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662844355/development/israel_bokek_nn6yj0.jpg" %>
-                   <% elsif @sight.id == 2 %>
-                        <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg" %>
-
-                   <% elsif @sight.id == 3 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805196/development/wien_hofburg_touioa.jpg" %>
-
-                   <% elsif @sight.id == 4 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_tiergarten_sblgx9.jpg" %>
-
-                   <% elsif @sight.id == 5 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/Wien_Riesenrad_v4etl5.jpg" %>
-
-                   <% elsif @sight.id == 6 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_albertina_s0ywu0.jpg" %>
-
-                   <% elsif @sight.id == 7 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662843441/development/wien_kunsthistorisches_museum_b4nutj.png" %>
-
-                   <% elsif @sight.id == 8 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_donauturm_dcy4nv.jpg" %>
-
-                   <% elsif @sight.id == 9 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg" %>
-
-                   <% elsif @sight.id == 10 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/Wien_schatzkammer_fqsohl.jpg" %>
-
-                   <% elsif @sight.id == 11 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg" %>
-
-                   <% elsif @sight.id == 12 %>
-                      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662901594/development/berlin_brandenburg_gate_i0bvpi.jpg" %>
-
-                   <% else %>
-                     <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
-                <% end %>
-
-
-                                  <div class="the_card-infos">
-                                        <h2><%= @sight.name %></h2>
-                                        <p><%= @sight.address %>.</a>
-                                  </div> <%# close Card-body %>
-                      </div>  <%# close Card %>
-        </div><%# close d-flex %>
 
 
         <%#   M A P B O X   %>
@@ -122,31 +80,21 @@
                   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
               </div> <%# close style %>
             </div>
+
+
         </div><%# close d-flex %>
 
 
-        <%#   C I T Y   T O U R S   %>
-            <div class="d-flex p-2">
-              <div data-controller="insert-in-list">
-                <div data-insert-in-list-target="items">
-                  <% @citytours.each do |citytour| %>
-                      <%= citytour.name %>
-                      <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                      <%= render 'reviews/carousel', reviews: citytour.reviews %> <%#= .where(isguide: false) %>
-                  <% end %>
-                  <p style="color: green"><%#= notice %></p>
-                </div>
-              </div>
-            </div><%# close d-flex p-2 %>
 
 
         <%#   L I N K S   %>
           <div class="d-flex p-2">
                   <div style="margin: 10px 0 0 10px;;">
 
-                        <%= link_to "Back to sights", sights_path %>
-                        <%= link_to "Got to Citytours",citytours_path(@sight) %> |
-                        <%= link_to "Back to sights", sights_path %>
+                        <%= link_to "Back to sights ", sights_path %>
+
+                        <%= link_to "Got to Citytours ",citytours_path(@sight) %> |
+
                         <%  %>
 
                         <% if current_user.guide? %>
@@ -157,8 +105,8 @@
                           </div>
                         <% end %>
                   </div>
-          </div><%# close d-flex p-2 %>
+         </div><%# close d-flex p-2 %>
 
-      </div> <%# closed-flex align-content-center flex-wrap %>
+      <%#</div> <%# closed-flex align-content-center flex-wrap %>
 
  </div> <%# close Container %>
