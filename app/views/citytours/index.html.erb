@@ -11,8 +11,28 @@
         </div>
         <% citytour.sights.each do |citytoursight| %>
             <%# if citytour.guide_id == citytoursight.guide_id%>
-              <%= render citytoursight %>
+              <%#= render partial: "citytoursight", collection: @citytours %>
             <%# end %>
+
+    <div class="d-flex flex-wrap">
+      <div class="d-flex p-2" style="margin-bottom: 10px;">
+        <div class="the_card" style="width: 18rem;">
+          <% if citytoursight.photo.attached? %>
+              <%= cl_image_tag citytoursight.photo.key, height: 180, width: 286, crop: :fill %>
+          <% else %>
+              <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+          <% end %>
+          <div class="the_card-infos">
+            <h2> <%= citytoursight.name %></h2>
+            <p> <%= citytoursight.address %>.</p>
+          </div>
+          <div class="show_this_sight">
+            <%# <div class="the_card-infos"> %>
+            <p> <%= link_to "Show this sight", citytoursight %></p>
+          </div>
+        </div>
+      </div>
+    </div>
         <% end %>
     <% end %>
 

@@ -10,10 +10,10 @@ class CitytourSightsController < ApplicationController
     end
   end
 
- def destroy
+  def destroy
     CitytourSight.destroy(params[:id])
     redirect_to citytour_sights_path, status: :see_other
-end # melchior was here
+  end # melchior was here
 
 
 
