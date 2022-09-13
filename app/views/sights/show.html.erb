@@ -1,6 +1,7 @@
 
 
 <div class="container">
+<<<<<<< Updated upstream
 
 <% if current_user.guide? %>
   <p>is guide</p>
@@ -16,6 +17,40 @@
     <div>
       <h2>Title here</h2>
       <p>Short description here!</p>
+=======
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+
+      <p style="color: green"><%= notice %></p>
+
+      <%#= render @sight %>
+
+      <div class="card" style="width: 18rem;">
+        <% if @sight.photo.attached? %>
+            <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
+          <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @sight.name %></h5>
+          <p class="card-text"><%= @sight.address %>
+        </div>
+      </div>
+        <div>
+
+          <div data-controller="insert-in-list">
+            <div data-insert-in-list-target="items">
+              <% @citytours.each do |citytour| %>
+                <%= citytour.name %>
+                <%# <%= citytour.booking %> %>
+              <% end %>
+
+        </div>
+        <div>
+          <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
+                <%= link_to "Back to sights", sights_path %>
+                <%= button_to "Destroy this sight", @sight, method: :delete %>
+        </div>
+      </div>
+>>>>>>> Stashed changes
     </div>
     <h2 class="the_card-pricing">£99.99</h2>
     <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" /> %>
