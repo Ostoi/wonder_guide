@@ -1,5 +1,8 @@
 <div class="citytour-index-container">
   <h1>City Tours</h1>
+  <% if current_user.guide? %>
+    <%= link_to "Add Tour", new_citytour_path, class: "button-primary2" %>
+  <% end %>
   <div class="row justify-content-center">
     <% @citytours.each do |citytour| %>
       <div class="citytour-cards-container d-flex">
@@ -30,14 +33,5 @@
         <% end %>
       </div>
     <% end %>
-
-    <div style="width: 286px; height: 286px;"
-      data-controller="map"
-      data-map-center-value="[-0.118092,51.509865]"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
   </div>
-  <%= link_to "New sight", new_sight_path %>
 </div>
