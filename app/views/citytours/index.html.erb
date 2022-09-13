@@ -13,10 +13,10 @@
                                 </div>
                           </div>
 
-                   <% @sights.each do |citytoursight| %>
-                        <% if citytour.guide_id == citytoursight.user_id%>
-                            <p>Sight name:  <%= citytoursight.name  %></p>
-                            <%= render citytoursight %>
+                   <% @sights.each do |citytoursight2| %>
+                        <% if citytour.guide_id == citytoursight2.user_id%>
+                            <p>Sight name:  <%= citytoursight2.name  %></p>
+                            <%= render citytoursight2 %>
                         <% end %>
                    <% end %>
                          <p></p>
