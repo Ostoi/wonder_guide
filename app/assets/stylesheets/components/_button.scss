@@ -49,4 +49,12 @@ a.button-secondary:hover{
 
 .home-button {
   margin-top: 32px !important;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.homepage-buttons {
+  display: grid;
+  // grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
 }
