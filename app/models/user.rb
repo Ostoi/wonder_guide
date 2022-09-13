@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   # this is zach's code line 10
   has_many :citytours, foreign_key: "guide_id", class_name: "Citytour"
-  has_many :bookings, through: :citytours
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   acts_as_taggable_on :languages

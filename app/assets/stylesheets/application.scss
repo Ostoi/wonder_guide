@@ -10,19 +10,14 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/button";
 @import "pages/index";
 // @import "components/form";
 
+body {
+  font-family: 'Cutive Mono', monospace;
+}
 
-// .FOOTER {}  =>  MOVED TO: components _footer.scss
-
-// .footer {
-//   background: rgb(4, 68, 111);
-//   color: beige;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   height: 100px;
-//   padding: 0px 20px;
-//   background-size: cover;
-// }
+a {
+  all: unset;
+}
