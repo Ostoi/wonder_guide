@@ -1,33 +1,41 @@
 <div class="container">
 <div class="row justify-content-center">
+<% if current_user.guide? %>
+  <p>is guide</p>
+  <% else %>
+  <p>is user</p>
+  <% end %>
 
 
-      <h1>City Tour</h1>
+      <h1>City Tours </h1>
+      <% if current_user.guide? %>
+           <p>Guide name:  <% current_user.name %> </p>
+       <% else %>
+      <p>is user</p>
+  <% end %>
       <p>I can see a list of the citytours</p>
    <div class="container">
 
 
+               <% if current_user.guide? %>
+                        <% @sights.each do |sight| %>
+                                <%# if sight.photo.attached? %>
+                                          <% if sight.guide_id == current_user.id %>
+                                              <%= render sight %>
+                                          <% end %>
+                                  <%# end %>
+                        <% end %>
+                <% else  %>
 
-                <% @sights.each do |sight| %>
-                     <% if sight.photo.attached? %>
-                           <div class="container">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                  <%= render sight %>
-                                </div>
-                        </div>
-                      <% end %>
+
+                       <% @sights.each do |sight| %>
+                                    <% if sight.photo.attached? %>
+                                                 <% if sight.guide_id == current_user %>
+                                                    <%= render sight %>
+                                                <% end %>
+                                    <% end %>
+                       <% end %>
                  <% end %>
-
-              <% @sights.each do |sight| %>
-                      <% if sight.photo.attached? == false %>
-                       <div class="container">
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <%= render sight %>
-                              </div>
-                        </div>
-                      <% end %>
-              <% end %>
-
 
             </div>
 
