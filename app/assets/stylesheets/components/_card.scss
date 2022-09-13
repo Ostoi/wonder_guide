@@ -64,3 +64,42 @@ padding: 5px ;}
   top: -20px;
   width: 40px;
 }
+
+.citytour-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height: 415px;
+  padding: 26px;
+}
+
+.tour-card-buttons {
+  text-align: center;
+  .tour-booking {
+    margin-top: 10px;
+  }
+}
+
+.citytoursight-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height: 415px;
+  img {
+    width: 100%;
+  }
+}
+
+.citytour-index-container {
+  margin-left: 24px;
+}
+
+.tour-sight-container {
+  a:hover {
+    text-decoration: none;;
+  }
+}
+
+.citytour-cards-container {
+  margin-bottom: 32px;
+}

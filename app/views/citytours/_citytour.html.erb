@@ -1,19 +1,12 @@
-
-<div class="the_card" style="width: 18rem;">
-    <% citytour.sights.each do |sight| %>
-      <%#= cl_image_tag sight.photo.key, height: 75, width: 75, crop: :fill %>
-    <% end %>
-    </div>
-
-<div class="d-flex p-2" style="margin-bottom: 10px;">
-  <div class="the_card sight col-sm-12 col-md-6 col-lg-6" style="width: 18rem;">
-
-    <div class="the_card-infos">
-      <h2><%= citytour.name %></h2>
-      <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
-      <br>
-      <%= link_to "Details", citytour_path(citytour), class: "btn button-secondary"%>
-      <%= link_to "Book this Tour", new_citytour_booking_path(citytour), class: "btn button-primary2"%>
-    </div>
+<div class="citytour-card sight col-sm-12 col-md-6 col-lg-6" style="width: 18rem;">
+  <div class="tour-card-info">
+    <h2><%= citytour.name %></h2>
+    <p><%= citytour.overview %></p>
+    <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
+    <br>
   </div>
+    <div class="tour-card-buttons">
+      <%= link_to "Details", citytour_path(citytour), class: "btn button-secondary"%>
+      <%= link_to "Book this Tour", new_citytour_booking_path(citytour), class: "btn button-primary2 tour-booking"%>
+    </div>
 </div>
