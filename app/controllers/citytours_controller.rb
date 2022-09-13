@@ -38,12 +38,13 @@ class CitytoursController < ApplicationController
       else
         render :new
       end
+
   end
 
   def show
     @citytour = Citytour.find(params[:id])
       @sightmarkers = @citytour.sights.map do |sight|
-        sight_url = sight.photo.attached? ? cl_image_url(sight.photo.key) : Sight::DEFAULT_IMG_URL
+        sight_url = sight.photo.attached? ? helpers.cl_image_path(sight.photo.key) : Sight::DEFAULT_IMG_URL
         {
           lat: sight.latitude,
           lng: sight.longitude,

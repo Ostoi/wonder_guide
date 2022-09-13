@@ -1,19 +1,26 @@
-<%= simple_form_for(@citytour) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class= "container text-align-center">
+  <div class= "row justify-content-center">
+    <div class= "col-6">
+    <h1>New Sight</h1>
+      <%= simple_form_for(@citytour) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :overview %>
-    <%= f.input :price %>
-    <%# <%= f.input :country, %>
-      <%# input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-    %>
-    <%= f.association :sights, as: :check_boxes %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :overview %>
+          <%= f.input :price %>
+          <%# <%= f.input :country, %>
+            <%# input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+          %>
+          <%= f.association :sights, as: :check_boxes %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <div class="form-actions mb-1">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

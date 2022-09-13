@@ -3,21 +3,6 @@
  <%# class="border mb-1 p-2"> %>
  <%# <div class="the_card sight col-sm-12 col-md-6 col-lg-6" style="width: 18"> %>
 
-<div class="card-trip">
-  <% if sight.photo.attached? %>
-      <%= cl_image_tag sight.photo.key, height: 180, width: 286, crop: :fill %>
-  <% else %>
-      <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
-  <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2> <%= sight.name %></h2>
-      <p> <%= sight.address %></p>
-      <p> <%= link_to "Show this sight", sight %></p>
-    </div>
-  </div>
-</div>
-
     <div class="d-flex flex-wrap">
 
         <div class="d-flex p-2" style="margin-bottom: 10px;">
