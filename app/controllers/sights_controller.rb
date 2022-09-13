@@ -68,7 +68,7 @@ class SightsController < ApplicationController
 
   def create
     @sight = Sight.new(sight_params)
-    @sight.user_id = current_user.id
+    @sight.guide_id = current_user.id
     if @sight.save
       # redirect_to index_path_url
       redirect_to :controller => 'sights', :action => 'index', notice: 'successfully added.'
