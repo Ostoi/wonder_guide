@@ -10,14 +10,10 @@
 
  <div class="form-inputs">
   <%= f.input :guide %>
-  <%= f.input :first_name,
+  <%= f.input :name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "first_name" }%>
-  <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last_name" }%>
+                input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
