@@ -19,8 +19,8 @@ class SightsController < ApplicationController
         lat: sight.latitude,
         lng: sight.longitude,
         info_window: render_to_string(partial: "info_window", locals: {sight: sight}),
-        # image_url: "https://images.unsplash.com/photo-1644815410301-71ab7334670e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
-        image_url: "http://www.soziale-opposition.de/geolocation_pin.png"
+        # image_url: "https://tinyurl.com/6tfnjd2w"
+        image_url: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663085811/development/geolocation_pin_awfnba.png"
       }
     end
 
@@ -36,9 +36,9 @@ class SightsController < ApplicationController
     @sightmarkers = [{
       lat: @sight.latitude,
       lng: @sight.longitude,
-      image_url: "http://www.soziale-opposition.de/geolocation_pin.png"
+      #image_url: "https://tinyurl.com/6tfnjd2w"
+      image_url: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663085811/development/geolocation_pin_awfnba.png"
     }]
-
 
   end
 
