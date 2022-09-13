@@ -37,7 +37,7 @@
           <% @citytours.each do |citytour| %>
             <%= citytour.name %>
             <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-            <%= render 'reviews/carousel', reviews: citytour.reviews.where(isguide: false) %>
+            <%= render 'reviews/carousel', reviews: citytour.reviews %>
           <% end %>
           <p style="color: green"><%#= notice %></p>
         </div>
