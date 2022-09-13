@@ -31,6 +31,9 @@ guide = User.create!(
   language_list: "English, Hebrew, Spanish, Thai(kitchen)",
   guide: true
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064629/profile_for_today_ebgv4r.jpg')
+guide.photo.attach(io: file, filename: 'guide.jpg', content_type: 'image/jpg')
+guide.save!
 
 traveller = User.create!(
   name: "Oliver Stoislow",
@@ -39,6 +42,9 @@ traveller = User.create!(
   language_list: "English, German(idk what else",
   guide: false
 )
+file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064961/T02NE0241-U03Q0PFQ8QH-1c5b258e121b-192_thtjkf.jpg')
+traveller.photo.attach(io: file, filename: 'traveller.jpg', content_type: 'image/jpg')
+traveller.save!
 
   # puts "User finished!"
 
