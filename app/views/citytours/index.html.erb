@@ -1,49 +1,41 @@
-<div class="container">
+<div class="citytour-index-container">
+  <h1>City Tours</h1>
+  <% if current_user.guide? %>
+    <%= link_to "Add Tour", new_citytour_path, class: "button-primary2" %>
+  <% end %>
   <div class="row justify-content-center">
-    <h1>City Tour</h1>
-    <p>I can see a list of the citytours</p>
     <% @citytours.each do |citytour| %>
-      <%# <% if sight.photo.attached? %>
-        <div class="container">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <%= render citytour %>
-          </div>
-        </div>
-        <% citytour.sights.each do |citytoursight| %>
-            <%# if citytour.guide_id == citytoursight.guide_id%>
-              <%#= render partial: "citytoursight", collection: @citytours %>
-            <%# end %>
+      <div class="citytour-cards-container d-flex">
+        <%= render citytour %>
 
-    <div class="d-flex flex-wrap">
-      <div class="d-flex p-2" style="margin-bottom: 10px;">
-        <div class="the_card" style="width: 18rem;">
-          <% if citytoursight.photo.attached? %>
-              <%= cl_image_tag citytoursight.photo.key, height: 180, width: 286, crop: :fill %>
-          <% else %>
-              <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+      <% citytour.sights.each do |citytoursight| %>
+          <div class="tour-sight-container d-flex">
+          <div class="container">
+          <%= link_to sights_path(citytoursight) do %>
+            <div class="citytoursight-card" style="width: 18rem;">
+              <% if citytoursight.photo.attached? %>
+                  <%= cl_image_tag citytoursight.photo.key, height: 180, crop: :fill %>
+              <% else %>
+                  <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+              <% end %>
+              <div class="the_card-infos">
+                <h2> <%= citytoursight.name %></h2>
+                <p> <%= citytoursight.address %>.</p>
+              </div>
+              <div class="show_this_sight">
+                <%# <div class="the_card-infos"> %>
+                <p> <%= link_to "Show this sight", citytoursight %></p>
+              </div>
+            </div>
           <% end %>
-          <div class="the_card-infos">
-            <h2> <%= citytoursight.name %></h2>
-            <p> <%= citytoursight.address %>.</p>
           </div>
-          <div class="show_this_sight">
-            <%# <div class="the_card-infos"> %>
-            <p> <%= link_to "Show this sight", citytoursight %></p>
           </div>
-        </div>
-      </div>
-    </div>
         <% end %>
+      </div>
     <% end %>
-
-    <div style="width: 286px; height: 286px;"
-      data-controller="map"
-      data-map-center-value="[-0.118092,51.509865]"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
   </div>
+
   <%= link_to "New sight", new_sight_path %>
   <%= link_to "Go to sights ", sights_path %>
+
 </div>
