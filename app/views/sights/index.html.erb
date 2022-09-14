@@ -17,35 +17,51 @@
       <p>is user</p>
   <% end %>
 
- <p>I can see a list of the tours I added</p>
+ <h1>I can see a list of the tours I added</h1>
+
+
+
+<>
+
+
 
         <% @sights.each do |sight| %>
-                  <%= sight.citytours.each do |citytour| %>
-                        <%#   C A R D   %>
-                          <div class="d-flex p-2">
+                  <% sight.citytours.each do |citytour| %>
+
+                         <div class="d-flex p-2">
                                 <div class="card" style="width: 18rem;">
                                                   <div class="card-body">
-                                                        <h5 class="card-title"> Title<%= citytour.name %></h5>
-                                                        <p class="card-text">Text<%= citytour.overview %>
+                                                        <h5 class="card-title"> <%= citytour.name %></h5>
+                                                        <p class="card-text">  <%= citytour.overview %>
                                                   </div>
-                                                        <button type="button" class="btn btn-primary">Primary</button>
-                                </div> <%#  card %>
-                          </div> <%#d-flex p-2  %>
-                    <% end %>
+                                                               <%# <button type="button" class="btn btn-primary">book this tour</button> %>
+                                                          <% if current_user.guide? %>
+                                                              <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                                                            <% else %>
+                                                               <%= link_to "Add this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                                                            <% end %>
+                 <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-primary" %>
+                                </div>
+
+                          </div>
+
+                   <% end %>
+
           <% end %>
 
 
    <div class="container">
+
                 <%# GUIDE PERSPECTICE  %>
                <% if current_user.guide? %>
                   <h1>List of the sights you added as a guide</h1>
                               <% @sights.each do |sight| %>
-
                                               <% if sight.guide_id == current_user.id %>
-                                                          <%= sight.citytours.each do |citytour| %>
+                                                          <% sight.citytours.each do |citytour| %>
                                                                 <%#= citytour.name %>
+                                                                <p>render sight</p>
                                                                 <%= render sight %>
-                                                          <% end %>
+                                                                                                                        <% end %>
                                               <% end %>
 
                                 <% end %>
