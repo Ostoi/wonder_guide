@@ -1,7 +1,7 @@
 class CitytourSightsController < ApplicationController
   def create
     @citytour = Citytour.find(params[:citytour_id])
-    @sight = Sight.find(params[:citytour_sight][:sight])
+    @sight = Sight.find(params[:sight])
     @citytour_sight = CitytourSight.new(citytour: @citytour, sight: @sight)
     if @citytour_sight.save
       redirect_to :controller => 'citytours', :action => 'index'

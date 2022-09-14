@@ -49,8 +49,12 @@
                                               <div class="card" style="width: 18rem;">
                                                     <div class="card-body">
                                                            <h5 class="card-title"><%= citytour.name %></h1>
-                                                            <h2 class="the_card-pricing">£99.99</h2>
+                                                            <h2 class="the_card-pricing">€99.99</h2>
                                                             <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                                                      <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                                                    <% if current_user.guide? %>
+                                                    <p>is guide</p>
+                                                    <% end %>
                                                     </div>
                                               <div>
                                                 <%# <%= citytour.booking %>
