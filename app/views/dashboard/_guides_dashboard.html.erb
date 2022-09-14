@@ -4,25 +4,34 @@
 
 <div class= "container d-flex">
   <div class="dash-content">
-    <div class="user-booking-request">
-      <h2>Booking Requests:</h2>
-      <% current_user.bookings.where(status: "pending").each do|guide_booking| %>
-         <h2><%= guide_booking.citytour.name %></h2>
-         <p><%= guide_booking.user.name %></p>
-         <p><%#= guide_booking.user.language_list %></p>
-         <%= link_to "Accept", accept_booking_path(guide_booking), data: {turbo_method: :get} %>
-         <%= link_to "Deny", deny_booking_path(guide_booking), data: {turbo_method: :get} %>
-       <% end %>
+    <div class="user-booking-request" style="width: 50%">
+      <h2>Booking Requests</h2>
+      <div class="dash-card">
+        <% current_user.citytours.each do |citytour| %>
+          <% citytour.bookings.where(status: "pending").each do |guide_booking| %>
+            <div class="dash-booking">
+                <h2><%= guide_booking.citytour.name %></h2>
+                <p><%= guide_booking.user.name %></p>
+                <p><%= guide_booking.start %></p>
+                <p><%= guide_booking.user.language_list %></p>
+                <%= link_to "Accept", accept_booking_path(guide_booking), data: {turbo_method: :get}, class: "btn button-primary2" %>
+                <%= link_to "Deny", deny_booking_path(guide_booking), data: {turbo_method: :get}, class: "btn button-secondary" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="upcoming-tour">
-      <h2>Upcoming Tours:</h2>
-      <% current_user.upcoming_citytours(30).each do|citytour| %>
-        <div>
-          <h3><%= citytour.name %></h3>
-          <p>$<%= citytour.price %></p>
-          <p><%= citytour.overview %></p>
-        </div>
-       <% end %>
+      <h2>Upcoming Bookings</h2>
+      <div class="dash-card">
+        <% current_user.upcoming_citytours(30).each do|citytour| %>
+          <div class="dash-booking">
+            <h3><%= citytour.name %></h3>
+            <p>$<%= citytour.price %></p>
+            <p><%= citytour.overview %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="user-info-card">
@@ -30,8 +39,8 @@
       <img src="images/avatar.png" alt="Avatar" class="avatar">
       <h4><%#= current_user.name %><h4>
       <h4><%#= current_user.email %></h4>
-      <h4><%#= current_user.country %></h4>
-      <h4><%#= current_user.language_list %></h4>
+      <%# <h4><%= current_user.country</h4> %>
+      <h4><%= current_user.language_list %></h4>
     </div>
   </div>
 </div>

@@ -28,7 +28,8 @@ guide = User.create!(
   name: "Zack Levy",
   email: "zacklevy@email.com",
   password: "zlevy210",
-  encrypted_password: "zlevy210",
+  # encrypted_password: "zlevy210",
+
   # language_list: "English, Hebrew, Spanish, Thai(kitchen)",
   guide: true
 )
@@ -40,7 +41,6 @@ traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
-  encrypted_password: "oliver",
   # language_list: "English, German(idk what else",
   guide: false
 )
@@ -58,6 +58,13 @@ citytour = Citytour.create!(
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
   price: rand(0..400),
   guide: guide
+)
+
+Booking.create!(
+  start: DateTime.now + 1.days,
+  end: DateTime.now + 1.days,
+  user: traveller,
+  citytour: citytour
 )
 citytour = Citytour.create!(
   name: "Vienna Highlights",
@@ -400,8 +407,9 @@ Citytour.all.each do |tour|
   Booking.create!(
     start: DateTime.now + 1.days,
     end: DateTime.now + 1.days,
-    user: User.second,
-    citytour: tour
+    user: traveller,
+    citytour: tour,
+    status: "pending"
   )
   Booking.all.each do |booking|
     5.times do
@@ -432,7 +440,6 @@ user = User.create!(
   name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  encrypted_password: "123456",
   # language_list: "English, german",
   guide: true,
 )
