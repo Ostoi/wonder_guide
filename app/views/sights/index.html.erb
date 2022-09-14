@@ -1,35 +1,65 @@
 <div class="container">
 <div class="row justify-content-center">
+<% if current_user.guide? %>
+  <p>is guide</p>
+  <% else %>
+  <p>is user</p>
+  <% end %>
 
 
-      <h1>City Tour</h1>
-      <p>I can see a list of the citytours</p>
+      <h1>City Tours </h1>
+
+      <% if current_user.guide? %>
+      <p>Guide email:  <%=   current_user.email %>
+     <p>Guide id:  <%=   current_user.id %>
+
+       <% else %>
+      <p>is user</p>
+  <% end %>
+ <p>I can see a list of the tours</p>
+
+
+
+
+ <% @citytours.each do |citytour| %>
+
+<%#   C A R D   %>
+       <div class="d-flex p-2">
+            <div class="card" style="width: 18rem;">
+                              <div class="card-body">
+                                    <h5 class="card-title"> Title<%#= citytour.name %></h5>
+                                    <p class="card-text">Text<%#= citytour.address %>
+                              </div>
+                                     <button type="button" class="btn btn-primary">Primary</button>
+            </div> <%#  card %>
+       </div> <%#d-flex p-2  %>
+
+   <% end %>
+
+
+
    <div class="container">
-
-
-
-                <% @sights.each do |sight| %>
-                     <% if sight.photo.attached? %>
-                           <div class="container">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                  <%= render sight %>
-                                </div>
-                        </div>
-                      <% end %>
+               <% if current_user.guide? %>
+                  <p>List of the sights you added</p>
+                        <% @sights.each do |sight| %>
+                                <%# if sight.photo.attached? %>
+                                          <% if sight.guide_id == current_user.id %>
+                                              <%= render sight %>
+                                          <% end %>
+                                  <%# end %>
+                        <% end %>
+                <% else  %>
+                 <p>List of the sights</p>
+                       <% @sights.each do |sight| %>
+                                    <% if sight.photo.attached? %>
+                                                 <% if sight.guide_id == current_user %>
+                                                    <%= render sight %>
+                                                <% end %>
+                                    <% end %>
+                       <% end %>
                  <% end %>
 
-              <% @sights.each do |sight| %>
-                      <% if sight.photo.attached? == false %>
-                       <div class="container">
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <%= render sight %>
-                              </div>
-                        </div>
-                      <% end %>
-              <% end %>
-
-
-            </div>
+   </div>
 
 
               <div style="width: 286px; height: 286px;"

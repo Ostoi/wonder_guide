@@ -63,6 +63,7 @@
                         <% if current_user.guide? %>
                         <div class="btn btn-warning">
                             <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
+                              <%= link_to "Go to sights ", sights_path %>
                             <%= link_to "Destroy this sight", @sight, method: :delete %>
                                 <%#= button_to "Destroy this sight", @sight, method: :delete %>
                           </div>

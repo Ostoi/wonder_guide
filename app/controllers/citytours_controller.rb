@@ -31,8 +31,9 @@ class CitytoursController < ApplicationController
   def create
     @citytour = Citytour.new(citytour_params)
     @citytour.guide = current_user
-    @citytour.sights = Sight.where(id: params[:sight_ids])
-    raise
+
+    @citytour.sights = Sight.where(id: params[:citytour][:sight_ids])
+
     if @citytour.save
       # redirect_to index_path_url
       redirect_to :controller => 'citytours', :action => 'index'
@@ -66,6 +67,6 @@ class CitytoursController < ApplicationController
   private
 
   def citytour_params
-    params.require(:citytour).permit(:name, :overview, :price)
+    params.require(:citytour).permit(:name, :overview, :price, sight_ids: [])
   end
 end
