@@ -8,6 +8,7 @@
         <h2><%= booking.citytour.name %></h2>
         <p><%= booking.user.name %></p>
         <p><%= booking.user.language_list %></p>
+        <%= link_to "Review", new_booking_review_path(booking) %>
       <% end %>
     </div>
     <div class="upcoming-tour-card">

@@ -10,7 +10,18 @@
           <%= @citytour.guide.name %><br>
         </div>
       </div>
-      <%#   M A P B O X   %>
+    </div><%# close d-flex %>
+    <%#   C I T Y   T O U R S   %>
+    <div class="d-flex p-2">
+      <div data-controller="insert-in-list">
+        <div data-insert-in-list-target="items">
+          <%= @citytour.name %>
+          <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
+          <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
+          <%#= link_to "Destroy this review", destroy_review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <p style="color: green"><%#= notice %></p>
+          
+     <%#   M A P B O X   %>
       <div class="p-2">
         <div d="mapbox_sights">
           <div style="height: 280px;"
@@ -19,6 +30,7 @@
             data-map-markers-value="<%= @sightmarkers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
+
         </div>
       </div><%# close d-flex %>
       <%#   L I N K S   %>
@@ -41,6 +53,9 @@
       <div class="p-2">
         <div class="the_card" style="width: 100%; object-fit: cover; height: 400px;">
           <%= render 'sights/carousel', sights: @citytour.sights %>
+        </div>
+        <div class="btn btn-warning">
+          <%#= link_to "Make a new review", new_citytour_booking_review_path(@review) %>
         </div>
       </div>
       <%#   C I T Y   T O U R S   %>
