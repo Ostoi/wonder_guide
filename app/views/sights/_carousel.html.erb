@@ -3,9 +3,9 @@
     <% sights.each_with_index do |sight, index| %>
       <div class="carousel-item <%= index == 0 ? "active" : "" %>" style="background: gray; border: 1px solid black;">
         <% if sight.photo.attached? %>
-          <%= cl_image_tag sight.photo.key, height: 180, width: 286, crop: :fill %>
+          <%= cl_image_tag sight.photo.key, class: "w-100", crop: :fill %>
         <% else %>
-          <%= image_tag Sight::DEFAULT_IMG_URL, height: 180, width: 286, crop: :fill %>
+          <%= image_tag Sight::DEFAULT_IMG_URL, class: "w-100", crop: :fill %>
         <% end %>
         <p><%= sight.name %></p>
         <p><%= sight.address %></p>

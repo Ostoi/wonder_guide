@@ -1,63 +1,72 @@
 <div class="container">
-  </div class="flex-sm-column">
-
-    <%#   C I T Y T O U R - D E T A I L S  %>
-    <div class="p-2" style="margin-bottom: 10px;">
-      <div class="the_card" style="width: 18rem;">
-        <%= @citytour.name  %><br>
-        <%= @citytour.overview %><br>
-        <%= @citytour.price %><br>
-        <%= @citytour.guide.name %><br>
-      </div>
-    </div>
-
-    <%#   S I G H T  %>
-    <div class="p-2" style="margin-bottom: 10px;">
-      <div class="the_card" style="width: 18rem;">
-        <%= render 'sights/carousel', sights: @citytour.sights %>
-      </div>  <%# close Card %>
-    </div><%# close d-flex %>
-
-    <%#   M A P B O X   %>
-    <div class="p-2">
-      <div d="mapbox_sights">
-        <div style="width: 286px; height: 286px;"
-          data-controller="map"
-          data-map-center-value="[-0.118092,51.509865]"
-          data-map-markers-value="<%= @sightmarkers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="d-flex justify-content-between">
+    <div class="citytour-details" style="width: 30%;">
+      <%#   C I T Y T O U R - D E T A I L S  %>
+      <div class="p-2">
+        <div class="the_card" style="width: 100%;">
+          <h2><%= @citytour.name  %></h2><br>
+          <%= @citytour.overview %><br>
+          <%= @citytour.price %><br>
+          <%= @citytour.guide.name %><br>
         </div>
       </div>
-    </div><%# close d-flex %>
-
-    <%#   C I T Y   T O U R S   %>
-    <div class="d-flex p-2">
-      <div data-controller="insert-in-list">
-        <div data-insert-in-list-target="items">
-          <%# @citytours.each do |citytour| %>
-            <%= @citytour.name %>
-            <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
-            <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
-          <%# end %>
-          <p style="color: green"><%#= notice %></p>
+      <%#   M A P B O X   %>
+      <div class="p-2">
+        <div d="mapbox_sights">
+          <div style="height: 280px;"
+            data-controller="map"
+            data-map-center-value="[-0.118092,51.509865]"
+            data-map-markers-value="<%= @sightmarkers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
-      </div>
-    </div><%# close d-flex p-2 %>
-
-    <%#   L I N K S   %>
-    <div class="d-flex p-2">
-      <div style="margin: 10px 0 0 10px;;">
-        <div class="btn btn-warning">
-          <%= link_to "Back to citytours", citytours_path %>
-        </div>
-        <div class="btn btn-warning">
-         <%= link_to "Edit this citytour", edit_citytour_path(@citytour) %>
-        </div>
-        <div class="btn btn-warning">
-          <%= link_to "Destroy this citytour", @citytour, method: :delete %>
+      </div><%# close d-flex %>
+      <%#   L I N K S   %>
+      <div class="d-flex p-2">
+        <div style="margin: 10px 0 0 10px;;">
+          <div class="btn btn-warning">
+            <%= link_to "←", citytours_path %>
+          </div>
+          <div class="btn btn-warning">
+          <%= link_to "Edit", edit_citytour_path(@citytour) %>
+          </div>
+          <div class="btn btn-warning">
+            <%= link_to "🗑️", @citytour, method: :delete %>
+          </div>
         </div>
       </div>
     </div>
+    <div class="citytour_sights_photos">
+      <%#   S I G H T  %>
+      <div class="p-2">
+        <div class="the_card" style="width: 100%; object-fit: cover; height: 400px;">
+          <%= render 'sights/carousel', sights: @citytour.sights %>
+        </div>
+      </div>
+      <%#   C I T Y   T O U R S   %>
+      <div class="d-flex p-2 w-100">
+        <div data-controller="insert-in-list" class="w-100">
+          <div data-insert-in-list-target="items">
+            <%# @citytours.each do |citytour| %>
+              <%= @citytour.name %>
+              <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
+              <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
+            <%# end %>
+            <p style="color: green"><%#= notice %></p>
+          </div>
+        </div>
+      </div><%# close d-flex p-2 %>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
 
 <%# MELCHIOR %>
                         <% if current_user.guide? %>
