@@ -8,16 +8,44 @@
 
 
       <h1>City Tours </h1>
+
+<%= User.find(1).name  %> </p></p>
+<%= User.find(2).name  %> </p></p>
+<%= User.find(current_user.id).name %> </p></p>
+<%= User.find(4).name  %> </p></p>
+
       <% if current_user.guide? %>
-           <p>Guide name:  <% current_user.name %> </p>
+      <p>Guide name:  <%=   current_user.id %>
+
+
        <% else %>
       <p>is user</p>
   <% end %>
-      <p>I can see a list of the citytours</p>
+ <p>I can see a list of the tours</p>
+
+
+
+
+ <% @citytours.each do |citytour| %>
+
+<%#   C A R D   %>
+       <div class="d-flex p-2">
+            <div class="card" style="width: 18rem;">
+                              <div class="card-body">
+                                    <h5 class="card-title"> Title<%#= citytour.name %></h5>
+                                    <p class="card-text">Text<%#= citytour.address %>
+                              </div>
+                                     <button type="button" class="btn btn-primary">Primary</button>
+            </div> <%#  card %>
+       </div> <%#d-flex p-2  %>
+
+   <% end %>
+
+
+
    <div class="container">
-
-
                <% if current_user.guide? %>
+                  <p>List of the sights you added</p>
                         <% @sights.each do |sight| %>
                                 <%# if sight.photo.attached? %>
                                           <% if sight.guide_id == current_user.id %>
@@ -26,8 +54,7 @@
                                   <%# end %>
                         <% end %>
                 <% else  %>
-
-
+                 <p>List of the sights</p>
                        <% @sights.each do |sight| %>
                                     <% if sight.photo.attached? %>
                                                  <% if sight.guide_id == current_user %>
@@ -37,7 +64,7 @@
                        <% end %>
                  <% end %>
 
-            </div>
+   </div>
 
 
               <div style="width: 286px; height: 286px;"
