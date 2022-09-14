@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :citytours do
     resources :citytour_sights, only: :create
     resources :bookings, only: [:index, :show, :create, :new] do
-      resources :reviews, only: :create
     end
   end
   resources :bookings, only: [] do
@@ -20,5 +19,7 @@ Rails.application.routes.draw do
       get :accept
       get :deny
     end
+    resources :reviews, only: [:index, :new, :create]
   end
+  resources :reviews, only: [:show, :edit, :update, :destroy]
 end

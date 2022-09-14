@@ -34,11 +34,10 @@
     <div class="d-flex p-2">
       <div data-controller="insert-in-list">
         <div data-insert-in-list-target="items">
-          <%# @citytours.each do |citytour| %>
-            <%= @citytour.name %>
-            <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
-            <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
-          <%# end %>
+          <%= @citytour.name %>
+          <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
+          <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
+          <%#= link_to "Destroy this review", destroy_review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           <p style="color: green"><%#= notice %></p>
         </div>
       </div>
@@ -55,6 +54,9 @@
         </div>
         <div class="btn btn-warning">
           <%= link_to "Destroy this citytour", @citytour, method: :delete %>
+        </div>
+        <div class="btn btn-warning">
+          <%#= link_to "Make a new review", new_citytour_booking_review_path(@review) %>
         </div>
       </div>
     </div>

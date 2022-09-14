@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :booking
-  validates :reviewtext, length: {minimum: 10}
+  validates :reviewtext, presence: true
+  # validates :reviewtext, length: {minimum: 10}
 
   # def author
   #   if isguide
