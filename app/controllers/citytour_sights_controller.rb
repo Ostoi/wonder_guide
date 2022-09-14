@@ -4,7 +4,8 @@ class CitytourSightsController < ApplicationController
     @sight = Sight.find(params[:sight])
     @citytour_sight = CitytourSight.new(citytour: @citytour, sight: @sight)
     if @citytour_sight.save
-      redirect_to :controller => 'citytours', :action => 'index'
+      # redirect_to :controller => 'citytours', :action => 'index'
+      redirect_to request.referer, notice: "added"
     else
       render :new
     end
@@ -14,8 +15,6 @@ class CitytourSightsController < ApplicationController
     CitytourSight.destroy(params[:id])
     redirect_to citytour_sights_path, status: :see_other
   end # melchior was here
-
-
 
   # def destroy
   #   @citytour_sight = CitytourSight.find(params[:id])
