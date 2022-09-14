@@ -16,42 +16,42 @@
        <% else %>
       <p>is user</p>
   <% end %>
- <p>I can see a list of the tours</p>
 
+ <p>I can see a list of the tours I added</p>
 
-
-
- <% @citytours.each do |citytour| %>
-
-<%#   C A R D   %>
-       <div class="d-flex p-2">
-            <div class="card" style="width: 18rem;">
-                              <div class="card-body">
-                                    <h5 class="card-title"> Title<%#= citytour.name %></h5>
-                                    <p class="card-text">Text<%#= citytour.address %>
-                              </div>
-                                     <button type="button" class="btn btn-primary">Primary</button>
-            </div> <%#  card %>
-       </div> <%#d-flex p-2  %>
-
-   <% end %>
-
+        <% @sights.each do |sight| %>
+                  <%= sight.citytours.each do |citytour| %>
+                        <%#   C A R D   %>
+                          <div class="d-flex p-2">
+                                <div class="card" style="width: 18rem;">
+                                                  <div class="card-body">
+                                                        <h5 class="card-title"> Title<%= citytour.name %></h5>
+                                                        <p class="card-text">Text<%= citytour.overview %>
+                                                  </div>
+                                                        <button type="button" class="btn btn-primary">Primary</button>
+                                </div> <%#  card %>
+                          </div> <%#d-flex p-2  %>
+                    <% end %>
+          <% end %>
 
 
    <div class="container">
+                <%# GUIDE PERSPECTICE  %>
                <% if current_user.guide? %>
-                  <p>List of the sights you added</p>
-                        <% @sights.each do |sight| %>
-                                <%# if sight.photo.attached? %>
-                                          <% if sight.guide_id == current_user.id %>
-                                            <%= sight.citytours.each do |citytour| %>
-                                              <%= citytour.name %>
-                                            <% end %>
-                                              <%= render sight %>
-                                          <% end %>
-                                  <%# end %>
-                        <% end %>
+                  <h1>List of the sights you added as a guide</h1>
+                              <% @sights.each do |sight| %>
+
+                                              <% if sight.guide_id == current_user.id %>
+                                                          <%= sight.citytours.each do |citytour| %>
+                                                                <%#= citytour.name %>
+                                                                <%= render sight %>
+                                                          <% end %>
+                                              <% end %>
+
+                                <% end %>
                 <% else  %>
+
+                <%# USER PERSPECTICE  %>
                  <p>List of the sights</p>
                        <% @sights.each do |sight| %>
                                     <% if sight.photo.attached? %>
