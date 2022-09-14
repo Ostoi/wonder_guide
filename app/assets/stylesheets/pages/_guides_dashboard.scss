@@ -10,3 +10,24 @@
   min-height: 100px;
   padding: 26px;
 }
+
+.dash-container {
+  width: 100%;
+  padding: 50px;
+}
+
+.user-info-card{
+  width: 330px;
+  margin-right: 20px;
+  text-align: center;
+  .user-info {
+    margin: auto;
+    margin-top: 50px;
+  }
+}
+
+.dash-heading {
+  margin-left: 17px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
