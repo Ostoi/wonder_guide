@@ -59,6 +59,13 @@ citytour = Citytour.create!(
   price: rand(0..400),
   guide: guide
 )
+
+Booking.create!(
+  start: DateTime.now + 1.days,
+  end: DateTime.now + 1.days,
+  user: traveller,
+  citytour: citytour
+)
 citytour = Citytour.create!(
   name: "Vienna Highlights",
   overview: "Take a tour through the amazing city of Vienna.",
@@ -400,8 +407,9 @@ Citytour.all.each do |tour|
   Booking.create!(
     start: DateTime.now + 1.days,
     end: DateTime.now + 1.days,
-    user: User.second,
-    citytour: tour
+    user: traveller,
+    citytour: tour,
+    status: "pending"
   )
   Booking.all.each do |booking|
     5.times do
