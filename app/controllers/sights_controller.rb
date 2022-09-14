@@ -1,6 +1,8 @@
 class SightsController < ApplicationController
 
+
   def index
+    @citytours = Citytour.all
     @sights = Sight.all
     # @a_sight = Sight.last
 
@@ -31,6 +33,7 @@ class SightsController < ApplicationController
   end
 
   def show
+
     @sight = Sight.find(params[:id])
     @citytours = Citytour.all
     @sightmarkers = [{
