@@ -28,7 +28,8 @@ guide = User.create!(
   name: "Zack Levy",
   email: "zacklevy@email.com",
   password: "zlevy210",
-  encrypted_password: "zlevy210",
+  # encrypted_password: "zlevy210",
+
   # language_list: "English, Hebrew, Spanish, Thai(kitchen)",
   guide: true
 )
@@ -40,7 +41,6 @@ traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
-  encrypted_password: "oliver",
   # language_list: "English, German(idk what else",
   guide: false
 )
@@ -432,7 +432,6 @@ user = User.create!(
   name: "Melchior-Christoph von Brincken",
   email: "christoph.brincken@gmx.at",
   password: "123456",
-  encrypted_password: "123456",
   # language_list: "English, german",
   guide: true,
 )
