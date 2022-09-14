@@ -9,14 +9,9 @@
 
       <h1>City Tours </h1>
 
-<%= User.find(1).name  %> </p></p>
-<%= User.find(2).name  %> </p></p>
-<%= User.find(current_user.id).name %> </p></p>
-<%= User.find(4).name  %> </p></p>
-
       <% if current_user.guide? %>
-      <p>Guide name:  <%=   current_user.id %>
-
+      <p>Guide email:  <%=   current_user.email %>
+     <p>Guide id:  <%=   current_user.id %>
 
        <% else %>
       <p>is user</p>
