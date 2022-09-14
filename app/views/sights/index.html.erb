@@ -44,6 +44,9 @@
                         <% @sights.each do |sight| %>
                                 <%# if sight.photo.attached? %>
                                           <% if sight.guide_id == current_user.id %>
+                                            <%= sight.citytours.each do |citytour| %>
+                                              <%= citytour.name %>
+                                            <% end %>
                                               <%= render sight %>
                                           <% end %>
                                   <%# end %>
