@@ -46,14 +46,19 @@
                         <div data-controller="insert-in-list">
                                   <div data-insert-in-list-target="items">
                                           <% @citytours.each do |citytour| %>
+                                              <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, @sight.id, sight: @sight), method: :post, class: "btn btn-primary"  %>
+
+
                                               <div class="card" style="width: 18rem;">
                                                     <div class="card-body">
                                                            <h5 class="card-title"><%= citytour.name %></h1>
                                                             <h2 class="the_card-pricing">€99.99</h2>
-                                                            <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                                                      <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+
+
                                                     <% if current_user.guide? %>
-                                                    <p>is guide</p>
+                                                     <%= link_to "add this tour", new_citytour_booking_path(citytour), class: "btn btn-success" %>
+                                                        <% else %>
+                                                     <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
                                                     <% end %>
                                                     </div>
                                               <div>
@@ -102,11 +107,13 @@
                         <%  %>
 
                         <% if current_user.guide? %>
-                        <div class="btn btn-warning">
-                            <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
-                            <%#= link_to "Destroy this sight", @sight, method: :delete %>
-                                <%= button_to "Destroy this sight", @sight, method: :delete %>
-                          </div>
+                                <div class="btn btn-warning">
+                                    <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
+                                    <%#= link_to "Destroy this sight", @sight, method: :delete %>
+                                        <%= button_to "Destroy this sight", @sight, method: :delete %>
+
+
+                                </div>
                         <% end %>
                   </div>
          </div><%# close d-flex p-2 %>
