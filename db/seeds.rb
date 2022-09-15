@@ -291,8 +291,8 @@ sights = {
     name: "Mitspeh Ramon",
     city: "Rosh Hanikra",
     address: "Makhtesh Ramon Visitors Center",
-    longitude: 30.6153,
-    latitude: 34.8845,
+    longitude: 34.801834,
+    latitude: 30.610594,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
   },
