@@ -68,15 +68,6 @@ puts "User finished!"
 
 # puts "Sight finished!"
 
-<<<<<<< HEAD
-
-# citytour = Citytour.create!(
-#   name: "Masada/Dead Sea Tour",
-#   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
-#   price: rand(50..400),
-#   guide: guide
-# )
-=======
 citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
@@ -84,7 +75,6 @@ citytour = Citytour.create!(
   guide: guide,
   country: "israel"
 )
->>>>>>> master
 
 Booking.create!(
   start: DateTime.now + rand(1..7).days,
@@ -290,12 +280,30 @@ sights = {
   },
   "17": {
     name: "Dead Sea",
-    city: "Ein Bokek",
+    city: "Rosh Hanikra",
     address: "Ein Bokek, Israel",
     longitude: 31.2002,
     latitude: 35.3625,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
+  },
+  "18": {
+    name: "Har Hermon",
+    city: "Rosh Hanikra",
+    address: "Makhtesh Ramon Visitors Center",
+    longitude: 30.6153,
+    latitude: 34.8845,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
+  },
+  "19": {
+    name: "Rosh Hanikra",
+    city: "Rosh Hanikra",
+    address: "Rosh Hanikra Grottoes",
+    longitude: 33.0861,
+    latitude: 35.1135,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256592/s8z1mb00ypnuakr2lkzt.jpg"
   }
   "18": {
     name: "Har Hermon",
