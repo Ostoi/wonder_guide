@@ -101,18 +101,18 @@ citytour = Citytour.create!(
   country: "austria"
 )
 citytour = Citytour.create!(
-  name: "Berlin Tour",
+  name: "The best of Berlin",
   overview: "This might become your favourite tour when visiting Europe.",
   price: rand(50..400),
   guide: guide,
   country: "germany"
 )
 citytour = Citytour.create!(
-  name: "Tel Aviv Tour",
-  overview: "Stunning citysights await you in this wonderful experience.",
+  name: "Roundtrip Philippines",
+  overview: "Walk on white beaches and enjoy the best places of the Philippines",
   price: rand(50..400),
   guide: guide,
-  country: "israel"
+  country: "philippines"
 )
 
 # create a hash with sights (not sight object)
@@ -171,16 +171,16 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227790/yowodqwyz1vxvuajqmk0.jpg"
   },
+  # "6": {
+  #   name: "Donauturm",
+  #   city: "Vienna",
+  #   address: "Donauturmplatz 1",
+  #   longitude: 16.410833,
+  #   latitude: 48.24,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227764/zw2azjrslpinzvtwcb0f.jpg"
+  # },
   "6": {
-    name: "Donauturm",
-    city: "Vienna",
-    address: "Donauturmplatz 1",
-    longitude: 16.410833,
-    latitude: 48.24,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227764/zw2azjrslpinzvtwcb0f.jpg"
-  },
-  "7": {
     name: "Naturhistorisches Museum",
     city: "Vienna",
     address: "Burgring 7",
@@ -189,7 +189,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227905/ds0mcwo1m8kbt5stpnfn.jpg"
   },
-  "8": {
+  "7": {
     name: "Schatzkammer",
     city: "Vienna",
     address: "Hofburg, Schweizerhof",
@@ -198,7 +198,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227919/g60cglml9vinz44fsqcv.jpg"
   },
-  "9": {
+  "8": {
     name: "Spanish Riding School",
     city: "Vienna",
     address: "Michaelerplatz 1",
@@ -207,16 +207,88 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227970/vpmvaqe6zaf6k4cdvenn.jpg"
   },
-  "10": {
+  "9": {
     name: "Brandenburg Gate",
     city: "Berlin",
-    address: "Pariser Platz, 10117 Berlin, Germany",
+    address: "Pariser Platz",
     longitude: 13.377775,
     latitude: 52.516266,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227739/l2dtnacorsopsf1yqezn.jpg"
   },
+  "10": {
+    name: "Gendarmenmarkt",
+    city: "Berlin",
+    address: "Gendarmenmarkt",
+    longitude: 13.392350,
+    latitude: 52.513828,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253916/ytww9errocdwe5kgwo3h.jpg"
+  },
   "11": {
+    name: "Pergamonmuseum",
+    city: "Berlin",
+    address: "Bodestraße 1-3",
+    longitude: 13.396900,
+    latitude: 52.521183,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253917/yquqxpx6yvg2d5lpz0fa.jpg"
+  },
+  "12": {
+    name: "Boracay",
+    city: "Barangay Yapak",
+    address: "Boracay Island",
+    longitude: 121.924759,
+    latitude: 11.96735,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253919/m5pdquvrwr4qd4favozo.jpg"
+  },
+  "13": {
+    name: "Coron",
+    city: "Barangay Yapak",
+    address: "Palawan Island",
+    longitude: 120.239734,
+    latitude: 11.928329,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253920/rzneel2valriyz8xxyzr.jpg"
+  },
+  "14": {
+    name: "Bon Bon Beach",
+    city: "Barangay Yapak",
+    address: "Romblon City",
+    longitude: 122.244614,
+    latitude: 12.572541,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253922/r8zhenqyhvqrjnhp3844.jpg"
+  },
+  # "16": {
+  #   name: "Puerto Princesa",
+  #   city: "Barangay Yapak",
+  #   address: "Puerto Princesa City",
+  #   longitude: 118.78551,
+  #   latitude: 9.967216,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253923/sldewj2mwhllxdgk1lpk.jpg"
+  # },
+  "15": {
+    name: "Alegria Beach",
+    city: "Barangay Yapak",
+    address: "Santa Monica",
+    longitude: 126.071046,
+    latitude: 10.054659,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253924/ousevfwzgpdxahc13mlc.jpg"
+  },
+  "16": {
+    name: "Subic Beach",
+    city: "Barangay Yapak",
+    address: "Subic Beach",
+    longitude: 120.23662969999998,
+    latitude: 14.8967937,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253926/iiavk3inxjabwxewf9rg.jpg"
+  },
+  "17": {
     name: "Dead Sea",
     city: "Ein Bokek",
     address: "Ein Bokek, Israel",
