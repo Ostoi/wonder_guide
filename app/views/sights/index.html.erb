@@ -1,15 +1,12 @@
 <div class="container">
 <div class="row justify-content-center">
-<% if current_user.guide? %>
-  <p>is guide</p>
-  <% else %>
-  <p>is user</p>
-  <% end %>
 
 
-      <h1>City Tours </h1>
 
-<% if current_user.guide? %>
+
+</label>
+
+    <% if current_user.guide? %>
       <p>Guide email:  <%=   current_user.email %>
            <% if current_user.name != nil && current_user.name != "" %>
            <H1>Hello, <% current_user.name %>!</H1>
@@ -17,24 +14,6 @@
           <H1>Hello, <% current_user.email %>!</H1>
              <% end %>
  <% end %>
-
-      <% if current_user.name  %>
-
-     <p>Guide id:  <%=   current_user.id %>
-
-       <% else %>
-      <p>is user</p>
-  <% end %>
-
-
-
-
-
-
-
-
-
-
    <div class="container">
 
             <%# GUIDE PERSPECTICE  %>
@@ -70,15 +49,39 @@
 
                 <% else  %>
             <%# USER PERSPECTICE  %>
-                 <p>List of the sights</p>
-                       <% @sights.each do |sight| %>
-                       <p>guide sight</p>
-                                    <% if sight.photo.attached? %>
-                                                 <% if sight.guide_id == current_user %>
-                                                    <%= render sight %>
-                                                <% end %>
-                                    <% end %>
-                       <% end %>
+                <h1>List of the sights</h1>
+                              <% @sights.each do |sight| %>
+
+                                                 <%= render sight %>
+
+                                                          <% sight.citytours.each do |citytour| %>
+                                                                <%#= citytour.name %>
+                                                                <%#   C I T Y T O U R  C A R D   %>
+                                                                <div class="d-flex p-2">
+                                                                    <div class="card" style="width: 18rem;">
+                                                                                                <div class="card-body">
+                                                                                                      <h5 class="card-title"> <%= citytour.name %></h5>
+                                                                                                      <p class="card-text">  <%= citytour.overview %>
+                                                                                                </div>
+                                                                                                  <%# <button type="button" class="btn btn-primary">book this tour</button> %>
+
+                                                                                                  <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+
+                                                                    </div>
+                                                              </div>
+                                                              <%#   C I T Y T O U R  C A R D   %>
+
+                                                           <% end %>
+
+                                <% end %>
+
+
+
+
+
+
+
+
                  <% end %>
 
    </div>
@@ -94,40 +97,6 @@
     </div>
      <%= link_to "New sight", new_sight_path %>
      <%= link_to "Got to Citytours",citytours_path(@sight) %> |
-
-
-  <%#   C I T Y T O U R  C A R D  LOOP %>
-      <h1>I can see a list of the tours I added</h1>
-
-      <% @sights.each do |sight| %>
-
-                  <% sight.citytours.each do |citytour| %>
-
-
-
-                            <%#   C I T Y T O U R  C A R D   %>
-                            <div class="d-flex p-2">
-                                <div class="card" style="width: 18rem;">
-                                                            <div class="card-body">
-                                                                  <h5 class="card-title"> <%= citytour.name %></h5>
-                                                                  <p class="card-text">  <%= citytour.overview %>
-                                                            </div>
-                                                               <%# <button type="button" class="btn btn-primary">book this tour</button> %>
-                                                           <% if current_user.guide? %>
-                                                              <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                                                            <% else %>
-                                                               <%= link_to "Add this tour to sight", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                                                            <% end %>
-                                                           <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-success" %>
-                                </div>
-                          </div>
-                          <%#   C I T Y T O U R  C A R D   %>
-
-                   <% end %>
-
-          <% end %>
-          <%#   C I T Y T O U R  C A R D   %>
-
 
 
 
