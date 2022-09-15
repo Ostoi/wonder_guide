@@ -53,12 +53,12 @@ traveller.save!
 # puts "Sight finished!"
 
 
-citytour = Citytour.create!(
-  name: "Masada/Dead Sea Tour",
-  overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
-  price: rand(50..400),
-  guide: guide
-)
+# citytour = Citytour.create!(
+#   name: "Masada/Dead Sea Tour",
+#   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
+#   price: rand(50..400),
+#   guide: guide
+# )
 
 Booking.create!(
   start: DateTime.now + 1.days,

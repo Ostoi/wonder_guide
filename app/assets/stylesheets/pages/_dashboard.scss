@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: rgb(228, 191, 191);
+  background: #e4bfbf;
   padding: 20px;
   margin: 2px;
   align-items: inline;
@@ -25,12 +25,15 @@
   align-items: inline;
   color: rgb(87, 87, 87);
 }
-
+.dash-h1{
+  margin-left: 20px;
+}
 .user-info-card{
   justify-content: space-around;
-  background: #e7944c;
+  background: #8f3d3d;
   padding: 2px;
   margin: 2px;
+  margin-left: 20px;
   align-items: inline;
   color: rgb(97, 96, 96);
 }
