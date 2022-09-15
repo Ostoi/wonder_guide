@@ -5,7 +5,7 @@
       <%= simple_form_for([@citytour, @booking]) do |f| %>
         <%= f.input :start, as: :date, html5: true %>
         <%= f.input :end, as: :date, html5: true %>
-        <%= f.submit %>
+        <%= f.button :submit, class: "btn button-primary2" %>
       <% end %>
     </div>
   </div>
