@@ -21,11 +21,11 @@
                       </div>
                       <%# <button type="button" class="btn btn-primary">book this tour</button> %>
                       <% if current_user.guide? %>
-                        <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                        <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary button-primary2" %>
                       <% else %>
-                        <%= link_to "Add this tour to sight", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                        <%= link_to "Add this tour to sight", new_citytour_booking_path(citytour), class: "btn btn-primary button-primary2" %>
                       <% end %>
-                      <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-success" %>
+                      <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-success button-primary2-green" %>
                     </div>
                   </div>
                 </div>
@@ -52,11 +52,11 @@
                     </div>
                     <%# <button type="button" class="btn btn-primary">book this tour</button> %>
                     <% if current_user.guide? %>
-                      <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                      <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary button-primary2" %>
                     <% else %>
-                      <%= link_to "Add this tour to sight", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                      <%= link_to "Add this tour to sight", new_citytour_booking_path(citytour), class: "btn btn-primary button-primary2" %>
                     <% end %>
-                    <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-success" %>
+                    <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, sight.id, sight: sight), method: :post, class: "btn btn-success button-primary2-green" %>
                   </div>
                 </div>
               </div>
@@ -76,8 +76,8 @@
   </div>
    <div class="row justify-content-center align-items-center">
     <div class="col-3">
-      <%= link_to "New sight", new_sight_path, class: "btn btn-primary mt-1 "%>
-      <%= link_to "Tours",citytours_path(@sight), class: "btn btn-primary mt-1 " %>
+      <%= link_to "New sight", new_sight_path, class: "btn btn-primary button-primary2 mt-1 "%>
+      <%= link_to "Tours",citytours_path(@sight), class: "btn btn-primary button-primary2 mt-1 " %>
     </div>
   </div>
   </div>
