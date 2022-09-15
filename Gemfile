@@ -89,3 +89,5 @@ gem "faker"
 gem 'acts-as-taggable-on', '~> 9.0'
 
 gem "geocoder"
+
+gem "dotenv-rails", groups: [:development, :test]
