@@ -69,8 +69,8 @@ puts "User finished!"
 # puts "Sight finished!"
 
 citytour = Citytour.create!(
-  name: "Masada/Dead Sea Tour",
-  overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
+  name: "Dead Sea Tour",
+  overview: "Visit the Dead Sea and other amazing locations around the country, tours leaving from Jerusalem and Tel Aviv.",
   price: rand(50..400),
   guide: guide,
   country: "israel"
@@ -281,14 +281,14 @@ sights = {
   "17": {
     name: "Dead Sea",
     city: "Rosh Hanikra",
-    address: "Ein Bokek, Israel",
+    address: "Ein Bokek",
     longitude: 31.2002,
     latitude: 35.3625,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
   },
   "18": {
-    name: "Har Hermon",
+    name: "Mitspeh Ramon",
     city: "Rosh Hanikra",
     address: "Makhtesh Ramon Visitors Center",
     longitude: 30.6153,
