@@ -68,6 +68,15 @@ puts "User finished!"
 
 # puts "Sight finished!"
 
+<<<<<<< HEAD
+
+# citytour = Citytour.create!(
+#   name: "Masada/Dead Sea Tour",
+#   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
+#   price: rand(50..400),
+#   guide: guide
+# )
+=======
 citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
@@ -75,6 +84,7 @@ citytour = Citytour.create!(
   guide: guide,
   country: "israel"
 )
+>>>>>>> master
 
 Booking.create!(
   start: DateTime.now + rand(1..7).days,

@@ -1,14 +1,14 @@
 <h2>Pending Bookings: </h2>
 <% bookings.each do|booking| %>
-  <div class="grid bg-white">
+  <div class="grid bg-white mb-2">
     <div class="g-col-4 bg-gray overflow-hidden">
       <% if booking.sights.any? %>
-        <%= cl_image_tag booking.sights.first.photo.key, height: 400, width: 400, crop: "fill", class: "h-100 w-100", style: "object-fit: cover;" %>
+        <%= cl_image_tag booking.sights.first.photo.key, height: 400, width: 400, crop: "fill", class: "h-100 w-100", style: "object-fit: cover; padding: 2px;" %>
       <% end %>
     </div>
     <div class="g-col-8 p-4">
       <h2><%= booking.citytour.name %></h2>
-      <p>Date: <%= booking.start.strftime("%m/%d/%Y") %></p>
+      <p>Date: <%= booking.start.strftime("%d/%m/%Y") %></p>
       <p class="pending-status">Status: <%= booking.status %></p>
     </div>
   </div>
