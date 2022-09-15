@@ -36,7 +36,7 @@ class CitytoursController < ApplicationController
 
     if @citytour.save
       # redirect_to index_path_url
-      redirect_to :controller => 'citytours', :action => 'index'
+      redirect_to citytour_path(@citytour)
     else
       render :new
     end
