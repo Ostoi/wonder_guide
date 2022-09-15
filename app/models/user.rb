@@ -31,4 +31,9 @@ class User < ApplicationRecord
     # Booking.where(guide: self).where("end < ?", DateTime.now).order(start: :asc)
     # citytours.where("end < ?", DateTime.now).order(start: :asc)
   end
+  def past_bookings
+    citytours.joins(:bookings)
+    .where(bookings: {start: (DateTime.new(2022, 1, 1, 16)..DateTime.now)})
+    .order(start: :asc)
+  end
 end

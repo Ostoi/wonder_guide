@@ -46,21 +46,6 @@
 }
 
 
-
-
-// <div class="the_card">
-//   <img src="https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" />
-//   <div class="the_card-infos">
-//     <div>
-//       <h2>Title here</h2>
-//       <p>Short description here!</p>
-//     </div>
-//     <h2 class="the_card-pricing">£99.99</h2>
-//     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" />
-//   </div>
-// </div>
-
-
 .button-primary2 {
   text-decoration: none !important;
   color: white;
@@ -70,6 +55,7 @@
   border: 1px solid white;
   background-color: #080158;
 }
+
 .button-primary2-green {
   text-decoration: none !important;
   color: white;
@@ -77,14 +63,7 @@
   border-radius: 4px;
   transition: background 0.5s ease;
   border: 1px solid white;
-  background-color: #080158;
-}
-.button-primary2-green {
-  background-color: #015807;
-}
-a.button-primary2-green:hover{
-  text-decoration: none !important;
-  // background: linear-gradient(to bottom right, #7A82AB, #474E71);
-  // background: white;
-  opacity: 0.9;
+
+  background-color: #01583b;
+
 }
