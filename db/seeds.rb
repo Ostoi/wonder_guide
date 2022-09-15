@@ -61,8 +61,8 @@ citytour = Citytour.create!(
 )
 
 Booking.create!(
-  start: DateTime.now + 1.days,
-  end: DateTime.now + 1.days,
+  start: DateTime.now + rand(1..7).days,
+  end: DateTime.now + rand(8..21).days,
   user: traveller,
   citytour: citytour
 )
@@ -403,8 +403,8 @@ Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys
 puts "Creating bookings"
 Citytour.all.each do |tour|
   Booking.create!(
-    start: DateTime.now + 1.days,
-    end: DateTime.now + 1.days,
+    start: DateTime.now + rand(1..7).days,
+    end: DateTime.now + rand(8..21).days,
     user: traveller,
     citytour: tour,
     status: "pending"
