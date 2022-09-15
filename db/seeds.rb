@@ -307,7 +307,7 @@ sights = {
   },
   "18": {
     name: "Har Hermon",
-    city: "Mitspe Ramon",
+    city: "Rosh Hanikra",
     address: "Makhtesh Ramon Visitors Center",
     longitude: 30.6153,
     latitude: 34.8845,
