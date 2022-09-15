@@ -3,8 +3,11 @@
   <% current_user.citytours.each do|citytour| %>
     <% citytour.bookings.each do |booking| %>
       <div class="dash-booking">
+      <div class="user-info-dash d-flex">
         <%= cl_image_tag booking.user.photo.key, class: "avatar-review mb-4" %>
-        <h3><%= booking.citytour.name %></h3>
+        <p><%= booking.user.name %></p>
+      </div>
+        <h6><%= booking.citytour.name %></h6>
         <p>Date: <%= booking.start.strftime("%d/%m/%Y") %></p>
       </div>
     <% end %>
