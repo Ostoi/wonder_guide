@@ -61,8 +61,8 @@ citytour = Citytour.create!(
 )
 
 Booking.create!(
-  start: DateTime.now + 1.days,
-  end: DateTime.now + 1.days,
+  start: DateTime.now + rand(1..7).days,
+  end: DateTime.now + rand(8..21).days,
   user: traveller,
   citytour: citytour
 )
@@ -94,7 +94,7 @@ sights = {
     longitude: 16.311865,
     latitude: 48.184517,
     guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805199/development/wien_schoenbrunn_absfs0.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227772/uood5n6ouhg8qxgzting.jpg"
   },
   "1": {
     name: "Hofburg Palace",
@@ -103,7 +103,7 @@ sights = {
     longitude: 16.364763,
     latitude: 48.205532,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991511/wien_hofburg_touioa_jhs1bk.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227772/uood5n6ouhg8qxgzting.jpg"
   },
   "2": {
     name: "Tiergarten Schönbrunn",
@@ -112,7 +112,7 @@ sights = {
     longitude: 16.302778,
     latitude: 48.182222,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227985/jhvwo6cmisxwkc439elw.jpg"
   },
   "3": {
     name: "Wiener Riesenrad",
@@ -121,7 +121,7 @@ sights = {
     longitude: 16.395833,
     latitude: 48.216667,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662991662/wien_tiergarten_sblgx9_libxxq.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227995/rnz8izmrwujzizj8lqi1.jpg"
   },
   "4": {
     name: "Albertina",
@@ -130,7 +130,7 @@ sights = {
     longitude: 16.367778,
     latitude: 48.204444,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662992285/wien_albertina_s0ywu0_q3kcb2.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227652/apnqpvmnqxbbl5w57o4h.jpg"
   },
   "5": {
     name: "Kunsthistorisches Museum",
@@ -139,7 +139,7 @@ sights = {
     longitude: 16.361667,
     latitude: 48.203611,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227790/yowodqwyz1vxvuajqmk0.jpg"
   },
   "6": {
     name: "Donauturm",
@@ -148,7 +148,7 @@ sights = {
     longitude: 16.410833,
     latitude: 48.24,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993059/wien_donauturm_dcy4nv_qzyrql.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227764/zw2azjrslpinzvtwcb0f.jpg"
   },
   "7": {
     name: "Naturhistorisches Museum",
@@ -157,7 +157,7 @@ sights = {
     longitude: 16.359722,
     latitude: 48.205278,
     guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805197/development/wien_naturhistorisches_museum_cbhuop.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227905/ds0mcwo1m8kbt5stpnfn.jpg"
   },
   "8": {
     name: "Schatzkammer",
@@ -166,7 +166,7 @@ sights = {
     longitude: 16.365556,
     latitude: 48.206667,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662993377/Wien_schatzkammer_fqsohl_tpk9at.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227919/g60cglml9vinz44fsqcv.jpg"
   },
   "9": {
     name: "Spanish Riding School",
@@ -175,7 +175,7 @@ sights = {
     longitude: 16.366944,
     latitude: 48.206944,
     guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1662805198/development/wien_spanish_riding_school_gtvmjx.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227970/vpmvaqe6zaf6k4cdvenn.jpg"
   },
   "10": {
     name: "Brandenburg Gate",
@@ -184,7 +184,7 @@ sights = {
     longitude: 13.377775,
     latitude: 52.516266,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662994030/brandenburg_g_uk6udg.webp"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227739/l2dtnacorsopsf1yqezn.jpg"
   },
   "11": {
     name: "Dead Sea",
@@ -193,7 +193,7 @@ sights = {
     longitude: 31.2002,
     latitude: 35.3625,
     guide: guide,
-    photo: "https://res.cloudinary.com/dvneczoyg/image/upload/v1662998480/deadsea_xd5wpy.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
   }
 }
 
@@ -403,8 +403,8 @@ Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys
 puts "Creating bookings"
 Citytour.all.each do |tour|
   Booking.create!(
-    start: DateTime.now + 1.days,
-    end: DateTime.now + 1.days,
+    start: DateTime.now + rand(1..7).days,
+    end: DateTime.now + rand(8..21).days,
     user: traveller,
     citytour: tour,
     status: "pending"

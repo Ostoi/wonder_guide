@@ -1,7 +1,48 @@
 .citytour_sights_photos {
-  width: 60%;
+  width: 70%;
 }
-
+.tour-show-container {
+  margin: 24px 50px !important;
+}
 // .citytour-details {
 //   font-style: ;
 // }
+
+#tours-show-carousel {
+  background-color: none !important;
+}
+
+.p2 {
+  width: 430px;
+  min-height: 600px;
+  max-height: 600px;
+}
+
+.tour-show-card {
+  padding: 18px;
+  font-size: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h1 {
+    font-size: 28px;
+  }
+  .price-text {
+    font-size: 22px;
+    margin-bottom: -5px;
+  }
+  .price-book {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.citytour-details {
+  margin-right: 14px;
+}
+
+#review-user {
+  p {
+    margin: 0 !important;
+  }
+}
