@@ -16,7 +16,7 @@
                 <div class="tour-sight-container">
                   <%= link_to sights_path(citytoursight), class: "citytoursight-card", style:"display: inline-block;" do %>
                     <% if citytoursight.photo.attached? %>
-                        <%= cl_image_tag citytoursight.photo.key, height: 200, width: 400, crop: :fill %>
+                        <%= cl_image_tag citytoursight.photo.key, crop: :fit %><%#= , height: 200, width: 400, crop: :fill %>
                     <% else %>
                         <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
                     <% end %>
