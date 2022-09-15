@@ -297,6 +297,24 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
   }
+  "18": {
+    name: "Har Hermon",
+    city: "Mitspe Ramon",
+    address: "Makhtesh Ramon Visitors Center",
+    longitude: 30.6153,
+    latitude: 34.8845,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
+  }
+  "19": {
+    name: "Rosh Hanikra",
+    city: "Rosh Hanikra",
+    address: "Rosh Hanikra Grottoes",
+    longitude: 33.0861,
+    latitude: 35.1135,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256592/s8z1mb00ypnuakr2lkzt.jpg"
+  }
 }
 
 puts "Creating sights"
