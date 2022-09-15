@@ -1,29 +1,9 @@
 <div class="container">
-
-<% if current_user.guide? %>
-  <p>is guide</p>
-  <% else %>
-  <p>is user</p>
-  <% end %>
-
-<%#
-
-<div class="the_card"  style="margin-bottom: 10px; width: 18rem;">
-  <img src="https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" />
-  <div class="the_card-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-6">
+         <%#   C A R D   %>
+         <div class="col-6">
+          <div class="d-flex p-2">
 
-      <p style="color: green"><%= notice %></p>
-
-      <%#= render @sight %>
-
-
-      <%#   C A R D   %>
-       <div class="d-flex p-2">
             <div class="card" style="width: 18rem;">
                       <% if @sight.photo.attached? %>
                           <%= cl_image_tag @sight.photo.key, height: 180, width: 286, crop: :fill %>
@@ -36,88 +16,63 @@
                                 </div>
 
             </div> <%#  card %>
-       </div> <%#d-flex p-2  %>
-
-
-
+          </div> <%#d-flex p-2  %>
+        </div>
 
         <%#   C I T Y   T O U R S   %>
+          <div class="col-6">
             <div class="p-2">
-                        <div data-controller="insert-in-list">
-                                  <div data-insert-in-list-target="items">
-                                          <% @citytours.each do |citytour| %>
-                                              <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, @sight.id, sight: @sight), method: :post, class: "btn btn-primary"  %>
-
-
-                                              <div class="card" style="width: 18rem;">
-                                                    <div class="card-body">
-                                                           <h5 class="card-title"><%= citytour.name %></h1>
-                                                            <h2 class="the_card-pricing">€99.99</h2>
-
-
-                                                    <% if current_user.guide? %>
-                                                     <%= link_to "add this tour", new_citytour_booking_path(citytour), class: "btn btn-success" %>
-                                                        <% else %>
-                                                     <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
-                                                    <% end %>
-                                                    </div>
-                                              <div>
-                                                <%# <%= citytour.booking %>
-                                          <% end %>
-                                  </div>
-                        <div>
-                        <%= link_to "Back to sights", sights_path %>
-            </div> <%#d-flex p-2  %>
-      </div>
-    </div>
-
-    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" /> %>
-<%# </div>
-</div>
-
-%>
-
-
-        <%#   M A P B O X   %>
-
-       <div class="p-2">
-            <div d="mapbox_sights">
-              <div style="width: 286px; height: 286px;"
-                  data-controller="map"
-                  data-map-center-value="[-0.118092,51.509865]"
-                  data-map-markers-value="<%= @sightmarkers.to_json %>"
-                  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-              </div> <%# close style %>
+              <div data-controller="insert-in-list">
+                <div data-insert-in-list-target="items">
+                  <% @citytours.each do |citytour| %>
+                   <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= citytour.name %></h5>
+                        <h2 class="the_card-pricing">€99.99</h2>
+                        <% if current_user.guide? %>
+                          <%= button_to "add this tour", citytour_citytour_sights_path(citytour.id, @sight.id, sight: @sight), method: :post, class: "btn btn-primary"  %>
+                        <% else %>
+                          <%= link_to "Book this tour", new_citytour_booking_path(citytour), class: "btn btn-primary" %>
+                        <% end %>
+                     </div>
+                    </div>
+                  <% end  %>
+                  <%= link_to "Back to sights", sights_path %>
+                </div>
+              </div>
             </div>
-
-
+          </div>
+        </div>
+        <%#   M A P B O X   %>
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div d="mapbox_sights">
+                <div style="width: 286px; height: 286px;"
+                    data-controller="map"
+                    data-map-center-value="[-0.118092,51.509865]"
+                    data-map-markers-value="<%= @sightmarkers.to_json %>"
+                    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div> <%# close style %>
+            </div>
+          </div>
         </div><%# close d-flex %>
 
 
 
 
         <%#   L I N K S   %>
-          <div class="d-flex p-2">
-                  <div style="margin: 10px 0 0 10px;;">
-
-                        <%= link_to "Back to sights ", sights_path %>
-
-                        <%= link_to "Got to Citytours ",citytours_path(@sight) %> |
-
-                        <%  %>
-
-                        <% if current_user.guide? %>
-                                <div class="btn btn-warning">
-                                    <%= link_to "Edit this sight", edit_sight_path(@sight) %> |
-                                    <%#= link_to "Destroy this sight", @sight, method: :delete %>
-                                        <%= button_to "Destroy this sight", @sight, method: :delete %>
-
-
-                                </div>
-                        <% end %>
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="d-flex">
+              <%= link_to "Back to sights ", sights_path, class: "btn btn-primary m-1" %>
+                <%= link_to "Got to Citytours ",citytours_path(@sight), class: "btn btn-primary m-1" %> |
+                <% if current_user.guide? %>
+                  <div class="btn btn-warning">
+                    <%= link_to "Edit this sight", edit_sight_path(@sight)%> |
+                    <%= button_to "Destroy this sight", @sight, method: :delete %>
                   </div>
-         </div><%# close d-flex p-2 %>
-
-      <%#</div> <%# closed-flex align-content-center flex-wrap %>
-
- </div> <%# close Container %>
+                <% end %>
+            </div><%# close d-flex p-2 %>
+        </div>
+      </div>
+</div> <%# close Container %>
