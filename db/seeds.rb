@@ -99,7 +99,7 @@ citytour = Citytour.create!(
 )
 citytour = Citytour.create!(
   name: "Roundtrip Philippines",
-  overview: "Walk on white beaches and enjoy the best places of the Philippines",
+  overview: "Walk on white beaches and enjoy the best places of the Philippines.",
   price: rand(50..400),
   guide: guide,
   country: "philippines"
@@ -233,16 +233,16 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253919/m5pdquvrwr4qd4favozo.jpg"
   },
+  # "13": {
+  #   name: "Coron",
+  #   city: "Barangay Yapak",
+  #   address: "Palawan Island",
+  #   longitude: 120.239734,
+  #   latitude: 11.928329,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253920/rzneel2valriyz8xxyzr.jpg"
+  # },
   "13": {
-    name: "Coron",
-    city: "Barangay Yapak",
-    address: "Palawan Island",
-    longitude: 120.239734,
-    latitude: 11.928329,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253920/rzneel2valriyz8xxyzr.jpg"
-  },
-  "14": {
     name: "Bon Bon Beach",
     city: "Barangay Yapak",
     address: "Romblon City",
@@ -260,25 +260,25 @@ sights = {
   #   guide: guide,
   #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253923/sldewj2mwhllxdgk1lpk.jpg"
   # },
-  "15": {
-    name: "Alegria Beach",
-    city: "Barangay Yapak",
-    address: "Santa Monica",
-    longitude: 126.071046,
-    latitude: 10.054659,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253924/ousevfwzgpdxahc13mlc.jpg"
-  },
-  "16": {
+  # "15": {
+  #   name: "Alegria Beach",
+  #   city: "Barangay Yapak",
+  #   address: "Santa Monica",
+  #   longitude: 126.071046,
+  #   latitude: 10.054659,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253924/ousevfwzgpdxahc13mlc.jpg"
+  # },
+  "14": {
     name: "Subic Beach",
     city: "Barangay Yapak",
-    address: "Subic Beach",
+    address: "Subic, Zambales",
     longitude: 120.23662969999998,
     latitude: 14.8967937,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253926/iiavk3inxjabwxewf9rg.jpg"
   },
-  "17": {
+  "15": {
     name: "Dead Sea",
     city: "Rosh Hanikra",
     address: "Ein Bokek",
@@ -287,7 +287,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
   },
-  "18": {
+  "16": {
     name: "Mitspeh Ramon",
     city: "Rosh Hanikra",
     address: "Makhtesh Ramon Visitors Center",
@@ -296,7 +296,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
   },
-  "19": {
+  "17": {
     name: "Rosh Hanikra",
     city: "Rosh Hanikra",
     address: "Rosh Hanikra Grottoes",
