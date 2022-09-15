@@ -1,0 +1,10 @@
+<h2 class="dash-heading">Upcoming Bookings</h2>
+<div class="dash-card">
+  <% citytours.each do|citytour| %>
+    <div class="dash-booking">
+      <h3><%= citytour.name %></h3>
+      <p>$<%= citytour.price %></p>
+      <p><%= citytour.overview %></p>
+    </div>
+  <% end %>
+</div>

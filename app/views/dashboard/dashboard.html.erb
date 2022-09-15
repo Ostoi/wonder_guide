@@ -1,5 +1,25 @@
-<% if current_user.guide? %>
-  <%= render 'guides_dashboard', citytours: @citytours, guide_bookings: @guide_bookings %>
-<% else %>
-  <%= render 'traveler_dashboard', bookings: @pending_bookings, citytours: @upcoming_citytours %>
-<% end %>
+<div class="dash-container">
+  <h1>Dashboard</h1>
+  <div class= "d-flex">
+    <div class="user-info-card p-4">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-dash mb-2" %>
+      <h4>Hello <%= current_user.name %>!<h4>
+    </div>
+    <div class="dash-content grid">
+      <div class="user-booking-request" style="width: 50%">
+        <% if current_user.guide? %>
+          <%= render "guide_booking_requests", bookings: @bookings %>
+        <% else %>
+          <%= render "traveller_pending_bookings", bookings: @bookings %>
+        <% end %>
+      </div>
+      <div class="upcoming-booking" style="width: 50%">
+        <% if current_user.guide? %>
+          <%= render "guide_upcoming_bookings", citytours: @citytours %>
+        <% else %>
+          <%= render "traveller_upcoming_tours", citytours: @citytours %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   # this is zach's code line 10
   has_many :citytours, foreign_key: "guide_id", class_name: "Citytour"
 
+  has_many :guide_bookings, -> { order(start: :asc) }, :through => :citytours, :source => :bookings
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   acts_as_taggable_on :languages

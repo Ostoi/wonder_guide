@@ -1,0 +1,12 @@
+<h2 class="dash-heading">Booking Requests</h2>
+<div class="dash-card">
+  <% bookings.each do |booking| %>
+    <div class="dash-booking">
+        <h2><%= booking.citytour.name %></h2>
+        <p>Traveler: <%= booking.user.name %></p>
+        <p>Date: <%= booking.start.strftime("%m/%d/%Y") %></p>
+        <%= link_to "Accept", accept_booking_path(booking), data: {turbo_method: :get}, class: "btn button-primary2" %>
+        <%= link_to "Deny", deny_booking_path(booking), data: {turbo_method: :get}, class: "btn button-secondary" %>
+    </div>
+  <% end %>
+</div>
