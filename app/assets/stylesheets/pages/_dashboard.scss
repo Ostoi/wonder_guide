@@ -2,23 +2,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: rgb(216, 201, 201);
+  background: rgb(228, 191, 191);
   padding: 4px;
   margin: 2px;
   align-items: inline;
   color: rgb(80, 77, 77);
 }
-.upcoming-tour-card {
+.upcoming-booking-card {
   justify-content: space-around;
-  background-color: rgb(123, 154, 131);
+  background-color: 228, 190, 191;
   padding: 2px;
   margin: 2px;
   align-items: inline;
-  color: rgb(87, 86, 86);
+  color: rgb(0, 0, 0);
+  background: #8881d1;
 }
 .booking-request-card{
   justify-content: space-around;
-  background-color: rgb(129, 129, 155);
+  background: rgb#080158;
   padding: 2px;
   margin: 2px;
   align-items: inline;
@@ -27,7 +28,7 @@
 
 .user-info-card{
   justify-content: space-around;
-  background-color: rgb(185, 165, 171);
+  background: #e7944c;
   padding: 2px;
   margin: 2px;
   align-items: inline;
