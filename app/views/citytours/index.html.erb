@@ -5,32 +5,31 @@
   <% end %>
   <div class="row justify-content-center">
     <% @citytours.each do |citytour| %>
-      <div class="citytour-cards-container d-flex">
-        <%= render citytour %>
-
-      <% citytour.sights.each do |citytoursight| %>
-          <div class="tour-sight-container d-flex">
-          <div class="container">
-          <%= link_to sights_path(citytoursight) do %>
-            <div class="citytoursight-card" style="width: 18rem;">
-              <% if citytoursight.photo.attached? %>
-                  <%= cl_image_tag citytoursight.photo.key, height: 180, crop: :fill %>
-              <% else %>
-                  <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
-              <% end %>
-              <div class="the_card-infos">
-                <h2> <%= citytoursight.name %></h2>
-                <p> <%= citytoursight.address %>.</p>
+      <div class="grid w-100">
+        <div class="g-col-3">
+          <%= render citytour %>
+        </div>
+        <div class="g-col-9">
+          <div class="grid">
+            <% citytour.sights.each do |citytoursight| %>
+              <div class="g-col-4">
+                <div class="tour-sight-container">
+                  <%= link_to sights_path(citytoursight), class: "citytoursight-card", style:"display: inline-block;" do %>
+                    <% if citytoursight.photo.attached? %>
+                        <%= cl_image_tag citytoursight.photo.key, height: 200, width: 400, crop: :fill %>
+                    <% else %>
+                        <%= image_tag "https://res.cloudinary.com/dthgfvayv/image/upload/v1662828801/development/wien_weich_oxmz00.png" %>
+                    <% end %>
+                  <% end %>
+                  <div class="the_card-infos">
+                    <h2> <%= citytoursight.name %></h2>
+                    <p> <%= citytoursight.address %>.</p>
+                  </div>
+                </div>
               </div>
-              <div class="show_this_sight">
-                <%# <div class="the_card-infos"> %>
-                <p> <%= link_to "Show this sight", citytoursight %></p>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
           </div>
-          </div>
-        <% end %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -56,7 +56,7 @@ traveller.save!
 citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
-  price: rand(0..400),
+  price: rand(50..400),
   guide: guide
 )
 
@@ -69,25 +69,23 @@ Booking.create!(
 citytour = Citytour.create!(
   name: "Vienna Highlights",
   overview: "Take a tour through the amazing city of Vienna.",
-  price: rand(0..400),
+  price: rand(50..400),
   guide: guide
 )
 citytour = Citytour.create!(
   name: "Berlin Tour",
   overview: "This might become your favourite tour when visiting Europe",
-  price: rand(0..400),
+  price: rand(50..400),
   guide: guide
 )
 citytour = Citytour.create!(
   name: "Tel Aviv Tour",
   overview: "Stunning citysights await you in this wonderful experience",
-  price: rand(0..400),
+  price: rand(50..400),
   guide: guide
 )
 
-# Below this line: In coding progress by Olli
-
-# create a hash with 5 sights (not sight object)
+# create a hash with sights (not sight object)
 sights = {
   "0": {
     name: 'Schönbrunn Palace',
@@ -215,6 +213,8 @@ Citytour.all.each do |ct|
   end
 end
 
+Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys duplicates
+
 # 5.times do |index|
 #   sightsexample = Sight.create!(
 #     name: sights[:"#{index}"][:name], # [:"0"]
@@ -228,14 +228,12 @@ end
 
 # end
 
-# Above this line: In coding progress by Olli
-
 # Booking.create!(
 #   citytour: citytour,
 #   user: traveller
 # )
 # puts "Citytour finished!"
-puts "All finished!"
+# puts "All finished!"
 
 # puts 'Creating 10 Sights'
 # user = User.create!(
@@ -257,7 +255,7 @@ puts "All finished!"
 # schonbrunn_p.save!
 # puts 'Created Sight'
 
-puts "All finished!"
+# puts "All finished!"
 
 
 # hofburg_p = Sight.new(

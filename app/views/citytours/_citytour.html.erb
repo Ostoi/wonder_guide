@@ -5,8 +5,13 @@
     <p><i class="fa-solid fa-euro-sign"> <%= citytour.price %></i></p>
     <br>
   </div>
-    <div class="tour-card-buttons">
-      <%= link_to "🔎 Details", citytour_path(citytour), class: "btn button-secondary"%>
-      <%= link_to "📖 Book", new_citytour_booking_path(citytour), class: "btn button-primary2 tour-booking"%>
+    <div class="grid">
+      <div class="g-col-6">
+        <%= link_to "🔎 Details", citytour_path(citytour), class: "btn button-primary2-details"%>
+      </div>
+      <div class="g-col-6">
+        <%= link_to "📖 Book", new_citytour_booking_path(citytour), class: "btn button-primary2 tour-booking"%>
+      </div>
+
     </div>
 </div>

@@ -1,36 +1,31 @@
-<h1>Traveler Profile</h1>
+<h1>Dashboard</h1>
 
-<div class= "container d-flex">
-  <div class="dash-content col-sm-12 col-md-8">
-    <div class="booking-request-card">
-      <h2>Pending Bookings:</h2>
-      <% bookings.where(status: "pending").each do|booking| %>
-        <h2><%= booking.citytour.name %></h2>
-        <p><%= booking.user.name %></p>
-        <p><%= booking.user.language_list %></p>
-        <%= link_to "Review", new_booking_review_path(booking) %>
-      <% end %>
+<div class= "dash-container d-flex">
+ <div class="user-info-card">
+    <div class="user-info col-sm-12 col-md-6 justify-content-center">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-dash" %>
+      <h4>Hello <%= current_user.name %>!<h4>
+      <h5> <%= current_user.email %></h5>
     </div>
-    <div class="upcoming-tour-card">
-      <h2>Upcoming Tours:</h2>
-      <% citytours.each do|citytour| %>
-        <div>
-          <h3><%= citytour.name %></h3>
-          <p>$<%= citytour.price %></p>
-          <p><%= citytour.overview %></p>
-        </div>
-      <% end %>
-      <button type="button" class="btn btn-info" data-bs-toggle="button" autocomplete="off">More Info</button>
-    </div>
-    <div class="user-info-card">
-      <div class="user-info">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+  </div>
+  <div class="booking-request-card">
+    <h2>Pending Bookings: </h2>
+    <% bookings.where(status: "pending").each do|booking| %>
+      <h2><%= booking.citytour.name %></h2>
+      <p><%= booking.user.name %></p>
+      <%= link_to "Review", new_booking_review_path(booking) %>
+    <% end %>
+  </div>
+    <div class="upcoming-booking-card">
+      <h2 class="dash-heading">Upcoming Tours</h2>
+      <div class="dash-card">
+        <% current_user.upcoming_citytours(30).each do|citytour| %>
+          <div class="dash-booking">
+            <h3><%= citytour.name %></h3>
+            <p>$<%= citytour.price %></p>
+            <p><%= citytour.overview %></p>
+          </div>
         <% end %>
-        <h4><%= current_user.name %><h4>
-        <h4><%= current_user.email %></h4>
-        <%# <h4><%= current_user.country %></h4>
-        <h4><%= current_user.language_list %></h4>
       </div>
     </div>
   </div>
