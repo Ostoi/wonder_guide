@@ -1,0 +1,6 @@
+meta_product_name: "Wonder Guide"
+meta_title: "WONDER GUIDE - The Guide for the Perfect Tour"
+meta_description: "WONDER GUIDE - The Guide for the Perfect Tour.
+Wonderguide connects guids and travellers for a better travel experience"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@wonderguide_twitter_account"   # required for Twitter Cards
