@@ -12,7 +12,6 @@ require 'faker'
 puts "Cleaning database"
 # rails db:seed:replant
 
-
 Review.destroy_all
 puts "Reviews destroyed"
 Booking.destroy_all
@@ -38,6 +37,23 @@ guide.photo.attach(io: file, filename: 'guide.jpg', content_type: 'image/jpg')
 guide.save!
 
 traveller = User.create!(
+  name: "Melchior-Christoph von Brincken",
+  email: "christoph.brincken@gmx.at",
+  password: "123456",
+  guide: true,
+)
+
+traveller = User.create!(
+  name: "Sydel Chayat",
+  email: "Sydel@email.com",
+  password: "123456",
+  guide: false
+)
+file = URI.open('https://res.cloudinary.com/dthgfvayv/image/upload/v1663238928/gzohgypaeva1akptii2g.jpg')
+traveller.photo.attach(io: file, filename: 'traveller.jpg', content_type: 'image/jpg')
+traveller.save!
+
+traveller = User.create!(
   name: "Oliver Stoislow",
   email: "ostoi@email.com",
   password: "oliver",
@@ -48,16 +64,16 @@ file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064961/T
 traveller.photo.attach(io: file, filename: 'traveller.jpg', content_type: 'image/jpg')
 traveller.save!
 
-# puts "User finished!"
+puts "User finished!"
 
 # puts "Sight finished!"
-
 
 citytour = Citytour.create!(
   name: "Masada/Dead Sea Tour",
   overview: "Visit Masada and the Dead Sea in one day, tours leaving from Jerusalem and Tel Aviv.",
   price: rand(50..400),
-  guide: guide
+  guide: guide,
+  country: "israel"
 )
 
 Booking.create!(
@@ -66,23 +82,27 @@ Booking.create!(
   user: traveller,
   citytour: citytour
 )
+
 citytour = Citytour.create!(
   name: "Vienna Highlights",
   overview: "Take a tour through the amazing city of Vienna.",
   price: rand(50..400),
-  guide: guide
+  guide: guide,
+  country: "austria"
 )
 citytour = Citytour.create!(
   name: "Berlin Tour",
-  overview: "This might become your favourite tour when visiting Europe",
+  overview: "This might become your favourite tour when visiting Europe.",
   price: rand(50..400),
-  guide: guide
+  guide: guide,
+  country: "germany"
 )
 citytour = Citytour.create!(
   name: "Tel Aviv Tour",
-  overview: "Stunning citysights await you in this wonderful experience",
+  overview: "Stunning citysights await you in this wonderful experience.",
   price: rand(50..400),
-  guide: guide
+  guide: guide,
+  country: "israel"
 )
 
 # create a hash with sights (not sight object)
@@ -94,7 +114,7 @@ sights = {
     longitude: 16.311865,
     latitude: 48.184517,
     guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227772/uood5n6ouhg8qxgzting.jpg"
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227936/hwy8feuma5xfanu1mdmj.jpg"
   },
   "1": {
     name: "Hofburg Palace",
@@ -197,23 +217,51 @@ sights = {
   }
 }
 
-Citytour.all.each do |ct|
-  sights.values.sample(rand(4..6)).each do |sight_hash|
-    created_sight = Sight.create!(sight_hash.except(:photo))
+puts "Creating sights"
+sights.values.each do |sight_hash|
+  created_sight = Sight.create!(sight_hash.except(:photo))
+  file = URI.open(sight_hash[:photo])
+  formatted_file_name = "#{sight_hash[:name].downcase.gsub(" ", "_")}.jpg"
+  created_sight.photo.attach(io: file, filename: formatted_file_name, content_type: 'image/jpg')
+  created_sight.save!
+end
+puts "Finished creating sights"
 
-    file = URI.open(sight_hash[:photo])
-    formatted_file_name = "#{sight_hash[:name].downcase.gsub(" ", "_")}.jpg"
-    created_sight.photo.attach(io: file, filename: formatted_file_name, content_type: 'image/jpg')
-    created_sight.save!
-
-    CitytourSight.create!(
-      citytour: ct,
-      sight: created_sight
-    )
+cities = Sight.distinct.pluck(:city)
+cities.each do |city_name|
+  puts "Creating CitytourSights for #{city_name}"
+  geocoded_result = Geocoder.search(city_name)
+  country = geocoded_result.first.country.downcase
+  cts = Citytour.where(country: country)
+  cts.each do |ct|
+    sights_in_city = Sight.near(city_name, 500)
+    sights_in_city.each do |sight|
+      CitytourSight.create!(
+        citytour: ct,
+        sight: sight
+      )
   end
+  end
+  puts "Finished creating CitytourSights for #{city_name}"
 end
 
-Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys duplicates
+
+# Citytour.all.each do |ct|
+#   sights.values.sample(rand(4..6)).each do |sight_hash|
+#     created_sight = Sight.create!(sight_hash.except(:photo))
+
+#     file = URI.open(sight_hash[:photo])
+#     formatted_file_name = "#{sight_hash[:name].downcase.gsub(" ", "_")}.jpg"
+#     created_sight.photo.attach(io: file, filename: formatted_file_name, content_type: 'image/jpg')
+#     created_sight.save!
+
+#     CitytourSight.create!(
+#       citytour: ct,
+#       sight: created_sight
+#     )
+#   end
+# end
+
 
 # 5.times do |index|
 #   sightsexample = Sight.create!(
@@ -224,7 +272,6 @@ Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys
 #     latitude: sights[:"#{index}"][:latitude],
 #     guide: sights[:"#{index}"][:guide]
 #   )
-
 
 # end
 
@@ -256,7 +303,6 @@ Sight.where.not(id: Sight.group(:name).select("min(id)")).destroy_all # destroys
 # puts 'Created Sight'
 
 # puts "All finished!"
-
 
 # hofburg_p = Sight.new(
 #   name: "Hofburg Palace",
@@ -433,13 +479,4 @@ puts "Finished creating bookings"
 #   end
 # end
 # puts "Finished creating reviews"
-
-user = User.create!(
-  name: "Melchior-Christoph von Brincken",
-  email: "christoph.brincken@gmx.at",
-  password: "123456",
-  # language_list: "English, german",
-  guide: true,
-)
-puts "Last User finished!"
 puts "All finished!"
