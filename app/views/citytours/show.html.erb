@@ -1,19 +1,38 @@
-<div class="container">
-  <div class="d-flex justify-content-between">
+<div class="tour-show-container">
+  <div class="d-flex justify-content-between" style="margin-top: 16px;">
     <div class="citytour-details" style="width: 30%;">
       <%#   C I T Y T O U R - D E T A I L S  %>
       <div class="p-2">
-        <div class="the_card" style="width: 100%;">
-          <h2><%= @citytour.name  %></h2><br>
-          <%= @citytour.overview %><br>
-          <%= @citytour.price %><br>
-          <%= @citytour.guide.name %><br>
+        <div class="tour-show-card" style="width: 100%;">
+          <h1><%= @citytour.name  %></h1><br>
+          <p><%= @citytour.overview %></p>
+          <p>Guide: <%= @citytour.guide.name %></p><br>
+          <div class="d-flex price-book">
+          <p class="price-text">$ <%= @citytour.price %></p>
+          <% if current_user == @citytour.guide %>
+            <div class="d-flex p-2">
+              <div style="margin: 10px 0 0 10px;;">
+                <div class="btn btn-warning">
+                  <%= link_to "←", citytours_path %>
+                </div>
+                <div class="btn btn-warning">
+                <%= link_to "Edit", edit_citytour_path(@citytour) %>
+                </div>
+                <div class="btn btn-warning">
+                  <%= link_to "🗑️", @citytour, method: :delete %>
+                </div>
+              </div>
+            </div>
+          <% else %>
+          <%= link_to "📖 Book", new_citytour_booking_path(@citytour), class: "btn button-primary2"%>
+          <% end %>
+          </div>
         </div>
       </div>
       <%#   M A P B O X   %>
       <div class="p-2">
         <div d="mapbox_sights">
-          <div style="height: 280px;"
+          <div style="height: 495px;"
             data-controller="map"
             data-map-center-value="[-0.118092,51.509865]"
             data-map-markers-value="<%= @sightmarkers.to_json %>"
@@ -22,34 +41,19 @@
         </div>
       </div><%# close d-flex %>
       <%#   L I N K S   %>
-      <div class="d-flex p-2">
-        <div style="margin: 10px 0 0 10px;;">
-          <div class="btn btn-warning">
-            <%= link_to "←", citytours_path %>
-          </div>
-          <div class="btn btn-warning">
-          <%= link_to "Edit", edit_citytour_path(@citytour) %>
-          </div>
-          <div class="btn btn-warning">
-            <%= link_to "🗑️", @citytour, method: :delete %>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="citytour_sights_photos">
       <%#   S I G H T  %>
-      <div class="p-2">
-        <div class="the_card" style="width: 100%; object-fit: cover; height: 400px;">
+      <div class="sights-carousel-container">
+        <div class="the_card" style="width: 100%; object-fit: cover; height: 100%;">
           <%= render 'sights/carousel', sights: @citytour.sights %>
         </div>
       </div>
       <%#   C I T Y   T O U R S   %>
-      <div class="d-flex p-2 w-100">
+      <div class="d-flex mt-4 w-100">
         <div data-controller="insert-in-list" class="w-100">
           <div data-insert-in-list-target="items">
             <%# @citytours.each do |citytour| %>
-              <%= @citytour.name %>
-              <%= link_to "Book this tour", new_citytour_booking_path(@citytour), class: "btn btn-primary" %>
               <%= render 'reviews/carousel', reviews: @citytour.reviews %> <%#= .where(isguide: false) %>
             <%# end %>
             <p style="color: green"><%#= notice %></p>
@@ -69,12 +73,12 @@
 
 
 <%# MELCHIOR %>
-                        <% if current_user.guide? %>
-                        <div class="btn btn-warning">
-                             <%= link_to "Go to sights ", sights_path %>
+                        <%# if current_user.guide? %>
+                        <%# <div class="btn btn-warning"> %>
+                             <%#= link_to "Go to sights ", sights_path %>
                                 <%#= button_to "Destroy this sight", @sight, method: :delete %>
-                          </div>
-                        <% end %>
+                          <%# </div> %>
+                        <%# end %>
   <%# MELCHIOR %>
 
 

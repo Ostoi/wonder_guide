@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.citytour = Citytour.find(params[:citytour_id])
     @booking.save
-    redirect_to sights_path, notice: "You have booked #{@booking.citytour.name}"
+    redirect_to dashboard_path, notice: "You have booked #{@booking.citytour.name}"
   end
 
   def index

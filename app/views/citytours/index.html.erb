@@ -1,5 +1,7 @@
 <div class="citytour-index-container">
-  <h1>City Tours</h1>
+  <div class="tours-heading">
+    <h1>City Tours</h1>
+  </div>
   <% if current_user.guide? %>
     <%= link_to "Add Tour", new_citytour_path, class: "button-primary2" %>
   <% end %>
@@ -30,6 +32,8 @@
             <% end %>
           </div>
         </div>
+      </div>
+      <div class="border-div">
       </div>
     <% end %>
   </div>

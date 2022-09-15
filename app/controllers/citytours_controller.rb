@@ -1,6 +1,6 @@
 class CitytoursController < ApplicationController
   def index
-    @citytours = Citytour.all
+    @citytours = Citytour.all.order("created_at DESC")
     @sights = Sight.all
     # @a_sight = Sight.last
     if params[:longitude] && params[:latitude]
@@ -36,7 +36,7 @@ class CitytoursController < ApplicationController
 
     if @citytour.save
       # redirect_to index_path_url
-      redirect_to :controller => 'citytours', :action => 'index'
+      redirect_to citytour_path(@citytour)
     else
       render :new
     end
