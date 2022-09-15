@@ -59,3 +59,32 @@
 //     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="the_card-user avatar-bordered" />
 //   </div>
 // </div>
+
+
+.button-primary2 {
+  text-decoration: none !important;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 4px;
+  transition: background 0.5s ease;
+  border: 1px solid white;
+  background-color: #080158;
+}
+.button-primary2-green {
+  text-decoration: none !important;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 4px;
+  transition: background 0.5s ease;
+  border: 1px solid white;
+  background-color: #080158;
+}
+.button-primary2-green {
+  background-color: #015807;
+}
+a.button-primary2-green:hover{
+  text-decoration: none !important;
+  // background: linear-gradient(to bottom right, #7A82AB, #474E71);
+  // background: white;
+  opacity: 0.9;
+}
