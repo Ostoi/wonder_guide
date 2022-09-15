@@ -304,7 +304,7 @@ sights = {
     latitude: 35.1135,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256592/s8z1mb00ypnuakr2lkzt.jpg"
-  }
+  },
   "18": {
     name: "Har Hermon",
     city: "Mitspe Ramon",
@@ -313,7 +313,7 @@ sights = {
     latitude: 34.8845,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
-  }
+  },
   "19": {
     name: "Rosh Hanikra",
     city: "Rosh Hanikra",
