@@ -1,11 +1,11 @@
 <div class="citytour-index-container">
-  <div class="tours-heading">
+  <div class="tours-heading mt-2">
     <h1>City Tours</h1>
   </div>
   <% if current_user.guide? %>
     <%= link_to "Add Tour", new_citytour_path, class: "button-primary2" %>
   <% end %>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mt-3">
     <% @citytours.each do |citytour| %>
       <div class="grid w-100">
         <div class="g-col-3">
