@@ -1,6 +1,6 @@
 class CitytoursController < ApplicationController
   def index
-    @citytours = Citytour.all
+    @citytours = Citytour.all.order("created_at DESC")
     @sights = Sight.all
     # @a_sight = Sight.last
     if params[:longitude] && params[:latitude]
