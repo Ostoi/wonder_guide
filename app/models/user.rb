@@ -25,7 +25,7 @@ class User < ApplicationRecord
     next_5_days = DateTime.now.beginning_of_day..(DateTime.now.beginning_of_day + day_count.days)
     citytours.joins(:bookings)
               .where(bookings: {start: next_5_days})
-              .order(start: :asc)
+              .order(start: :desc)
 
     # citytours.joins(:bookings).where(bookings: {})
     # Booking.where(guide: self).where("end < ?", DateTime.now).order(start: :asc)
@@ -34,6 +34,6 @@ class User < ApplicationRecord
   def past_bookings
     citytours.joins(:bookings)
     .where(bookings: {start: (DateTime.new(2022, 1, 1, 16)..DateTime.now)})
-    .order(start: :asc)
+    .order(start: :desc)
   end
 end

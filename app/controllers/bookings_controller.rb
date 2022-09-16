@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.citytour = Citytour.find(params[:citytour_id])
-    # @booking.status =
+    @booking.status = 0
     @booking.save
     redirect_to dashboard_path, notice: "You have booked #{@booking.citytour.name}"
   end
