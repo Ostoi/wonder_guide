@@ -1,10 +1,15 @@
 <h2 class="dash-heading">Upcoming Tours</h2>
 <div class="dash-card">
-  <% citytours.each do|citytour| %>
-    <div class="dash-booking">
-      <h3><%= citytour.name %></h3>
-      <p>$<%= citytour.price %></p>
-      <p><%= citytour.overview %></p>
-    </div>
+  <% current_user.bookings.order(start: :asc).each do|booking| %>
+    <% if booking.accepted? %>
+      <div class="dash-booking">
+        <div class="user-info-dash d-flex">
+          <%= cl_image_tag booking.citytour.guide.photo.key, class: "avatar-review mb-4" %>
+          <p>Guide: <%= booking.citytour.guide.name %></p>
+        </div>
+          <h6><%= booking.citytour.name %></h6>
+          <p>Date: <%= booking.start.strftime("%d/%m/%Y") %></p>
+      </div>
+    <% end %>
   <% end %>
 </div>
