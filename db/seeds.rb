@@ -55,8 +55,9 @@ traveller.save!
 
 traveller = User.create!(
   name: "Oliver Stoislow",
-  email: "oliver@gmx.de",
-  password: "123456",
+  email: "ostoi@email.com",
+  password: "oliver",
+  # language_list: "English, German(idk what else",
   guide: false
 )
 file = URI.open('https://res.cloudinary.com/dvneczoyg/image/upload/v1663064961/T02NE0241-U03Q0PFQ8QH-1c5b258e121b-192_thtjkf.jpg')
@@ -64,6 +65,8 @@ traveller.photo.attach(io: file, filename: 'traveller.jpg', content_type: 'image
 traveller.save!
 
 puts "User finished!"
+
+# puts "Sight finished!"
 
 citytour = Citytour.create!(
   name: "Dead Sea Tour",
@@ -167,7 +170,7 @@ sights = {
   #   guide: guide,
   #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227764/zw2azjrslpinzvtwcb0f.jpg"
   # },
-  "7": {
+  "6": {
     name: "Naturhistorisches Museum",
     city: "Vienna",
     address: "Burgring 7",
@@ -176,7 +179,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227905/ds0mcwo1m8kbt5stpnfn.jpg"
   },
-  "8": {
+  "7": {
     name: "Schatzkammer",
     city: "Vienna",
     address: "Hofburg, Schweizerhof",
@@ -185,7 +188,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227919/g60cglml9vinz44fsqcv.jpg"
   },
-  "9": {
+  "8": {
     name: "Spanish Riding School",
     city: "Vienna",
     address: "Michaelerplatz 1",
@@ -194,7 +197,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227970/vpmvaqe6zaf6k4cdvenn.jpg"
   },
-  "10": {
+  "9": {
     name: "Brandenburg Gate",
     city: "Berlin",
     address: "Pariser Platz",
@@ -203,7 +206,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227739/l2dtnacorsopsf1yqezn.jpg"
   },
-  "11": {
+  "10": {
     name: "Gendarmenmarkt",
     city: "Berlin",
     address: "Gendarmenmarkt",
@@ -212,7 +215,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253916/ytww9errocdwe5kgwo3h.jpg"
   },
-  "12": {
+  "11": {
     name: "Pergamonmuseum",
     city: "Berlin",
     address: "Bodestraße 1-3",
@@ -221,34 +224,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253917/yquqxpx6yvg2d5lpz0fa.jpg"
   },
-  "13": {
-    name: "Humboldt University of Berlin",
-    city: "Berlin",
-    address: "Unter den Linden 6",
-    longitude: 13.393655,
-    latitude: 52.517883,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669659048/Humboldt_University_of_Berlin_1200_i2wyaf.jpg"
-  },
-  "14": {
-    name: "Kaiser Wilhelm Memorial Church",
-    city: "Berlin",
-    address: "Breitscheidplatz",
-    longitude: 13.335082,
-    latitude: 52.504818,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669659048/Kaiser_Wilhelm_Memorial_Church_1200_kms4cw.jpg"
-  },
-  "15": {
-    name: "Berlin Zoo",
-    city: "Berlin",
-    address: "Hardenbergplatz 8",
-    longitude: 13.337755,
-    latitude: 52.507920,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669659048/Berlin_Zoo_1200_kyqrxq.jpg"
-  },
-  "16": {
+  "12": {
     name: "Boracay",
     city: "Barangay Yapak",
     address: "Boracay Island",
@@ -257,16 +233,16 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253919/m5pdquvrwr4qd4favozo.jpg"
   },
-  "17": {
-    name: "Coron",
-    city: "Barangay Yapak",
-    address: "Palawan Island",
-    longitude: 120.239734,
-    latitude: 11.928329,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253920/rzneel2valriyz8xxyzr.jpg"
-  },
-  "18": {
+  # "13": {
+  #   name: "Coron",
+  #   city: "Barangay Yapak",
+  #   address: "Palawan Island",
+  #   longitude: 120.239734,
+  #   latitude: 11.928329,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253920/rzneel2valriyz8xxyzr.jpg"
+  # },
+  "13": {
     name: "Bon Bon Beach",
     city: "Barangay Yapak",
     address: "Romblon City",
@@ -275,7 +251,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253922/r8zhenqyhvqrjnhp3844.jpg"
   },
-  # "19": {
+  # "16": {
   #   name: "Puerto Princesa",
   #   city: "Barangay Yapak",
   #   address: "Puerto Princesa City",
@@ -284,16 +260,16 @@ sights = {
   #   guide: guide,
   #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253923/sldewj2mwhllxdgk1lpk.jpg"
   # },
-  "20": {
-    name: "Alegria Beach",
-    city: "Barangay Yapak",
-    address: "Santa Monica",
-    longitude: 126.071046,
-    latitude: 10.054659,
-    guide: guide,
-    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253924/ousevfwzgpdxahc13mlc.jpg"
-  },
-  "21": {
+  # "15": {
+  #   name: "Alegria Beach",
+  #   city: "Barangay Yapak",
+  #   address: "Santa Monica",
+  #   longitude: 126.071046,
+  #   latitude: 10.054659,
+  #   guide: guide,
+  #   photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253924/ousevfwzgpdxahc13mlc.jpg"
+  # },
+  "14": {
     name: "Subic Beach",
     city: "Barangay Yapak",
     address: "Subic, Zambales",
@@ -302,7 +278,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663253926/iiavk3inxjabwxewf9rg.jpg"
   },
-  "22": {
+  "15": {
     name: "Dead Sea",
     city: "Rosh Hanikra",
     address: "Ein Bokek",
@@ -311,7 +287,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663227754/pbyavqe8n5lcvlb4bvt3.jpg"
   },
-  "23": {
+  "16": {
     name: "Mitspeh Ramon",
     city: "Rosh Hanikra",
     address: "Makhtesh Ramon Visitors Center",
@@ -320,7 +296,7 @@ sights = {
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256591/aetycvfcguaerppv5lqs.jpg"
   },
-  "24": {
+  "17": {
     name: "Rosh Hanikra",
     city: "Rosh Hanikra",
     address: "Rosh Hanikra Grottoes",
