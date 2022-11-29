@@ -101,6 +101,14 @@ citytour = Citytour.create!(
   guide: guide,
   country: "philippines"
 )
+citytour = Citytour.create!(
+  name: "The eternal city",
+  overview: "Enjoy a walk in this ancient city with a delicious ice cream in your hand.",
+  price: rand(50..400),
+  guide: guide,
+  country: "italy"
+)
+
 
 # create a hash with sights (not sight object)
 sights = {
@@ -225,7 +233,7 @@ sights = {
     name: "Humboldt University of Berlin",
     city: "Berlin",
     address: "Unter den Linden 6",
-    longitude: 13.393655,
+    longitude: 13.3936551,
     latitude: 52.517883,
     guide: guide,
     photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669659048/Humboldt_University_of_Berlin_1200_i2wyaf.jpg"
@@ -328,6 +336,33 @@ sights = {
     latitude: 35.1135,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1663256592/s8z1mb00ypnuakr2lkzt.jpg"
+  },
+  "25": {
+    name: "Trevi Fountain",
+    city: "Rome",
+    address: "Piazza di Trevi",
+    longitude: 12.483056,
+    latitude: 41.900833,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669739016/Trevi_Fountain_1200_ffpd61.jpg"
+  },
+  "26": {
+    name: "St. Peter's Square",
+    city: "Rome",
+    address: "Piazza San Pietro",
+    longitude: 12.4572,
+    latitude: 41.9022,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669739013/St_Peters_Square_1200_do9u7y.jpg"
+  },
+  "27": {
+    name: "Colosseum",
+    city: "Rome",
+    address: "Piazza del Colosseo, 1",
+    longitude: 12.492222,
+    latitude: 41.890278,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669739013/Colosseum_1200_quzlcj.jpg"
   }
 }
 
