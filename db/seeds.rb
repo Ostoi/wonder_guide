@@ -83,32 +83,38 @@ Booking.create!(
 citytour = Citytour.create!(
   name: "Vienna Highlights",
   overview: "Take a tour through the amazing city of Vienna.",
-  price: rand(50..400),
+  price: rand(100..400),
   guide: guide,
   country: "austria"
 )
 citytour = Citytour.create!(
   name: "The best of Berlin",
   overview: "This might become your favourite tour when visiting Europe.",
-  price: rand(50..400),
+  price: rand(100..400),
   guide: guide,
   country: "germany"
 )
 citytour = Citytour.create!(
   name: "Roundtrip Philippines",
   overview: "Walk on white beaches and enjoy the best places of the Philippines.",
-  price: rand(50..400),
+  price: rand(200..400),
   guide: guide,
   country: "philippines"
 )
 citytour = Citytour.create!(
-  name: "The eternal city",
+  name: "Rome - The eternal city",
   overview: "Enjoy a walk in this ancient city with a delicious ice cream in your hand.",
-  price: rand(50..400),
+  price: rand(100..400),
   guide: guide,
   country: "italy"
 )
-
+citytour = Citytour.create!(
+  name: "Pretty Paris",
+  overview: "The city of love as you never saw it before.",
+  price: rand(100..400),
+  guide: guide,
+  country: "france"
+)
 
 # create a hash with sights (not sight object)
 sights = {
@@ -363,6 +369,15 @@ sights = {
     latitude: 41.890278,
     guide: guide,
     photo: "https://res.cloudinary.com/dqdhp9cps/image/upload/v1669739013/Colosseum_1200_quzlcj.jpg"
+  },
+  "28": {
+    name: "Arc de Triomphe",
+    city: "Paris",
+    address: "Place Charles de Gaulle",
+    longitude: 2.295011,
+    latitude: 48.873797,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664456/rgrv3cacobvkam53oblz.jpg"
   }
 }
 
