@@ -378,6 +378,15 @@ sights = {
     latitude: 48.873797,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664456/rgrv3cacobvkam53oblz.jpg"
+  },
+  "29": {
+    name: "Eiffel Tower",
+    city: "Paris",
+    address: "Champ de Mars, 5 Av. Anatole France",
+    longitude: 2.2945,
+    latitude: 48.858222,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664459/xlj1ujykmdxqjgou5guk.jpg"
   }
 }
 
