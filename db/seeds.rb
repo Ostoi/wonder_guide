@@ -387,6 +387,15 @@ sights = {
     latitude: 48.858222,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664459/xlj1ujykmdxqjgou5guk.jpg"
+  },
+  "30": {
+    name: "Notre-Dame de Paris",
+    city: "Paris",
+    address: "Parvis Notre-Dame - Pl. Jean-P. II",
+    longitude: 2.3498,
+    latitude: 48.853,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664490/w6wxa10u3dgcntvqzj4j.jpg"
   }
 }
 
