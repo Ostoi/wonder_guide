@@ -115,6 +115,13 @@ citytour = Citytour.create!(
   guide: guide,
   country: "france"
 )
+citytour = Citytour.create!(
+  name: "Madrid - vacation in the sunny South",
+  overview: "Madrid is a gem that is worth a visit.",
+  price: rand(100..400),
+  guide: guide,
+  country: "spain"
+)
 
 # create a hash with sights (not sight object)
 sights = {
