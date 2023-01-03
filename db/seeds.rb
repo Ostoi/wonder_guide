@@ -421,6 +421,15 @@ sights = {
     latitude: 40.415,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672771949/ubobkcjloir2w6wycyu6.jpg"
+  },
+  "33": {
+    name: "Plaza Mayor",
+    city: "Madrid",
+    address: "Pl. Mayor",
+    longitude: -3.707398,
+    latitude: 40.415364,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672771936/s4yfswicjozaomq4b22z.jpg"
   }
 }
 
