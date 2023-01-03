@@ -412,6 +412,15 @@ sights = {
     latitude: 40.418056,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672771914/ppc95cuqjnqygsrzo91t.jpg"
+  },
+  "32": {
+    name: "Parque del Buen Retiro, Madrid",
+    city: "Madrid",
+    address: "Plaza de la Independencia, 7",
+    longitude: -3.683889,
+    latitude: 40.415,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672771949/ubobkcjloir2w6wycyu6.jpg"
   }
 }
 
