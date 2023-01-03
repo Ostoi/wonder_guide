@@ -403,6 +403,15 @@ sights = {
     latitude: 48.853,
     guide: guide,
     photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672664490/w6wxa10u3dgcntvqzj4j.jpg"
+  },
+  "31": {
+    name: "Royal Palace of Madrid",
+    city: "Madrid",
+    address: "C. de Bailén, s/n",
+    longitude: -3.714167,
+    latitude: 40.418056,
+    guide: guide,
+    photo: "https://res.cloudinary.com/dthgfvayv/image/upload/v1672771914/ppc95cuqjnqygsrzo91t.jpg"
   }
 }
 
